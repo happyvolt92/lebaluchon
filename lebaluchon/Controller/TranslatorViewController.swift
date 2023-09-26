@@ -12,8 +12,10 @@ import UIKit
 class TranslatorViewController : UIViewController {
     
     
-    @IBOutlet weak var InputTextFieldTranslation: UITextField!
-
+    @IBOutlet var TranslatorView: UIView!
+    
+    @IBOutlet weak var TextViewTranslator: UITextView!
+    
     @IBOutlet weak var ToggleLanguages: UISegmentedControl!
     
     @IBOutlet weak var TranslateButton: UIButton!
