@@ -11,15 +11,25 @@ import UIKit
 
 class TranslatorViewController : UIViewController {
     
-    @IBOutlet weak var OriginLanguagePickerView: UIPickerView!
     
     @IBOutlet weak var InputTextFieldTranslation: UITextField!
 
-    @IBOutlet weak var DestinationLanguagePickerView: UIPickerView!
-    
-    @IBOutlet weak var OutputTextFieldTranslation: UITextField!
+    @IBOutlet weak var ToggleLanguages: UISegmentedControl!
     
     @IBOutlet weak var TranslateButton: UIButton!
+    
+    
+
+    private func switchLanguage() -> Language? {
+        switch ToggleLanguages.selectedSegmentIndex {
+        case 0 :
+            return .french
+        case 1 :
+            return .english
+        default :
+            return nil
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

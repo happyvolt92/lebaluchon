@@ -17,6 +17,7 @@
 		87D746882AC2D4250078C662 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D746872AC2D4250078C662 /* LaunchScreen.storyboard */; };
 		87D746892AC2E6FF0078C662 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D7468B2AC2E6FF0078C662 /* Main.storyboard */; };
 		87D7468D2AC31F8F0078C662 /* TranslatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D7468C2AC31F8F0078C662 /* TranslatorViewController.swift */; };
+		87D746902AC3233E0078C662 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D7468F2AC3233E0078C662 /* Languages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		87D746872AC2D4250078C662 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87D7468A2AC2E6FF0078C662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		87D7468C2AC31F8F0078C662 /* TranslatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorViewController.swift; sourceTree = "<group>"; };
+		87D7468F2AC3233E0078C662 /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 		87D7467F2AC2BCB60078C662 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				87D7468E2AC3218D0078C662 /* Transator */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -168,6 +171,14 @@
 				87D746872AC2D4250078C662 /* LaunchScreen.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		87D7468E2AC3218D0078C662 /* Transator */ = {
+			isa = PBXGroup;
+			children = (
+				87D7468F2AC3233E0078C662 /* Languages.swift */,
+			);
+			path = Transator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +316,7 @@
 				87D746502AC2BB840078C662 /* AppDelegate.swift in Sources */,
 				87D7468D2AC31F8F0078C662 /* TranslatorViewController.swift in Sources */,
 				87D746522AC2BB840078C662 /* SceneDelegate.swift in Sources */,
+				87D746902AC3233E0078C662 /* Languages.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,25 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8l1-0V-8Ed" userLabel="OriginLanguagePickerView">
-                                <rect key="frame" x="16" y="216" width="228" height="92"/>
-                            </pickerView>
-                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write your text here and ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aFa-Zo-DAH" userLabel="InputTextFieldTranslation">
-                                <rect key="frame" x="15" y="309" width="363" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wzc-4n-A5J" userLabel="DestinationLanguagePickerView">
-                                <rect key="frame" x="15" y="440.66666666666669" width="228" height="84.000000000000057"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="84" id="ctS-bS-hZT"/>
-                                </constraints>
-                            </pickerView>
-                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="translation appears here !" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Fh-VF-nlu" userLabel="OutputTextFieldTranslation">
-                                <rect key="frame" x="15" y="539.66666666666663" width="363" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2TO-mi-1WN" userLabel="TranslateButton">
                                 <rect key="frame" x="139" y="645.66666666666663" width="115" height="44.333333333333371"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -48,37 +29,30 @@
                                     <fontDescription key="titleFontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="25"/>
                                 </buttonConfiguration>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uuC-0u-5aq" userLabel="ToggleLanguages">
+                                <rect key="frame" x="125" y="585" width="143" height="32"/>
+                                <segments>
+                                    <segment title="English "/>
+                                    <segment title="Français"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.32422515164367932" green="0.17246629221420656" blue="0.42397635806467115" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="aFa-Zo-DAH" firstAttribute="leading" secondItem="2Fh-VF-nlu" secondAttribute="leading" id="0HX-MG-Jco"/>
-                            <constraint firstItem="2TO-mi-1WN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="139" id="Cfu-2f-au3"/>
-                            <constraint firstItem="2Fh-VF-nlu" firstAttribute="top" secondItem="wzc-4n-A5J" secondAttribute="bottom" constant="15" id="M8G-2r-dgx"/>
-                            <constraint firstItem="2TO-mi-1WN" firstAttribute="centerX" secondItem="2Fh-VF-nlu" secondAttribute="centerX" id="MVX-nt-1W3"/>
-                            <constraint firstItem="2TO-mi-1WN" firstAttribute="centerX" secondItem="aFa-Zo-DAH" secondAttribute="centerX" id="NTT-LP-Asz"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wzc-4n-A5J" secondAttribute="trailing" constant="150" id="Rjr-7P-KP9"/>
-                            <constraint firstItem="2TO-mi-1WN" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="SN6-ew-bsx"/>
-                            <constraint firstItem="8l1-0V-8Ed" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="157" id="Snt-AO-AeO"/>
-                            <constraint firstItem="2TO-mi-1WN" firstAttribute="top" secondItem="2Fh-VF-nlu" secondAttribute="bottom" constant="72" id="XTg-n0-8Sa"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="2TO-mi-1WN" secondAttribute="bottom" constant="79" id="Xj2-Va-c4x"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="8l1-0V-8Ed" secondAttribute="trailing" constant="149" id="ZPT-sq-LFM"/>
-                            <constraint firstItem="aFa-Zo-DAH" firstAttribute="leading" secondItem="wzc-4n-A5J" secondAttribute="leading" id="af2-pZ-mAi"/>
-                            <constraint firstItem="8l1-0V-8Ed" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="cqf-Nd-rtZ"/>
-                            <constraint firstItem="aFa-Zo-DAH" firstAttribute="top" secondItem="8l1-0V-8Ed" secondAttribute="bottom" constant="1" id="f2F-X6-h9j"/>
-                            <constraint firstItem="aFa-Zo-DAH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="wNS-WD-NB7"/>
-                            <constraint firstItem="aFa-Zo-DAH" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="309" id="yGj-0Z-YVU"/>
+                            <constraint firstItem="2TO-mi-1WN" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="7eM-wb-Yh5"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="2TO-mi-1WN" secondAttribute="bottom" constant="79.000000000000114" id="A8E-p7-nR4"/>
+                            <constraint firstItem="2TO-mi-1WN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="139" id="CGc-I4-WDu"/>
+                            <constraint firstItem="2TO-mi-1WN" firstAttribute="centerX" secondItem="uuC-0u-5aq" secondAttribute="centerX" id="QdC-7P-k5I"/>
+                            <constraint firstItem="2TO-mi-1WN" firstAttribute="top" secondItem="uuC-0u-5aq" secondAttribute="bottom" constant="29.666666666666515" id="rf3-50-Jjb"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Translator" id="zVH-KM-NmG" userLabel="Translator">
                         <imageReference key="image" image="character.bubble.fill.ja" catalog="system" variableValue="1"/>
                     </tabBarItem>
                     <connections>
-                        <outlet property="DestinationLanguagePickerView" destination="wzc-4n-A5J" id="bDQ-aa-xFO"/>
-                        <outlet property="InputTextFieldTranslation" destination="aFa-Zo-DAH" id="Nld-XG-Y2I"/>
-                        <outlet property="OriginLanguagePickerView" destination="8l1-0V-8Ed" id="J9S-w6-jjQ"/>
-                        <outlet property="OutputTextFieldTranslation" destination="2Fh-VF-nlu" id="Je1-nj-86H"/>
+                        <outlet property="ToggleLanguages" destination="uuC-0u-5aq" id="PIK-TG-dSj"/>
                         <outlet property="TranslateButton" destination="2TO-mi-1WN" id="nsE-PR-Rg8"/>
                     </connections>
                 </viewController>
