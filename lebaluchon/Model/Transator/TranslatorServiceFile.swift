@@ -28,6 +28,26 @@ class TraductorService {
         let resourceString = "https://translation.googleapis.com/language/translate/v2?key=\(apiKey)"
         self.resourceUrl = URL(string: resourceString)
     }
+    
+    
+    private func createTranslationRequest(textToTranslate: String?, from language: Language) -> URLRequest? {
+        guard let url = resourceUrl, let text = textToTranslate else {
+            return nil
+        }
+        // Determine the source and target languages based on the selected language.
+        let sourceLanguage = language == .english ? "en" : "fr"
+        let targetLanguage = language == .english ? "fr" : "en"
+        
+        // Create the request body with the specified parameters.
+        let body = "q=\(text)&source=\(sourceLanguage)&target=\(targetLanguage)&format=text"
+        
+        // Create and configure a URLRequest with the constructed URL and body.
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = body.data(using: .utf8)
+        
+        return request
+    }
 
   
 }
