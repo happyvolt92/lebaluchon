@@ -21,30 +21,34 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8l1-0V-8Ed" userLabel="OriginLanguagePickerView">
                                 <rect key="frame" x="16" y="216" width="228" height="92"/>
                             </pickerView>
-                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Fh-VF-nlu" userLabel="OutputTextFieldTranslation">
-                                <rect key="frame" x="15" y="550" width="363" height="34"/>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="translation appears here !" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Fh-VF-nlu" userLabel="OutputTextFieldTranslation">
+                                <rect key="frame" x="15" y="539.66666666666663" width="363" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wzc-4n-A5J" userLabel="DestinationLanguagePickerView">
-                                <rect key="frame" x="15" y="451" width="228" height="84"/>
+                                <rect key="frame" x="15" y="440.66666666666669" width="228" height="84.000000000000057"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="84" id="ctS-bS-hZT"/>
                                 </constraints>
                             </pickerView>
-                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aFa-Zo-DAH" userLabel="OutputTextFieldTranslation">
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write your text here and ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aFa-Zo-DAH" userLabel="OutputTextFieldTranslation">
                                 <rect key="frame" x="15" y="309" width="363" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2TO-mi-1WN" userLabel="TranslateButton">
-                                <rect key="frame" x="139" y="656" width="115" height="34"/>
+                                <rect key="frame" x="139" y="645.66666666666663" width="115" height="44.333333333333371"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Translate"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Translate">
+                                    <fontDescription key="titleFontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="25"/>
+                                </buttonConfiguration>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.32422515164367932" green="0.17246629221420656" blue="0.42397635806467115" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="aFa-Zo-DAH" firstAttribute="leading" secondItem="2Fh-VF-nlu" secondAttribute="leading" id="0HX-MG-Jco"/>
                             <constraint firstItem="2TO-mi-1WN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="139" id="Cfu-2f-au3"/>
