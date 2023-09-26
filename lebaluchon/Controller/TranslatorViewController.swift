@@ -20,7 +20,7 @@ class TranslatorViewController : UIViewController {
     
     @IBOutlet weak var TranslateButton: UIButton!
     
-    
+    private var translatedText = ""
 
     private func switchLanguage() -> Language? {
         switch ToggleLanguages.selectedSegmentIndex {
@@ -32,6 +32,23 @@ class TranslatorViewController : UIViewController {
             return nil
         }
     }
+    
+//    ERROR Handler
+    //no connection error
+    private func errorAlert() {
+        let alert = UIAlertController(title: "Erreur", message: "Mais qui a coupé internet 🤔 ?", preferredStyle: .alert)
+        let actionAlert = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(actionAlert)
+        present(alert, animated: true, completion: nil)
+    }
+    //no word to translate error
+    private func textViewAlert() {
+        let alert = UIAlertController(title: "Erreur", message: "Rien + Rien = Rien !😱 Rajoute du texte pour voir une traduction", preferredStyle: .alert)
+        let actionAlert = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(actionAlert)
+        present(alert, animated: true, completion: nil)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
