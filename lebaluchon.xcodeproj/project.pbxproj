@@ -10,12 +10,12 @@
 		87D746502AC2BB840078C662 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D7464F2AC2BB840078C662 /* AppDelegate.swift */; };
 		87D746522AC2BB840078C662 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D746512AC2BB840078C662 /* SceneDelegate.swift */; };
 		87D746542AC2BB840078C662 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D746532AC2BB840078C662 /* ViewController.swift */; };
-		87D746572AC2BB840078C662 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D746552AC2BB840078C662 /* Main.storyboard */; };
 		87D746592AC2BB850078C662 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87D746582AC2BB850078C662 /* Assets.xcassets */; };
-		87D7465C2AC2BB850078C662 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D7465A2AC2BB850078C662 /* LaunchScreen.storyboard */; };
 		87D746672AC2BB860078C662 /* lebaluchonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D746662AC2BB860078C662 /* lebaluchonTests.swift */; };
 		87D746712AC2BB860078C662 /* lebaluchonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D746702AC2BB860078C662 /* lebaluchonUITests.swift */; };
 		87D746732AC2BB860078C662 /* lebaluchonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D746722AC2BB860078C662 /* lebaluchonUITestsLaunchTests.swift */; };
+		87D746862AC2D4180078C662 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D746852AC2D4180078C662 /* Main.storyboard */; };
+		87D746882AC2D4250078C662 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D746872AC2D4250078C662 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,15 +40,15 @@
 		87D7464F2AC2BB840078C662 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87D746512AC2BB840078C662 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		87D746532AC2BB840078C662 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		87D746562AC2BB840078C662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		87D746582AC2BB850078C662 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		87D7465B2AC2BB850078C662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87D7465D2AC2BB850078C662 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87D746622AC2BB860078C662 /* lebaluchonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = lebaluchonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87D746662AC2BB860078C662 /* lebaluchonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lebaluchonTests.swift; sourceTree = "<group>"; };
 		87D7466C2AC2BB860078C662 /* lebaluchonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = lebaluchonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87D746702AC2BB860078C662 /* lebaluchonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lebaluchonUITests.swift; sourceTree = "<group>"; };
 		87D746722AC2BB860078C662 /* lebaluchonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lebaluchonUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		87D746852AC2D4180078C662 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		87D746872AC2D4250078C662 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +99,8 @@
 		87D7464E2AC2BB840078C662 /* lebaluchon */ = {
 			isa = PBXGroup;
 			children = (
+				87D746842AC2D4070078C662 /* View */,
 				87D746812AC2BCC80078C662 /* Controller */,
-				87D746802AC2BCC20078C662 /* View */,
 				87D7467F2AC2BCB60078C662 /* Model */,
 				87D746822AC2BCD70078C662 /* Utilities */,
 				87D746832AC2BCF50078C662 /* Ressources */,
@@ -136,15 +136,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		87D746802AC2BCC20078C662 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				87D7465A2AC2BB850078C662 /* LaunchScreen.storyboard */,
-				87D746552AC2BB840078C662 /* Main.storyboard */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		87D746812AC2BCC80078C662 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +156,15 @@
 				87D746582AC2BB850078C662 /* Assets.xcassets */,
 			);
 			path = Ressources;
+			sourceTree = "<group>";
+		};
+		87D746842AC2D4070078C662 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				87D746852AC2D4180078C662 /* Main.storyboard */,
+				87D746872AC2D4250078C662 /* LaunchScreen.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,9 +271,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87D7465C2AC2BB850078C662 /* LaunchScreen.storyboard in Resources */,
+				87D746882AC2D4250078C662 /* LaunchScreen.storyboard in Resources */,
 				87D746592AC2BB850078C662 /* Assets.xcassets in Resources */,
-				87D746572AC2BB840078C662 /* Main.storyboard in Resources */,
+				87D746862AC2D4180078C662 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,25 +335,6 @@
 			targetProxy = 87D7466D2AC2BB860078C662 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		87D746552AC2BB840078C662 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				87D746562AC2BB840078C662 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		87D7465A2AC2BB850078C662 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				87D7465B2AC2BB850078C662 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		87D746742AC2BB860078C662 /* Debug */ = {
