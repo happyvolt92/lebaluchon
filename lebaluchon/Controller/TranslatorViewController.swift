@@ -50,6 +50,13 @@ class TranslatorViewController : UIViewController {
     }
     
     
+    private func updateTextView() {
+           DispatchQueue.main.async {
+               // Update the text view with the translated text
+               self.TextViewTranslator.text = self.translatedText
+           }
+       }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
