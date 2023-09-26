@@ -14,8 +14,8 @@
 		87D746672AC2BB860078C662 /* lebaluchonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D746662AC2BB860078C662 /* lebaluchonTests.swift */; };
 		87D746712AC2BB860078C662 /* lebaluchonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D746702AC2BB860078C662 /* lebaluchonUITests.swift */; };
 		87D746732AC2BB860078C662 /* lebaluchonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D746722AC2BB860078C662 /* lebaluchonUITestsLaunchTests.swift */; };
-		87D746862AC2D4180078C662 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D746852AC2D4180078C662 /* Main.storyboard */; };
 		87D746882AC2D4250078C662 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D746872AC2D4250078C662 /* LaunchScreen.storyboard */; };
+		87D746892AC2E6FF0078C662 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D7468B2AC2E6FF0078C662 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +47,8 @@
 		87D7466C2AC2BB860078C662 /* lebaluchonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = lebaluchonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87D746702AC2BB860078C662 /* lebaluchonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lebaluchonUITests.swift; sourceTree = "<group>"; };
 		87D746722AC2BB860078C662 /* lebaluchonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lebaluchonUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		87D746852AC2D4180078C662 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		87D746872AC2D4250078C662 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		87D7468A2AC2E6FF0078C662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +161,7 @@
 		87D746842AC2D4070078C662 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				87D746852AC2D4180078C662 /* Main.storyboard */,
+				87D7468B2AC2E6FF0078C662 /* Main.storyboard */,
 				87D746872AC2D4250078C662 /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -273,7 +273,7 @@
 			files = (
 				87D746882AC2D4250078C662 /* LaunchScreen.storyboard in Resources */,
 				87D746592AC2BB850078C662 /* Assets.xcassets in Resources */,
-				87D746862AC2D4180078C662 /* Main.storyboard in Resources */,
+				87D746892AC2E6FF0078C662 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +335,17 @@
 			targetProxy = 87D7466D2AC2BB860078C662 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		87D7468B2AC2E6FF0078C662 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				87D7468A2AC2E6FF0078C662 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		87D746742AC2BB860078C662 /* Debug */ = {
