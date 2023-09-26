@@ -106,7 +106,6 @@
 				87D746832AC2BCF50078C662 /* Ressources */,
 				87D7464F2AC2BB840078C662 /* AppDelegate.swift */,
 				87D746512AC2BB840078C662 /* SceneDelegate.swift */,
-				87D746532AC2BB840078C662 /* ViewController.swift */,
 				87D7465D2AC2BB850078C662 /* Info.plist */,
 			);
 			path = lebaluchon;
@@ -139,6 +138,7 @@
 		87D746812AC2BCC80078C662 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				87D746532AC2BB840078C662 /* ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
