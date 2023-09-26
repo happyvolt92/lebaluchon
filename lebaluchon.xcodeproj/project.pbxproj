@@ -18,6 +18,8 @@
 		87D746892AC2E6FF0078C662 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D7468B2AC2E6FF0078C662 /* Main.storyboard */; };
 		87D7468D2AC31F8F0078C662 /* TranslatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D7468C2AC31F8F0078C662 /* TranslatorViewController.swift */; };
 		87D746902AC3233E0078C662 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D7468F2AC3233E0078C662 /* Languages.swift */; };
+		87D746922AC3607D0078C662 /* TranslatorServiceFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D746912AC3607D0078C662 /* TranslatorServiceFile.swift */; };
+		87D746942AC362370078C662 /* TranslatorServiceMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D746932AC362370078C662 /* TranslatorServiceMapping.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		87D7468A2AC2E6FF0078C662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		87D7468C2AC31F8F0078C662 /* TranslatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorViewController.swift; sourceTree = "<group>"; };
 		87D7468F2AC3233E0078C662 /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
+		87D746912AC3607D0078C662 /* TranslatorServiceFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorServiceFile.swift; sourceTree = "<group>"; };
+		87D746932AC362370078C662 /* TranslatorServiceMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorServiceMapping.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +181,8 @@
 			isa = PBXGroup;
 			children = (
 				87D7468F2AC3233E0078C662 /* Languages.swift */,
+				87D746912AC3607D0078C662 /* TranslatorServiceFile.swift */,
+				87D746932AC362370078C662 /* TranslatorServiceMapping.swift */,
 			);
 			path = Transator;
 			sourceTree = "<group>";
@@ -313,10 +319,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				87D746542AC2BB840078C662 /* HomeViewController.swift in Sources */,
+				87D746922AC3607D0078C662 /* TranslatorServiceFile.swift in Sources */,
 				87D746502AC2BB840078C662 /* AppDelegate.swift in Sources */,
 				87D7468D2AC31F8F0078C662 /* TranslatorViewController.swift in Sources */,
 				87D746522AC2BB840078C662 /* SceneDelegate.swift in Sources */,
 				87D746902AC3233E0078C662 /* Languages.swift in Sources */,
+				87D746942AC362370078C662 /* TranslatorServiceMapping.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

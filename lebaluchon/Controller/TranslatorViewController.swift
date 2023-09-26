@@ -22,16 +22,34 @@ class TranslatorViewController : UIViewController {
     
     private var translatedText = ""
 
+    // Function to determine the selected language based on the segmented control
     private func switchLanguage() -> Language? {
         switch ToggleLanguages.selectedSegmentIndex {
         case 0 :
+            // Return French language if the first segment is selected
             return .french
         case 1 :
+            // Return English language if the second segment is selected
             return .english
         default :
+            // Return nil for any other segment selection
             return nil
         }
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+
+    
+    private func updateTextView() {
+           DispatchQueue.main.async {
+               // Update the text view with the translated text
+               self.TextViewTranslator.text = self.translatedText
+           }
+       }
+    
     
 //    ERROR Handler
     //no connection error
@@ -48,19 +66,6 @@ class TranslatorViewController : UIViewController {
         alert.addAction(actionAlert)
         present(alert, animated: true, completion: nil)
     }
-    
-    
-    private func updateTextView() {
-           DispatchQueue.main.async {
-               // Update the text view with the translated text
-               self.TextViewTranslator.text = self.translatedText
-           }
-       }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
+  
     
 }
