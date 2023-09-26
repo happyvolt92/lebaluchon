@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="obX-gb-Ziv">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--TranslatorItem-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" userLabel="TranslatorItem" customClass="ViewController" customModule="lebaluchon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc" userLabel="TranslatorVIew">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Translator" id="zVH-KM-NmG" userLabel="Translator">
+                        <imageReference key="image" image="character.bubble.fill.ja" catalog="system" variableValue="1"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-689" y="725"/>
+        </scene>
+        <!--CurrencyItem-->
+        <scene sceneID="dEk-YG-Z2v">
+            <objects>
+                <viewController id="yti-4c-vrs" userLabel="CurrencyItem" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zsD-JI-N6P" userLabel="CurrencyView">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="JRO-uC-yQ6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Currency" image="dollarsign.circle.fill" catalog="system" id="xLO-9E-oLn" userLabel="Currency"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nmn-PJ-2A6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="24" y="725"/>
+        </scene>
+        <!--WeatherItem-->
+        <scene sceneID="SHP-PO-Yxa">
+            <objects>
+                <viewController id="NwS-Tw-JwU" userLabel="WeatherItem" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zoz-qZ-rxE" userLabel="WeatherView">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="NAW-IZ-ohL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Weather" image="sun.max.circle.fill" catalog="system" id="GSt-ci-eyM" userLabel="Weather"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B9l-ps-Yjd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="772" y="725"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="frg-EF-Pib">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="obX-gb-Ziv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="izc-IH-1Us">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="viewControllers" id="8FL-a7-XY1"/>
+                        <segue destination="yti-4c-vrs" kind="relationship" relationship="viewControllers" id="TeC-FQ-FHe"/>
+                        <segue destination="NwS-Tw-JwU" kind="relationship" relationship="viewControllers" id="eWf-aW-1er"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MHj-uO-4K0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="23.664122137404579" y="-34.507042253521128"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="character.bubble.fill.ja" catalog="system" width="128" height="110"/>
+        <image name="dollarsign.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="sun.max.circle.fill" catalog="system" width="128" height="123"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
