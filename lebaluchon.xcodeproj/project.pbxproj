@@ -139,6 +139,7 @@
 		87D7467F2AC2BCB60078C662 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				87D746952AC419800078C662 /* WeatherNews */,
 				87D7468E2AC3218D0078C662 /* Transator */,
 			);
 			path = Model;
@@ -185,6 +186,13 @@
 				87D746932AC362370078C662 /* TranslatorServiceMapping.swift */,
 			);
 			path = Transator;
+			sourceTree = "<group>";
+		};
+		87D746952AC419800078C662 /* WeatherNews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WeatherNews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

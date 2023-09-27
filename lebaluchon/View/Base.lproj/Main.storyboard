@@ -126,14 +126,68 @@
                     <view key="view" contentMode="scaleToFill" id="Zoz-qZ-rxE" userLabel="WeatherView">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xOB-De-bBg" userLabel="CityChoiceUP">
+                                <rect key="frame" x="16" y="196" width="221" height="77"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                            </pickerView>
+                            <stackView opaque="NO" contentMode="scaleToFill" id="jO6-YH-hh3" userLabel="MiddleStackView">
+                                <rect key="frame" x="16" y="281" width="361" height="134"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8Y-CE-0cR" userLabel="WeatherInformationForeign">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="134"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mgb-m4-eKc" userLabel="WeatherImageInformationForeign">
+                                        <rect key="frame" x="240" y="0.0" width="121" height="134"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="121" id="gbs-3c-WjY"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="e5C-3y-hCL"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                            </stackView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fgu-68-8rp" userLabel="CityChoiceBottom">
+                                <rect key="frame" x="16" y="430" width="221" height="77"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                            </pickerView>
+                            <stackView opaque="NO" contentMode="scaleToFill" id="uFt-DW-J9c" userLabel="BottomStackView">
+                                <rect key="frame" x="16" y="515" width="361" height="134"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8g7-bf-azY" userLabel="WeatherInformationHome">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="134"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKS-bg-aYs" userLabel="WeatherImageInformationHome">
+                                        <rect key="frame" x="240" y="0.0" width="121" height="134"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="121" id="jBP-4f-0dP"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="0Fp-BD-epI"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="NAW-IZ-ohL"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.1541392151" green="0.081991846650000005" blue="0.2015617318" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Weather" image="sun.max.circle.fill" catalog="system" id="GSt-ci-eyM" userLabel="Weather"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B9l-ps-Yjd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="772" y="725"/>
+            <point key="canvasLocation" x="771.75572519083971" y="724.64788732394368"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="frg-EF-Pib">
@@ -168,6 +222,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
