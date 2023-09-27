@@ -34,7 +34,7 @@ class TranslatorViewController : UIViewController {
         guard let language = switchLanguage() else {
             return
         }
-        TranslatorService.shared.getTranslation(textToTranslate: TextViewTranslator.text, from: language) { result in
+        TranslatorService.shared.getTextTranslation(textToTranslate: TextViewTranslator.text, from: language) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .failure:
