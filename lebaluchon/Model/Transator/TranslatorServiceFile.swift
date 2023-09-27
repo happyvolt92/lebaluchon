@@ -1,6 +1,6 @@
 import Foundation
 
-class TraductorService {
+class TranslatorService {
 
     // Enumeration to handle translation service-related errors
     enum TraductorError: Error {
@@ -12,7 +12,7 @@ class TraductorService {
     }
     
     // Shared static property to access the translation service from other parts of the application
-    private(set) static var shared = TraductorService()
+    private(set) static var shared = TranslatorService()
 
     // URLSession task and session for performing HTTP requests
     private var task: URLSessionDataTask?

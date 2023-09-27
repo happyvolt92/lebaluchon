@@ -21,7 +21,32 @@ class TranslatorViewController : UIViewController {
     @IBOutlet weak var TranslateButton: UIButton!
     
     private var translatedText = ""
+    
+    @IBAction func toggleTranslationButton(_ sender: UIButton){
+        guard !TextViewTranslator.text.isEmpty else {
+            textViewAlert()
+            return
+        }
+        translate()
+    }
 
+    private func translate() {
+        guard let language = switchLanguage() else {
+            return
+        }
+        TranslatorService.shared.getTranslation(textToTranslate: TextViewTranslator.text, from: language) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure:
+                    self.errorAlert()
+                case .success(let traductor):
+                    self.translatedText = traductor.data.translations.first?.translatedText ?? ""
+                    self.updateTextView()
+                }
+            }
+        }
+    }
+    
     // Function to determine the selected language based on the segmented control
     private func switchLanguage() -> Language? {
         switch ToggleLanguages.selectedSegmentIndex {
