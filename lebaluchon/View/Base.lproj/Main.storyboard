@@ -21,7 +21,7 @@
                             <visualEffectView opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZML-My-BbZ">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.69999999999999996" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Rt3-hZ-T3E" userLabel="GlassyView">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.59999999999999998" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Rt3-hZ-T3E" userLabel="GlassyView">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
@@ -37,6 +37,9 @@
                                     </backgroundConfiguration>
                                     <fontDescription key="titleFontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="25"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="toggleTranslationButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="p4J-BD-NlY"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uuC-0u-5aq" userLabel="ToggleLanguages">
                                 <rect key="frame" x="125" y="585" width="143" height="32"/>
