@@ -136,14 +136,25 @@
                                 <rect key="frame" x="16" y="281" width="361" height="134"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8Y-CE-0cR" userLabel="WeatherInformationForeign">
+                                    <visualEffectView autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mON-KM-Gfl">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="134"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mgb-m4-eKc" userLabel="WeatherImageInformationForeign">
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lyL-dY-LhK">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="134"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <textView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" editable="NO" text="city" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8Y-CE-0cR" userLabel="WeatherInformationForeign">
+                                                    <rect key="frame" x="17" y="32" width="143" height="70"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="textColor" systemColor="labelColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                        </view>
+                                        <blurEffect style="regular"/>
+                                    </visualEffectView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="storm" translatesAutoresizingMaskIntoConstraints="NO" id="Mgb-m4-eKc" userLabel="WeatherImageInformationForeign">
                                         <rect key="frame" x="240" y="0.0" width="121" height="134"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="121" id="gbs-3c-WjY"/>
@@ -169,7 +180,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKS-bg-aYs" userLabel="WeatherImageInformationHome">
+                                    <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="sun" translatesAutoresizingMaskIntoConstraints="NO" id="IKS-bg-aYs" userLabel="WeatherImageInformationHome">
                                         <rect key="frame" x="240" y="0.0" width="121" height="134"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="121" id="jBP-4f-0dP"/>
@@ -213,6 +224,8 @@
     <resources>
         <image name="character.bubble.fill.ja" catalog="system" width="128" height="110"/>
         <image name="dollarsign.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="storm" width="442" height="312"/>
+        <image name="sun" width="360" height="316"/>
         <image name="sun.max.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
