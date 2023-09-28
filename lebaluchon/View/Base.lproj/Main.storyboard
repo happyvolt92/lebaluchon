@@ -24,7 +24,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Translate" cornerStyle="medium">
                                     <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" red="0.58516090778102026" green="0.44483325814991315" blue="0.68737918814432986" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.45820051254756622" green="0.32469491414726892" blue="0.5347739700495342" alpha="0.40248842592592593" colorSpace="custom" customColorSpace="sRGB"/>
                                     </backgroundConfiguration>
                                     <fontDescription key="titleFontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="25"/>
                                 </buttonConfiguration>
@@ -50,15 +50,20 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mgb-Ea-0J6">
                                 <rect key="frame" x="16" y="326" width="353" height="235"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gkp-gX-Hac" userLabel="TextViewTranslator">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T6V-Fu-vxj">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="235"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gkp-gX-Hac" userLabel="TextViewTranslator">
+                                                <rect key="frame" x="0.0" y="8" width="353" height="219"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.48988860645933019" green="0.48988860645933019" blue="0.48988860645933019" alpha="0.32607542438271603" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -118,6 +123,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="oIk-fF-lxd" userLabel="cityDestinationChoice">
+                                <rect key="frame" x="16" y="209" width="172.66666666666666" height="72.333333333333314"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a destination :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYQ-pT-hgc">
+                                        <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="22.333333333333332"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CITY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fqh-eo-IYH">
+                                        <rect key="frame" x="0.0" y="38.333333333333343" width="172.66666666666666" height="34"/>
+                                        <color key="backgroundColor" red="0.37095544559999999" green="0.36862239250000001" blue="0.37328849870000003" alpha="0.1911139456" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" textContentType="address-level2"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.37095544559999999" green="0.36862239250000001" blue="0.37328849870000003" alpha="0.1911139456" colorSpace="custom" customColorSpace="sRGB"/>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" id="jO6-YH-hh3" userLabel="MiddleStackView">
                                 <rect key="frame" x="16" y="304" width="361" height="134"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -132,13 +156,48 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="storm" translatesAutoresizingMaskIntoConstraints="NO" id="Mgb-m4-eKc" userLabel="WeatherImageInformationForeign">
                                         <rect key="frame" x="221" y="0.0" width="140" height="134"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="140" id="gbs-3c-WjY"/>
+                                            <constraint firstAttribute="width" constant="140" id="8eq-fY-dc1"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="e5C-3y-hCL"/>
                                 <color key="backgroundColor" red="0.37095544559439431" green="0.36862239247744844" blue="0.37328849871134018" alpha="0.1911139455782313" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
+                            <stackView autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" axis="vertical" spacing="16" id="TLw-UI-LxL" userLabel="cityHomeChoice">
+                                <rect key="frame" x="16" y="474" width="160.33333333333337" height="70.333333333333314"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynf-Gk-ieL">
+                                        <rect key="frame" x="0.0" y="0.0" width="160.33333333333334" height="20.333333333333332"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20.333333333333332" id="psE-Ek-NkU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CITY" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vtk-Yx-kex">
+                                        <rect key="frame" x="0.0" y="36.333333333333336" width="160.33333333333334" height="34.000000000000007"/>
+                                        <color key="backgroundColor" red="0.37095544559999999" green="0.36862239250000001" blue="0.37328849870000003" alpha="0.1911139456" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" textContentType="address-level2"/>
+                                    </textField>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="fg1-qw-Wbw"/>
+                                <color key="backgroundColor" red="0.37095544559999999" green="0.36862239250000001" blue="0.37328849870000003" alpha="0.1911139456" colorSpace="custom" customColorSpace="sRGB"/>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9m7-he-i9w">
+                                <rect key="frame" x="233" y="484" width="136" height="50.333333333333371"/>
+                                <color key="backgroundColor" red="0.37095544559999999" green="0.36862239250000001" blue="0.37328849870000003" alpha="0.1911139456" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save as Home 🏠">
+                                    <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
+                                </buttonConfiguration>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" id="uFt-DW-J9c" userLabel="BottomStackView">
                                 <rect key="frame" x="16" y="570" width="361" height="134"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -153,70 +212,36 @@
                                     <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="sun" translatesAutoresizingMaskIntoConstraints="NO" id="IKS-bg-aYs" userLabel="WeatherImageInformationHome">
                                         <rect key="frame" x="221" y="0.0" width="140" height="134"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="140" id="jBP-4f-0dP"/>
+                                            <constraint firstAttribute="width" constant="140" id="tGW-0u-gGO"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="0Fp-BD-epI"/>
                                 <color key="backgroundColor" red="0.37095544559999999" green="0.36862239250000001" blue="0.37328849870000003" alpha="0.1911139456" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
-                            <stackView autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" fixedFrame="YES" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="oIk-fF-lxd" userLabel="cityDestinationChoice">
-                                <rect key="frame" x="16" y="209" width="172.66666666666666" height="72.333333333333314"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a destination :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYQ-pT-hgc">
-                                        <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="22.333333333333332"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CITY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fqh-eo-IYH">
-                                        <rect key="frame" x="0.0" y="38.333333333333336" width="172.66666666666666" height="34.000000000000007"/>
-                                        <color key="backgroundColor" red="0.37095544559999999" green="0.36862239250000001" blue="0.37328849870000003" alpha="0.1911139456" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="address-level2"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" red="0.37095544559999999" green="0.36862239250000001" blue="0.37328849870000003" alpha="0.1911139456" colorSpace="custom" customColorSpace="sRGB"/>
-                            </stackView>
-                            <stackView autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" axis="vertical" spacing="16" id="TLw-UI-LxL" userLabel="cityDestinationChoice">
-                                <rect key="frame" x="16" y="474" width="160.33333333333337" height="70.333333333333314"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BCX-rc-PxH" userLabel="LogoView">
+                                <rect key="frame" x="143" y="83" width="116" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Home" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynf-Gk-ieL">
-                                        <rect key="frame" x="0.0" y="0.0" width="160.33333333333334" height="20.333333333333332"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CITY" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vtk-Yx-kex">
-                                        <rect key="frame" x="0.0" y="36.333333333333336" width="160.33333333333334" height="34.000000000000007"/>
-                                        <color key="backgroundColor" red="0.37095544559999999" green="0.36862239250000001" blue="0.37328849870000003" alpha="0.1911139456" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits" textContentType="address-level2"/>
-                                    </textField>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backpackBgremoved" translatesAutoresizingMaskIntoConstraints="NO" id="GsX-Xd-So4">
+                                        <rect key="frame" x="1" y="4" width="115" height="102"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
-                                <viewLayoutGuide key="safeArea" id="fg1-qw-Wbw"/>
-                                <color key="backgroundColor" red="0.37095544559999999" green="0.36862239250000001" blue="0.37328849870000003" alpha="0.1911139456" colorSpace="custom" customColorSpace="sRGB"/>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9m7-he-i9w">
-                                <rect key="frame" x="238" y="474" width="104" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.37095544559999999" green="0.36862239250000001" blue="0.37328849870000003" alpha="0.1911139456" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Save as Home">
-                                    <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="16"/>
-                                </buttonConfiguration>
-                            </button>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NAW-IZ-ohL"/>
                         <color key="backgroundColor" red="0.1541392151" green="0.081991846650000005" blue="0.2015617318" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="oIk-fF-lxd" firstAttribute="top" secondItem="NAW-IZ-ohL" secondAttribute="top" constant="150" id="4gn-4c-P8r"/>
+                            <constraint firstItem="NAW-IZ-ohL" firstAttribute="trailing" secondItem="9m7-he-i9w" secondAttribute="trailing" constant="24" id="Ezb-og-ykc"/>
+                            <constraint firstItem="oIk-fF-lxd" firstAttribute="leading" secondItem="jO6-YH-hh3" secondAttribute="leading" id="MW5-ud-q9F"/>
+                            <constraint firstItem="9m7-he-i9w" firstAttribute="leading" secondItem="TLw-UI-LxL" secondAttribute="trailing" constant="56.666666666666629" id="RoE-We-MvX"/>
+                            <constraint firstItem="9m7-he-i9w" firstAttribute="centerY" secondItem="TLw-UI-LxL" secondAttribute="centerY" id="SJo-su-OJY"/>
+                            <constraint firstItem="9m7-he-i9w" firstAttribute="top" secondItem="TLw-UI-LxL" secondAttribute="top" constant="10" id="gSN-QH-Vm8"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Weather" image="sun.max.circle.fill" catalog="system" id="GSt-ci-eyM" userLabel="Weather"/>
+                    <tabBarItem key="tabBarItem" title="Weather" image="sun.max.circle.fill" catalog="system" largeContentSizeImage="sun.min" springLoaded="YES" id="GSt-ci-eyM" userLabel="Weather"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B9l-ps-Yjd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -244,16 +269,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="backpackBgremoved" width="500" height="500"/>
         <image name="character.bubble.fill.ja" catalog="system" width="128" height="110"/>
         <image name="dollarsign.circle.fill" catalog="system" width="128" height="123"/>
         <image name="storm" width="442" height="312"/>
         <image name="sun" width="360" height="316"/>
         <image name="sun.max.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="sun.min" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
