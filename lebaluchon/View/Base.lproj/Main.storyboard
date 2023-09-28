@@ -183,7 +183,7 @@
                                         <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CITY" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vtk-Yx-kex">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CITY" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vtk-Yx-kex">
                                         <rect key="frame" x="0.0" y="36.333333333333336" width="160.33333333333334" height="34.000000000000007"/>
                                         <color key="backgroundColor" red="0.37095544559999999" green="0.36862239250000001" blue="0.37328849870000003" alpha="0.28903838734567899" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -226,13 +226,13 @@
                                 </subviews>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9m7-he-i9w">
-                                <rect key="frame" x="192" y="503" width="103" height="41"/>
+                                <rect key="frame" x="192" y="503" width="174" height="41"/>
                                 <color key="backgroundColor" red="0.90124771039999996" green="0.36596939249999999" blue="0.17222744719999999" alpha="0.77763310190000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Save as Home 🏠">
+                                <buttonConfiguration key="configuration" style="plain" title="Save location as Home">
                                     <backgroundConfiguration key="background"/>
-                                    <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="14"/>
+                                    <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="11"/>
                                 </buttonConfiguration>
                             </button>
                         </subviews>
@@ -240,7 +240,7 @@
                         <color key="backgroundColor" red="0.1541392151" green="0.081991846650000005" blue="0.2015617318" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="oIk-fF-lxd" firstAttribute="top" secondItem="NAW-IZ-ohL" secondAttribute="top" constant="150" id="4gn-4c-P8r"/>
-                            <constraint firstItem="NAW-IZ-ohL" firstAttribute="trailing" secondItem="9m7-he-i9w" secondAttribute="trailing" constant="98" id="Ezb-og-ykc"/>
+                            <constraint firstItem="NAW-IZ-ohL" firstAttribute="trailing" secondItem="9m7-he-i9w" secondAttribute="trailing" constant="27" id="Ezb-og-ykc"/>
                             <constraint firstItem="oIk-fF-lxd" firstAttribute="leading" secondItem="jO6-YH-hh3" secondAttribute="leading" id="MW5-ud-q9F"/>
                             <constraint firstItem="9m7-he-i9w" firstAttribute="leading" secondItem="TLw-UI-LxL" secondAttribute="trailing" constant="15.666666666666629" id="RoE-We-MvX"/>
                             <constraint firstItem="9m7-he-i9w" firstAttribute="centerY" secondItem="TLw-UI-LxL" secondAttribute="centerY" constant="14.333333333333371" id="SJo-su-OJY"/>
