@@ -123,8 +123,8 @@
         <!--WeatherItem-->
         <scene sceneID="SHP-PO-Yxa">
             <objects>
-                <viewController id="NwS-Tw-JwU" userLabel="WeatherItem" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Zoz-qZ-rxE" userLabel="WeatherView">
+                <viewController title="WeatherVIewController" id="NwS-Tw-JwU" userLabel="WeatherItem" customClass="WeatherViewController" customModule="lebaluchon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zoz-qZ-rxE">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -139,7 +139,7 @@
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CITY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fqh-eo-IYH">
                                         <rect key="frame" x="0.0" y="38.333333333333343" width="172.66666666666666" height="34"/>
-                                        <color key="backgroundColor" red="0.37095544559999999" green="0.36862239250000001" blue="0.37328849870000003" alpha="0.1911139456" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.43774297248803828" green="0.43774297248803828" blue="0.43774297248803828" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="address-level2"/>
@@ -150,9 +150,12 @@
                                 <rect key="frame" x="16" y="304" width="361" height="134"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8Y-CE-0cR" userLabel="WeatherInformationForeign">
+                                    <textView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8Y-CE-0cR" userLabel="WeatherInformationForeign">
                                         <rect key="frame" x="0.0" y="0.0" width="221" height="134"/>
                                         <color key="backgroundColor" red="0.48988860649999999" green="0.48988860649999999" blue="0.48988860649999999" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -185,7 +188,7 @@
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CITY" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vtk-Yx-kex">
                                         <rect key="frame" x="0.0" y="36.333333333333336" width="160.33333333333334" height="34.000000000000007"/>
-                                        <color key="backgroundColor" red="0.37095544559999999" green="0.36862239250000001" blue="0.37328849870000003" alpha="0.28903838734567899" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.40133447970000002" green="0.40133447970000002" blue="0.40133447970000002" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" textContentType="address-level2"/>
@@ -248,6 +251,15 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Weather" image="sun.max.circle.fill" catalog="system" largeContentSizeImage="sun.min" springLoaded="YES" id="GSt-ci-eyM" userLabel="Weather"/>
+                    <connections>
+                        <outlet property="cityDestinationChoiceInput" destination="fqh-eo-IYH" id="sB5-Ib-4c8"/>
+                        <outlet property="cityHomeChoice" destination="vtk-Yx-kex" id="0j7-P4-ics"/>
+                        <outlet property="saveLocationAsHomeButton" destination="9m7-he-i9w" id="fWV-If-vv4"/>
+                        <outlet property="weatherImageInformationForeign" destination="Mgb-m4-eKc" id="5dH-1e-QGJ"/>
+                        <outlet property="weatherInformationDestination" destination="b8Y-CE-0cR" id="uRe-zb-nTb"/>
+                        <outlet property="weatherInformationForeign" destination="IKS-bg-aYs" id="m0Q-Lj-3Xx"/>
+                        <outlet property="weatherInformationHome" destination="8g7-bf-azY" id="IHX-TJ-v42"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B9l-ps-Yjd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
