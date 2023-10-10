@@ -237,6 +237,9 @@
                                     <backgroundConfiguration key="background"/>
                                     <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="11"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="saveLocationAsHome:" destination="NwS-Tw-JwU" eventType="touchUpInside" id="Alu-lN-sEb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NAW-IZ-ohL"/>
@@ -253,11 +256,11 @@
                     <tabBarItem key="tabBarItem" title="Weather" image="sun.max.circle.fill" catalog="system" largeContentSizeImage="sun.min" springLoaded="YES" id="GSt-ci-eyM" userLabel="Weather"/>
                     <connections>
                         <outlet property="cityDestinationChoiceInput" destination="fqh-eo-IYH" id="sB5-Ib-4c8"/>
-                        <outlet property="cityHomeChoice" destination="vtk-Yx-kex" id="0j7-P4-ics"/>
+                        <outlet property="cityHomeChoiceInput" destination="vtk-Yx-kex" id="0j7-P4-ics"/>
                         <outlet property="saveLocationAsHomeButton" destination="9m7-he-i9w" id="fWV-If-vv4"/>
                         <outlet property="weatherImageInformationForeign" destination="Mgb-m4-eKc" id="5dH-1e-QGJ"/>
-                        <outlet property="weatherInformationDestination" destination="b8Y-CE-0cR" id="uRe-zb-nTb"/>
-                        <outlet property="weatherInformationForeign" destination="IKS-bg-aYs" id="m0Q-Lj-3Xx"/>
+                        <outlet property="weatherImageInformationHome" destination="IKS-bg-aYs" id="GVq-Rq-SnT"/>
+                        <outlet property="weatherInformationForeign" destination="b8Y-CE-0cR" id="fRC-12-AOR"/>
                         <outlet property="weatherInformationHome" destination="8g7-bf-azY" id="IHX-TJ-v42"/>
                     </connections>
                 </viewController>
