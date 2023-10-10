@@ -10,7 +10,7 @@
 import Foundation
 import UIKit
 
-class WeatherViewController : UIViewController {
+class WeatherViewController : UIViewController{
     // outlets
     
     
@@ -27,6 +27,10 @@ class WeatherViewController : UIViewController {
     @IBOutlet weak var weatherInformationHome: UITextView!
     
     @IBOutlet weak var saveLocationAsHomeButton: UIButton!
+    
+    @IBOutlet weak var citySearchTableView: UITableView!
+    
+    var matchingCities: [City] = []
     
     private var selectedCity: City? // To store the selected city
     var isDestinationInput: Bool = true
@@ -46,13 +50,16 @@ class WeatherViewController : UIViewController {
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }
-
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Add target actions for text fields
         cityDestinationChoiceInput.addTarget(self, action: #selector(destinationCityTextChanged(_:)), for: .editingChanged)
         cityHomeChoiceInput.addTarget(self, action: #selector(homeCityTextChanged(_:)), for: .editingChanged)
+        // Set the data source and delegate for the UITableView
+                citySearchTableView.dataSource = self
+                citySearchTableView.delegate = self
     }
 
     @objc func destinationCityTextChanged(_ textField: UITextField) {
@@ -93,5 +100,31 @@ class WeatherViewController : UIViewController {
                 print("City Search Error: \(error)")
             }
         }
+    }
+
+    // Function to update the list of matching cities
+    private func updateMatchingCities(_ cities: [City]) {
+        matchingCities = cities
+        citySearchTableView.reloadData() // Refresh the UITableView
+    }
+}
+
+// Conform to UITableViewDataSource and UITableViewDelegate
+extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return matchingCities.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath)
+        let city = matchingCities[indexPath.row]
+        cell.textLabel?.text = city.name
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Handle the selection of a city from the list
+        let selectedCity = matchingCities[indexPath.row]
+        // You can update the selectedCity property or perform any other action here
     }
 }

@@ -241,6 +241,21 @@
                                     <action selector="saveLocationAsHome:" destination="NwS-Tw-JwU" eventType="touchUpInside" id="Alu-lN-sEb"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Rie-ej-CLE" userLabel="citySearchTableView">
+                                <rect key="frame" x="8" y="161" width="143" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="43" id="dAt-qa-oK7">
+                                        <rect key="frame" x="0.0" y="50" width="143" height="43"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dAt-qa-oK7" id="1Dc-JF-2UR">
+                                            <rect key="frame" x="0.0" y="0.0" width="143" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NAW-IZ-ohL"/>
                         <color key="backgroundColor" red="0.1541392151" green="0.081991846650000005" blue="0.2015617318" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -257,6 +272,7 @@
                     <connections>
                         <outlet property="cityDestinationChoiceInput" destination="fqh-eo-IYH" id="sB5-Ib-4c8"/>
                         <outlet property="cityHomeChoiceInput" destination="vtk-Yx-kex" id="0j7-P4-ics"/>
+                        <outlet property="citySearchTableView" destination="Rie-ej-CLE" id="RIi-lR-cu4"/>
                         <outlet property="saveLocationAsHomeButton" destination="9m7-he-i9w" id="fWV-If-vv4"/>
                         <outlet property="weatherImageInformationForeign" destination="Mgb-m4-eKc" id="5dH-1e-QGJ"/>
                         <outlet property="weatherImageInformationHome" destination="IKS-bg-aYs" id="GVq-Rq-SnT"/>

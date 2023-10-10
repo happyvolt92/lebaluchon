@@ -3,7 +3,7 @@
 //  lebaluchon
 //
 //  Created by Elodie Gage on 09/10/2023.
-//
+//af8da5af247d50350513bd332859d43c
 
 import Foundation
 
@@ -20,7 +20,7 @@ import Foundation
         }
 
         private var session: URLSession
-        private let apiKey = "" //
+        private let apiKey = "af8da5af247d50350513bd332859d43c" //
 
         init(session: URLSession = URLSession(configuration: .default)) {
             self.session = session
