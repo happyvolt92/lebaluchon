@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8717A9A32AD9A0A800E4EE50 /* errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717A9A22AD9A0A800E4EE50 /* errors.swift */; };
 		87AF50DB2AC6C77500F3D5E6 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AF50DA2AC6C77500F3D5E6 /* WeatherViewController.swift */; };
 		87D746502AC2BB840078C662 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D7464F2AC2BB840078C662 /* AppDelegate.swift */; };
 		87D746522AC2BB840078C662 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D746512AC2BB840078C662 /* SceneDelegate.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8717A9A22AD9A0A800E4EE50 /* errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = errors.swift; sourceTree = "<group>"; };
 		87AF50DA2AC6C77500F3D5E6 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		87D7464C2AC2BB840078C662 /* lebaluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lebaluchon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87D7464F2AC2BB840078C662 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		87D746822AC2BCD70078C662 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				8717A9A22AD9A0A800E4EE50 /* errors.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				87D746502AC2BB840078C662 /* AppDelegate.swift in Sources */,
 				87D7468D2AC31F8F0078C662 /* TranslatorViewController.swift in Sources */,
 				87D746522AC2BB840078C662 /* SceneDelegate.swift in Sources */,
+				8717A9A32AD9A0A800E4EE50 /* errors.swift in Sources */,
 				87AF50DB2AC6C77500F3D5E6 /* WeatherViewController.swift in Sources */,
 				87D746902AC3233E0078C662 /* Languages.swift in Sources */,
 				87D746942AC362370078C662 /* TranslatorServiceMapping.swift in Sources */,

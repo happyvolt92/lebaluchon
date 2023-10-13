@@ -2,15 +2,7 @@ import Foundation
 
 class TranslatorService {
 
-    // Enumeration to handle translation service-related errors
-    enum TraductorError: Error {
-        case requestError       // Request error
-        case noDataAvailable    // No data available
-        case parsingFailed      // JSON data parsing failed
-        case apiError           // API error
-        case httpResponseError // HTTP response error
-    }
-    
+
     // Shared static property to access the translation service from other parts of the application
     private(set) static var shared = TranslatorService()
 
@@ -30,7 +22,7 @@ class TranslatorService {
     }
     
     // Function to obtain a translation
-    func getTextTranslation(textToTranslate: String?, from language: Language, completion: @escaping(Result<TranslationData, TraductorError>) -> Void) {
+    func getTextTranslation(textToTranslate: String?, from language: Language, completion: @escaping(Result<TranslationData, AppError>) -> Void) {
         // Check if a valid URLRequest can be created for the translation request
         guard let request = createTranslationRequest(textToTranslate: textToTranslate, from: language) else {
             // If request creation fails, report a request error and return early
