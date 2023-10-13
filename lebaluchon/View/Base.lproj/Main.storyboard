@@ -258,6 +258,9 @@
                                 <rect key="frame" x="153" y="707" width="87" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Refresh "/>
+                                <connections>
+                                    <action selector="refreshWeatherButton:" destination="NwS-Tw-JwU" eventType="touchUpInside" id="DCt-2Q-Xeq"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NAW-IZ-ohL"/>
@@ -283,6 +286,7 @@
                         <outlet property="cityDestinationChoiceInput" destination="fqh-eo-IYH" id="sB5-Ib-4c8"/>
                         <outlet property="cityHomeChoiceInput" destination="vtk-Yx-kex" id="0j7-P4-ics"/>
                         <outlet property="citySearchTableView" destination="Rie-ej-CLE" id="RIi-lR-cu4"/>
+                        <outlet property="refreshWeatherButton" destination="Fd7-vI-OuN" id="KCy-e4-oJI"/>
                         <outlet property="saveLocationAsHomeButton" destination="9m7-he-i9w" id="fWV-If-vv4"/>
                         <outlet property="weatherImageInformationForeign" destination="Mgb-m4-eKc" id="5dH-1e-QGJ"/>
                         <outlet property="weatherImageInformationHome" destination="IKS-bg-aYs" id="GVq-Rq-SnT"/>

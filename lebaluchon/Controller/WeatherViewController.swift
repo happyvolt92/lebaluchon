@@ -69,8 +69,10 @@ class WeatherViewController : UIViewController{
     @objc func homeCityTextChanged(_ textField: UITextField) {
         startCitySearchTimer(isDestination: false)
     }
-    @IBAction func refreshWeather(_ sender: UIBarButtonItem) {
-        // Call your existing fetchWeather method to refresh the weather data
+    
+    @IBOutlet weak var refreshWeatherButton: UIButton!
+  
+    @IBAction func refreshWeatherButton(_ sender: Any) {
         WeatherServices.shared.fetchWeather(for: selectedCity?.name ?? "defaultCity") { result in
             switch result {
                 case .success(let weatherResponse):
@@ -82,7 +84,7 @@ class WeatherViewController : UIViewController{
             }
         }
     }
-
+    
 
     private var citySearchTimer: Timer?
     private func startCitySearchTimer(isDestination: Bool) {
