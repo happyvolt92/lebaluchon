@@ -78,6 +78,7 @@ class TranslatorViewController : UIViewController {
     
 //    ERROR Handler
     //no connection error
+//    rename errorConnectionAlert
     private func errorAlert() {
         let alert = UIAlertController(title: "Erreur", message: "Mais qui a coupé internet 🤔 ?", preferredStyle: .alert)
         let actionAlert = UIAlertAction(title: "OK", style: .cancel, handler: nil)

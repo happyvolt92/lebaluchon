@@ -69,14 +69,26 @@ class WeatherViewController : UIViewController{
     @objc func homeCityTextChanged(_ textField: UITextField) {
         startCitySearchTimer(isDestination: false)
     }
+    @IBAction func refreshWeather(_ sender: UIBarButtonItem) {
+        // Call your existing fetchWeather method to refresh the weather data
+        WeatherServices.shared.fetchWeather(for: selectedCity?.name ?? "defaultCity") { result in
+            switch result {
+                case .success(let weatherResponse):
+                    // Handle the success and update your UI with the refreshed weather data
+                    print("Refreshed weather data: \(weatherResponse)")
+                case .failure(let error):
+                    // Handle any errors that may occur during the refresh
+                    print("Refresh failed with error: \(error)")
+            }
+        }
+    }
+
 
     private var citySearchTimer: Timer?
-
     private func startCitySearchTimer(isDestination: Bool) {
-        // Invalidate the existing timer (if any) when the user continues typing
+        // Invalidate the existing timer  when the user continues typing
         citySearchTimer?.invalidate()
-
-        // Start a new timer to perform the city search after a brief delay (e.g., 1 second)
+        // Start a new timer to perform the city search after a brief delay
         citySearchTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { [weak self] timer in
             guard let self = self else { return }
             if isDestination {
@@ -90,11 +102,8 @@ class WeatherViewController : UIViewController{
     private func performCitySearch(cityName: String?, isDestination: Bool) {
         WeatherServices.shared.performCitySearch(cityName: cityName ?? "") { [weak self] result in
             guard let self = self else { return }
-
             switch result {
             case .success(let cityList):
-                // Handle the list of matching cities here
-                // You can display the list to the user or let them choose one
                 print("Matching cities: \(cityList)")
             case .failure(let error):
                 print("City Search Error: \(error)")
@@ -125,6 +134,6 @@ extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Handle the selection of a city from the list
         let selectedCity = matchingCities[indexPath.row]
-        // You can update the selectedCity property or perform any other action here
+
     }
 }
