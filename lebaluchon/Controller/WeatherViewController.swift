@@ -6,7 +6,8 @@ class WeatherViewController: UIViewController {
     
     @IBOutlet weak var weatherIconNewYork: UIImageView!
 
-    @IBOutlet weak var refreshViewController: UIButton!
+
+    @IBOutlet weak var refreshWeatherDataButton: UIButton!
     
     @IBOutlet weak var weatherInformationBesancon: UITextView!
     
@@ -37,7 +38,13 @@ class WeatherViewController: UIViewController {
             }
         }
     }
-
+    @IBAction func refreshWeatherData(_ sender: UIButton) {
+          // Refresh weather data for both cities
+          loadWeatherData(for: "New York", textView: weatherInformationNewYork, iconView: weatherIconNewYork)
+          loadWeatherData(for: "Besançon", textView: weatherInformationBesancon, iconView: weatherIconBesancon)
+      }
+    
+    
     private func loadWeatherIcon(iconName: String, imageView: UIImageView) {
         imageView.image = UIImage(named: iconName)
     }
