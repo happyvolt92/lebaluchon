@@ -6,6 +6,7 @@ class WeatherViewController: UIViewController {
     
     @IBOutlet weak var weatherIconNewYork: UIImageView!
 
+    @IBOutlet weak var refreshViewController: UIButton!
     
     @IBOutlet weak var weatherInformationBesancon: UITextView!
     
