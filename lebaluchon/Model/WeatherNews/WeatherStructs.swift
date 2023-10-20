@@ -8,18 +8,9 @@ struct WeatherResponse: Codable {
 struct WeatherDetails: Codable {
     var id: Int
     var description: String
+    var icon: String // Add icon field to store the icon name
 }
 
 struct Temperature: Codable {
     var temp: Double
-}
-
-struct CityResponse: Codable {
-    let list: [City]
-}
-
-struct City: Codable {
-    let name: String
-//    let lat: Double
-//    let lon: Double
 }

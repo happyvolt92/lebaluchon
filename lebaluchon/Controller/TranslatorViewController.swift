@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class TranslatorViewController: UIViewController {
+class TranslatorViewController: UIViewController, UITextViewDelegate {
     
     // MARK: - Outlets
     
@@ -65,6 +65,20 @@ class TranslatorViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: - Text View Delegate
+
+       func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+           // Make the text view the first responder to show the keyboard
+           textView.becomeFirstResponder()
+           return true
+       }
+       
+       func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+           // Dismiss the keyboard when the user is done editing
+           textView.resignFirstResponder()
+           return true
+       }
     
     override func viewDidLoad() {
         super.viewDidLoad()
