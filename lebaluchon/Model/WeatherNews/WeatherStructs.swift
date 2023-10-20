@@ -14,12 +14,12 @@ struct Temperature: Codable {
     var temp: Double
 }
 
-struct CityResponse: Codable { 
+struct CityResponse: Codable {
     let list: [City]
 }
 
 struct City: Codable {
     let name: String
-    let lat: Double
-    let lon: Double
+//    let lat: Double
+//    let lon: Double
 }

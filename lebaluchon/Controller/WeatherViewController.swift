@@ -47,7 +47,9 @@ class WeatherViewController : UIViewController {
         citySearchTableView.dataSource = self
         citySearchTableView.delegate = self
     }
-
+    //    --------------------------------------\\
+    
+    //CITY EN DUR WARNING CHANGER FUNC
     // Action to refresh weather data
     @IBAction func refreshWeatherButton(_ sender: Any) {
         // Call the `fetchWeather` method to refresh the weather data
@@ -62,6 +64,15 @@ class WeatherViewController : UIViewController {
             }
         }
     }
+//     VIRER TABLE VIEW
+    
+    
+    
+    //    --------------------------------------\\
+//    MERGE BRANCH TRAD -> SEPARER & link OUTPUT response from API
+    
+    
+    //    --------------------------------------\\
 
     private var citySearchTimer: Timer?
     
@@ -99,6 +110,7 @@ class WeatherViewController : UIViewController {
                     // Handle the list of matching cities here
                     self.updateMatchingCities(cityList)
                 case .failure(let error):
+                    
                     print("City Search Error: \(error)")
                 }
             }

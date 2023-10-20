@@ -3,12 +3,8 @@ import Foundation
 class WeatherServices {
     // Singleton instance
     static let shared = WeatherServices()
-
- 
-
     // URLSession to perform network requests
     private var session: URLSession
-
     // API key for OpenWeatherMap (Replace with your API key)
     private let apiKey = "af8da5af247d50350513bd332859d43c"
 
@@ -74,25 +70,28 @@ class WeatherServices {
 
         // Perform a data task to fetch city search results
         let task = session.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(.requestError))
-                print("Error: \(error.localizedDescription)")
-                return
-            }
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(.failure(.requestError))
+                    print("Error: \(error.localizedDescription)")
+                    return
+                }
 
-            guard let data = data else {
-                completion(.failure(.noDataAvailable))
-                return
-            }
+                guard let data = data else {
+                    completion(.failure(.noDataAvailable))
+                    return
+                }
 
-            do {
-                // Decode the city search response from JSON
-                let cityResponse = try JSONDecoder().decode(CityResponse.self, from: data)
-                completion(.success(cityResponse.list))
-            } catch {
-                completion(.failure(.parsingFailed))
-                print("Parsing error: \(error.localizedDescription)")
+                do {
+                    // Decode the city search response from JSON
+                    let cityResponse = try JSONDecoder().decode(CityResponse.self, from: data)
+                    completion(.success(cityResponse.list))
+                } catch {
+                    completion(.failure(.parsingFailed))
+                    print("\(#file)Parsing error: \(error.localizedDescription)")
+                }
             }
+          
         }
 
         // Start the data task

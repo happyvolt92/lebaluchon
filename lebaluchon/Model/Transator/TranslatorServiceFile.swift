@@ -22,7 +22,7 @@ class TranslatorService {
     }
     
     // Function to obtain a translation
-    func getTextTranslation(textToTranslate: String?, from language: Language, completion: @escaping(Result<TranslationData, AppError>) -> Void) {
+    func getTextTranslation(textToTranslate: String?, from language: LanguagesOptions, completion: @escaping(Result<TranslationData, AppError>) -> Void) {
         // Check if a valid URLRequest can be created for the translation request
         guard let request = createTranslationRequest(textToTranslate: textToTranslate, from: language) else {
             // If request creation fails, report a request error and return early
@@ -71,7 +71,7 @@ class TranslatorService {
     }
 
     
-    private func createTranslationRequest(textToTranslate: String?, from language: Language) -> URLRequest? {
+    private func createTranslationRequest(textToTranslate: String?, from language: LanguagesOptions) -> URLRequest? {
         guard let url = resourceUrl, let text = textToTranslate else {
             return nil
         }

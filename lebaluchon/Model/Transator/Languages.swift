@@ -6,7 +6,7 @@
 //
 import Foundation
 
-enum Language {
+enum LanguagesOptions {
     case english
     case french
 }

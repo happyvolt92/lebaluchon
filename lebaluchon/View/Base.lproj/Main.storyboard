@@ -45,7 +45,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T6V-Fu-vxj">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="235"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gkp-gX-Hac" userLabel="TextViewTranslator">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gkp-gX-Hac" userLabel="TextViewToTranslate">
                                                 <rect key="frame" x="0.0" y="8" width="353" height="100"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.48988860649999999" green="0.48988860649999999" blue="0.48988860649999999" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
@@ -53,7 +53,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="LXb-GL-KUG" userLabel="TextDestinationViewTranslator">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="LXb-GL-KUG" userLabel="TextDestinationViewTranslated">
                                                 <rect key="frame" x="0.0" y="142" width="353" height="85"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.48988860649999999" green="0.48988860649999999" blue="0.48988860649999999" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
@@ -94,6 +94,8 @@
                         <imageReference key="image" image="character.bubble.fill.ja" catalog="system" variableValue="1"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="TextDestinationViewTranslated" destination="LXb-GL-KUG" id="ucD-V8-VqT"/>
+                        <outlet property="TextViewToTranslate" destination="Gkp-gX-Hac" id="Dng-a9-2fI"/>
                         <outlet property="TextViewTranslator" destination="Gkp-gX-Hac" id="cky-XX-chR"/>
                         <outlet property="ToggleLanguages" destination="uuC-0u-5aq" id="PIK-TG-dSj"/>
                         <outlet property="TranslateButton" destination="2TO-mi-1WN" id="nsE-PR-Rg8"/>
@@ -137,22 +139,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Rie-ej-CLE" userLabel="citySearchTableView">
-                                        <rect key="frame" x="0.0" y="38.333333333333343" width="172.66666666666666" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="43" id="dAt-qa-oK7">
-                                                <rect key="frame" x="0.0" y="50" width="172.66666666666666" height="43"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dAt-qa-oK7" id="1Dc-JF-2UR">
-                                                    <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </tableViewCellContentView>
-                                            </tableViewCell>
-                                        </prototypes>
-                                    </tableView>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CITY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fqh-eo-IYH">
-                                        <rect key="frame" x="0.0" y="104.33333333333331" width="172.66666666666666" height="34"/>
+                                        <rect key="frame" x="0.0" y="38.333333333333343" width="172.66666666666666" height="100"/>
                                         <color key="backgroundColor" red="0.43774297248803828" green="0.43774297248803828" blue="0.43774297248803828" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -285,8 +273,6 @@
                     <connections>
                         <outlet property="cityDestinationChoiceInput" destination="fqh-eo-IYH" id="sB5-Ib-4c8"/>
                         <outlet property="cityHomeChoiceInput" destination="vtk-Yx-kex" id="0j7-P4-ics"/>
-                        <outlet property="citySearchTableView" destination="Rie-ej-CLE" id="RIi-lR-cu4"/>
-                        <outlet property="refreshWeatherButton" destination="Fd7-vI-OuN" id="KCy-e4-oJI"/>
                         <outlet property="saveLocationAsHomeButton" destination="9m7-he-i9w" id="fWV-If-vv4"/>
                         <outlet property="weatherImageInformationForeign" destination="Mgb-m4-eKc" id="5dH-1e-QGJ"/>
                         <outlet property="weatherImageInformationHome" destination="IKS-bg-aYs" id="GVq-Rq-SnT"/>

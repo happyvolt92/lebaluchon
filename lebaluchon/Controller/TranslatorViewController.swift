@@ -1,28 +1,22 @@
-//
-//  TranslatorViewController.swift
-//  lebaluchon
-//
-//  Created by Elodie Gage on 26/09/2023.
-//
-
 import Foundation
 import UIKit
 
-
-class TranslatorViewController : UIViewController {
+class TranslatorViewController: UIViewController {
     
+    // MARK: - Outlets
     
     @IBOutlet var TranslatorView: UIView!
-    
     @IBOutlet weak var TextViewTranslator: UITextView!
-    
     @IBOutlet weak var ToggleLanguages: UISegmentedControl!
-    
     @IBOutlet weak var TranslateButton: UIButton!
     
-    private var translatedText = ""
+    @IBOutlet weak var TextViewToTranslate: UITextView! // First translation field
+    @IBOutlet weak var TextDestinationViewTranslated: UITextView! // Second translation field
     
-    @IBAction func toggleTranslationButton(_ sender: UIButton){
+    // MARK: - Actions
+    
+    @IBAction func toggleTranslationButton(_ sender: UIButton) {
+        // Check if the input text field is not empty
         guard !TextViewTranslator.text.isEmpty else {
             textViewAlert()
             return
@@ -30,35 +24,45 @@ class TranslatorViewController : UIViewController {
         translate()
     }
 
+    // Function to initiate translation
     private func translate() {
-        guard let language = switchLanguage() else {
+        guard let sourceLanguage = switchLanguage(fromToggleIndex: ToggleLanguages.selectedSegmentIndex) else {
             return
         }
-        TranslatorService.shared.getTextTranslation(textToTranslate: TextViewTranslator.text, from: language) { result in
+        
+        // Determine the target language based on the source language
+        let targetLanguage: LanguagesOptions = sourceLanguage == .english ? .french : .english
+        
+        TranslatorService.shared.getTextTranslation(textToTranslate: TextViewTranslator.text, from: sourceLanguage) { [weak self] result in
+            guard let self = self else { return }
+            
             DispatchQueue.main.async {
                 switch result {
                 case .failure:
                     self.errorAlert()
-                case .success(let traductor):
-                    self.translatedText = traductor.data.translations.first?.translatedText ?? ""
-                    self.updateTextView()
+                case .success(let translator):
+                    if let translatedText = translator.data.translations.first?.translatedText {
+                        // Update the appropriate text field with the translation
+                        self.updateTextView(for: targetLanguage, with: translatedText)
+                    }
                 }
             }
         }
     }
     
-    // Function to determine the selected language based on the segmented control
-    private func switchLanguage() -> Language? {
-        switch ToggleLanguages.selectedSegmentIndex {
-        case 0 :
-            // Return French language if the first segment is selected
-            return .french
-        case 1 :
-            // Return English language if the second segment is selected
-            return .english
-        default :
-            // Return nil for any other segment selection
-            return nil
+    // Function to determine the language selected based on the segmented control index
+    private func switchLanguage(fromToggleIndex index: Int) -> LanguagesOptions? {
+        return index == 0 ? .english : .french
+    }
+    
+    // Function to update the appropriate text field with the translation
+    private func updateTextView(for language: LanguagesOptions, with text: String) {
+        DispatchQueue.main.async {
+            if language == .english {
+                self.TextViewToTranslate.text = text
+            } else {
+                self.TextDestinationViewTranslated.text = text
+            }
         }
     }
     
@@ -67,31 +71,19 @@ class TranslatorViewController : UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    
-    private func updateTextView() {
-           DispatchQueue.main.async {
-               // Update the text view with the translated text
-               self.TextViewTranslator.text = self.translatedText
-           }
-       }
-    
-    
-//    ERROR Handler
-    //no connection error
-//    rename errorConnectionAlert
+    // Error handler for connection error
     private func errorAlert() {
-        let alert = UIAlertController(title: "Erreur", message: "Mais qui a coupé internet 🤔 ?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Error", message: "Internet connection lost 🤔", preferredStyle: .alert)
         let actionAlert = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(actionAlert)
         present(alert, animated: true, completion: nil)
     }
-    //no word to translate error
+
+    // Error handler for empty text field
     private func textViewAlert() {
-        let alert = UIAlertController(title: "Erreur", message: "Rien + Rien = Rien !😱 Rajoute du texte pour voir une traduction", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Error", message: "Nothing + Nothing = Nothing! 😱 Add some text to see a translation", preferredStyle: .alert)
         let actionAlert = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(actionAlert)
         present(alert, animated: true, completion: nil)
     }
-  
-    
 }
