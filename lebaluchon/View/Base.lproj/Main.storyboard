@@ -38,12 +38,12 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T6V-Fu-vxj">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="235"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gkp-gX-Hac" userLabel="TextViewToTranslate">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="Gkp-gX-Hac" userLabel="TextViewToTranslate">
                                                 <rect key="frame" x="0.0" y="8" width="353" height="85"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.48988860649999999" green="0.48988860649999999" blue="0.48988860649999999" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" id="LXb-GL-KUG" userLabel="TextDestinationViewTranslated">
@@ -51,7 +51,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.48988860649999999" green="0.48988860649999999" blue="0.48988860649999999" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
@@ -170,7 +170,7 @@
                                 <rect key="frame" x="142" y="83" width="117" height="110"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backpackBgremoved" translatesAutoresizingMaskIntoConstraints="NO" id="GsX-Xd-So4">
-                                        <rect key="frame" x="1" y="4" width="115" height="70"/>
+                                        <rect key="frame" x="1" y="4" width="115" height="102"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="115" id="iwR-yW-oED"/>
                                         </constraints>
@@ -180,7 +180,7 @@
                                     <constraint firstItem="GsX-Xd-So4" firstAttribute="centerX" secondItem="BCX-rc-PxH" secondAttribute="centerX" id="9yv-pZ-zRM"/>
                                     <constraint firstItem="GsX-Xd-So4" firstAttribute="leading" secondItem="BCX-rc-PxH" secondAttribute="leading" constant="1" id="UQz-mG-jBe"/>
                                     <constraint firstItem="GsX-Xd-So4" firstAttribute="top" secondItem="BCX-rc-PxH" secondAttribute="top" constant="4" id="Vds-gP-qzx"/>
-                                    <constraint firstAttribute="bottom" secondItem="GsX-Xd-So4" secondAttribute="bottom" constant="36" id="ppM-b8-a5I"/>
+                                    <constraint firstAttribute="bottom" secondItem="GsX-Xd-So4" secondAttribute="bottom" constant="4" id="ppM-b8-a5I"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" id="jO6-YH-hh3" userLabel="MiddleStackView">
