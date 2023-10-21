@@ -30,9 +30,11 @@ class WeatherViewController: UIViewController {
             switch result {
             case .success(let weatherResponse):
                 DispatchQueue.main.async {
-                    textView.text = "\(weatherResponse.weather.first?.description ?? "N/A")\n \(weatherResponse.main.temp)°C"
+                    textView.text = "\(weatherResponse.weather.first?.description ?? "N/A")\n\(weatherResponse.main.temp)°C"
                     if let iconName = weatherResponse.weather.first?.icon {
-                        self.loadWeatherIcon(iconName: iconName, imageView: iconView)
+                        if let iconURL = weatherResponse.weather.first?.iconURL {
+                            self.loadWeatherIcon(from: iconURL, imageView: iconView)
+                        }
                     }
                 }
             case .failure(let error):
@@ -40,6 +42,23 @@ class WeatherViewController: UIViewController {
             }
         }
     }
+
+    private func loadWeatherIcon(from url: URL, imageView: UIImageView) {
+        // You can use URLSession to fetch the image data and set it to the image view
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                print("Error loading icon: \(error)")
+                return
+            }
+            if let data = data, let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    imageView.image = image
+                }
+            }
+        }
+        task.resume()
+    }
+
     
     //    activityview after refresh
     @IBAction func refreshWeatherData(_ sender: UIButton) {
@@ -48,8 +67,4 @@ class WeatherViewController: UIViewController {
           loadWeatherData(for: "Besançon", textView: weatherInformationBesancon, iconView: weatherIconBesancon)
       }
     
-    
-    private func loadWeatherIcon(iconName: String, imageView: UIImageView) {
-        imageView.image = UIImage(named: iconName)
-    }
 }
