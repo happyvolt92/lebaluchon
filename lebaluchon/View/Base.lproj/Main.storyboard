@@ -32,13 +32,6 @@
                                     <action selector="toggleTranslationButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="p4J-BD-NlY"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uuC-0u-5aq" userLabel="ToggleLanguages">
-                                <rect key="frame" x="125" y="585" width="143" height="32"/>
-                                <segments>
-                                    <segment title="English "/>
-                                    <segment title="Français"/>
-                                </segments>
-                            </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mgb-Ea-0J6">
                                 <rect key="frame" x="20" y="269" width="353" height="235"/>
                                 <subviews>
@@ -46,14 +39,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="235"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gkp-gX-Hac" userLabel="TextViewToTranslate">
-                                                <rect key="frame" x="0.0" y="8" width="353" height="100"/>
+                                                <rect key="frame" x="0.0" y="8" width="353" height="85"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.48988860649999999" green="0.48988860649999999" blue="0.48988860649999999" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" id="LXb-GL-KUG" userLabel="TextDestinationViewTranslated">
+                                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" id="LXb-GL-KUG" userLabel="TextDestinationViewTranslated">
                                                 <rect key="frame" x="0.0" y="142" width="353" height="85"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.48988860649999999" green="0.48988860649999999" blue="0.48988860649999999" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
@@ -75,6 +68,13 @@
                                     </imageView>
                                 </subviews>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uuC-0u-5aq" userLabel="ToggleLanguages">
+                                <rect key="frame" x="125" y="558" width="143" height="32"/>
+                                <segments>
+                                    <segment title="English "/>
+                                    <segment title="Français"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.1541392151" green="0.081991846650000005" blue="0.2015617318" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -85,9 +85,9 @@
                             <constraint firstItem="2TO-mi-1WN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="139" id="CGc-I4-WDu"/>
                             <constraint firstItem="2TO-mi-1WN" firstAttribute="centerX" secondItem="uuC-0u-5aq" secondAttribute="centerX" id="QdC-7P-k5I"/>
                             <constraint firstItem="mgb-Ea-0J6" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" constant="4" id="UdY-xJ-BJ5"/>
-                            <constraint firstItem="uuC-0u-5aq" firstAttribute="top" secondItem="mgb-Ea-0J6" secondAttribute="bottom" constant="81" id="aVR-WE-hSG"/>
+                            <constraint firstItem="uuC-0u-5aq" firstAttribute="top" secondItem="mgb-Ea-0J6" secondAttribute="bottom" constant="54" id="aVR-WE-hSG"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="mgb-Ea-0J6" secondAttribute="trailing" constant="20" id="gwo-Cj-7kh"/>
-                            <constraint firstItem="2TO-mi-1WN" firstAttribute="top" secondItem="uuC-0u-5aq" secondAttribute="bottom" constant="29.666666666666515" id="rf3-50-Jjb"/>
+                            <constraint firstItem="2TO-mi-1WN" firstAttribute="top" secondItem="uuC-0u-5aq" secondAttribute="bottom" constant="56.666666666666629" id="rf3-50-Jjb"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Translator" id="zVH-KM-NmG" userLabel="Translator">
@@ -136,7 +136,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Besançon 🇫🇷" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynf-Gk-ieL" userLabel="Besançon">
                                         <rect key="frame" x="0.0" y="0.0" width="160.33333333333334" height="70.333333333333329"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="shadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -149,14 +149,14 @@
                                 <rect key="frame" x="16" y="510" width="361" height="134"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NdQ-Lu-ToD" userLabel="weatherInformationBesancon">
+                                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NdQ-Lu-ToD" userLabel="weatherInformationBesancon">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="134"/>
                                         <color key="backgroundColor" red="0.37095544559999999" green="0.36862239250000001" blue="0.37328849870000003" alpha="0.18940489969999999" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="2B3-lN-RJ4"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UpS-8F-ajg" userLabel="weatherIconBesancon">
@@ -187,14 +187,14 @@
                                 <rect key="frame" x="16" y="251" width="361" height="134"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8Y-CE-0cR" userLabel="weatherInformationNewYork">
+                                    <textView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8Y-CE-0cR" userLabel="weatherInformationNewYork">
                                         <rect key="frame" x="0.0" y="0.0" width="182" height="134"/>
                                         <color key="backgroundColor" red="0.48988860649999999" green="0.48988860649999999" blue="0.48988860649999999" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
                                         </accessibility>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OF5-wC-Lkh" userLabel="weatherIconNewYork">
@@ -220,8 +220,8 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="New York 🇺🇸" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fv-vk-16f">
-                                <rect key="frame" x="16" y="209" width="125" height="34"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <rect key="frame" x="16" y="209" width="180" height="34"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -236,7 +236,7 @@
                             <constraint firstItem="jO6-YH-hh3" firstAttribute="top" secondItem="BCX-rc-PxH" secondAttribute="bottom" constant="58" id="ZQn-t8-uHE"/>
                             <constraint firstItem="NAW-IZ-ohL" firstAttribute="trailing" secondItem="BCX-rc-PxH" secondAttribute="trailing" constant="134" id="cnc-uJ-YXq"/>
                             <constraint firstItem="6fv-vk-16f" firstAttribute="leading" secondItem="jO6-YH-hh3" secondAttribute="leading" id="d4z-F5-IRi"/>
-                            <constraint firstItem="NAW-IZ-ohL" firstAttribute="trailing" secondItem="6fv-vk-16f" secondAttribute="trailing" constant="252" id="oRZ-uz-U2g"/>
+                            <constraint firstItem="NAW-IZ-ohL" firstAttribute="trailing" secondItem="6fv-vk-16f" secondAttribute="trailing" constant="197" id="oRZ-uz-U2g"/>
                             <constraint firstItem="Fd7-vI-OuN" firstAttribute="top" secondItem="uFt-DW-J9c" secondAttribute="bottom" constant="45" id="ygT-1R-81w"/>
                         </constraints>
                     </view>

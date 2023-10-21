@@ -24,6 +24,7 @@ class TranslatorViewController: UIViewController, UITextViewDelegate {
         translate()
     }
 
+//    translate() return oin translated INPUT not in SourceLanguage
     // Function to initiate translation
     private func translate() {
         guard let sourceLanguage = switchLanguage(fromToggleIndex: ToggleLanguages.selectedSegmentIndex) else {
@@ -55,14 +56,11 @@ class TranslatorViewController: UIViewController, UITextViewDelegate {
         return index == 0 ? .english : .french
     }
     
+//    pb traduction = la traduction
     // Function to update the appropriate text field with the translation
     private func updateTextView(for language: LanguagesOptions, with text: String) {
         DispatchQueue.main.async {
-            if language == .english {
-                self.TextViewToTranslate.text = text
-            } else {
                 self.TextDestinationViewTranslated.text = text
-            }
         }
     }
     

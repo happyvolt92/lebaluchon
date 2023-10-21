@@ -21,6 +21,8 @@ class WeatherViewController: UIViewController {
         loadWeatherData(for: "Besançon", textView: weatherInformationBesancon, iconView: weatherIconBesancon)
     }
     
+    
+
     private func loadWeatherData(for city: String, textView: UITextView, iconView: UIImageView) {
         WeatherServices.shared.fetchWeather(for: city) { [weak self] result in
             guard let self = self else { return }
@@ -28,7 +30,7 @@ class WeatherViewController: UIViewController {
             switch result {
             case .success(let weatherResponse):
                 DispatchQueue.main.async {
-                    textView.text = "Weather in \(city):\nDescription: \(weatherResponse.weather.first?.description ?? "N/A")\nTemperature: \(weatherResponse.main.temp)°C"
+                    textView.text = "\(weatherResponse.weather.first?.description ?? "N/A")\n \(weatherResponse.main.temp)°C"
                     if let iconName = weatherResponse.weather.first?.icon {
                         self.loadWeatherIcon(iconName: iconName, imageView: iconView)
                     }
@@ -38,6 +40,8 @@ class WeatherViewController: UIViewController {
             }
         }
     }
+    
+    //    activityview after refresh
     @IBAction func refreshWeatherData(_ sender: UIButton) {
           // Refresh weather data for both cities
           loadWeatherData(for: "New York", textView: weatherInformationNewYork, iconView: weatherIconNewYork)

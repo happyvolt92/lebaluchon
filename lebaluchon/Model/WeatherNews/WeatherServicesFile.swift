@@ -13,6 +13,8 @@ class WeatherServices {
         self.session = session
     }
     
+    
+//    fetchWeatherIcon https://openweathermap.org/img/wn/10d@2x.png
     func fetchWeather(for city: String, completion: @escaping (Result<WeatherResponse, AppError>) -> Void) {
         // Ensure the city name is properly encoded for the URL
         guard let encodedCity = city.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
