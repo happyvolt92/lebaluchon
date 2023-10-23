@@ -13,18 +13,14 @@ class WeatherServices {
         self.session = session
     }
     
-    
-//    fetchWeatherIcon https://openweathermap.org/img/wn/10d@2x.png
     func fetchWeather(for city: String, completion: @escaping (Result<WeatherResponse, AppError>) -> Void) {
         // Ensure the city name is properly encoded for the URL
         guard let encodedCity = city.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             completion(.failure(.requestError))
             return
         }
-        
         // Create the URL for the weather API request with the units=metric parameter
         let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(encodedCity)&appid=\(apiKey)&units=metric")!
-        
         // Perform a data task to fetch weather data
         let task = session.dataTask(with: url) { data, response, error in
             if let error = error {
@@ -32,12 +28,10 @@ class WeatherServices {
                 print("Error: \(error.localizedDescription)")
                 return
             }
-            
             guard let data = data else {
                 completion(.failure(.noDataAvailable))
                 return
             }
-            
             do {
                 // Decode the weather response from JSON
                 let weatherResponse = try JSONDecoder().decode(WeatherResponse.self, from: data)
@@ -47,7 +41,6 @@ class WeatherServices {
                 print("Parsing error: \(error.localizedDescription)")
             }
         }
-        
         // Start the data task
         task.resume()
     }
