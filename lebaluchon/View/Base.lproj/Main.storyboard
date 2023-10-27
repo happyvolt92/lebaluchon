@@ -100,11 +100,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="6qe-Y9-jI0">
-                                <rect key="frame" x="126" y="646" width="149" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.1541392151" green="0.081991846650000005" blue="0.2015617318" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -138,7 +133,6 @@
                         <outlet property="ToggleLanguages" destination="uuC-0u-5aq" id="PIK-TG-dSj"/>
                         <outlet property="TranslateButton" destination="2TO-mi-1WN" id="nsE-PR-Rg8"/>
                         <outlet property="TranslatorView" destination="5EZ-qb-Rvc" id="eYR-YR-wZh"/>
-                        <outlet property="activityIndicator" destination="6qe-Y9-jI0" id="lNm-eJ-ty8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -148,7 +142,7 @@
         <!--CurrencyItem-->
         <scene sceneID="dEk-YG-Z2v">
             <objects>
-                <viewController id="yti-4c-vrs" userLabel="CurrencyItem" sceneMemberID="viewController">
+                <viewController id="yti-4c-vrs" userLabel="CurrencyItem" customClass="CurrencyViewController" customModule="lebaluchon" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zsD-JI-N6P" userLabel="CurrencyView">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -159,20 +153,79 @@
                                     <constraint firstAttribute="width" constant="115" id="now-hT-rsx"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD DOLLAR " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPa-On-j5G">
+                                <rect key="frame" x="48" y="260" width="137.66666666666666" height="25"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="PJZ-Xb-5b5" userLabel="dollarsTextField">
+                                <rect key="frame" x="52" y="293" width="289" height="34"/>
+                                <color key="backgroundColor" red="0.43774297249999999" green="0.43774297249999999" blue="0.43774297249999999" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EURO " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vF-93-ROW">
+                                <rect key="frame" x="48" y="415" width="67" height="26"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="3Uk-pO-2u3" userLabel="eurosTextField">
+                                <rect key="frame" x="48" y="449" width="289" height="34"/>
+                                <color key="backgroundColor" red="0.43774297249999999" green="0.43774297249999999" blue="0.43774297249999999" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHT-l8-hNa">
+                                <rect key="frame" x="147" y="609" width="99" height="42"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Convert" cornerStyle="medium">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="0.68627452850000004" green="0.32941177490000001" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="convertButtonTapped:" destination="yti-4c-vrs" eventType="touchUpInside" id="ZGi-HT-mkD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JRO-uC-yQ6"/>
                         <color key="backgroundColor" red="0.15294116739999999" green="0.082352943720000002" blue="0.20000001789999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="JRO-uC-yQ6" firstAttribute="trailing" secondItem="PJZ-Xb-5b5" secondAttribute="trailing" constant="52" id="HAh-Ut-iJ9"/>
+                            <constraint firstItem="JRO-uC-yQ6" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tPa-On-j5G" secondAttribute="trailing" symbolic="YES" id="Ksh-hL-kwj"/>
+                            <constraint firstItem="3Uk-pO-2u3" firstAttribute="top" secondItem="2vF-93-ROW" secondAttribute="bottom" constant="8" id="OGg-Ia-VFJ"/>
                             <constraint firstItem="vMf-wW-TS4" firstAttribute="top" secondItem="JRO-uC-yQ6" secondAttribute="top" constant="10" id="OHP-Se-RZR"/>
+                            <constraint firstItem="tPa-On-j5G" firstAttribute="top" secondItem="vMf-wW-TS4" secondAttribute="bottom" constant="89" id="TNB-Xa-QUS"/>
+                            <constraint firstItem="2vF-93-ROW" firstAttribute="leading" secondItem="PJZ-Xb-5b5" secondAttribute="leading" constant="-4" id="U6k-EP-2J4"/>
+                            <constraint firstItem="2vF-93-ROW" firstAttribute="leading" secondItem="3Uk-pO-2u3" secondAttribute="leading" id="UOs-Rj-6dn"/>
                             <constraint firstItem="vMf-wW-TS4" firstAttribute="centerX" secondItem="zsD-JI-N6P" secondAttribute="centerX" id="UlE-mO-Vxy"/>
+                            <constraint firstItem="tPa-On-j5G" firstAttribute="leading" secondItem="JRO-uC-yQ6" secondAttribute="leading" constant="48" id="hJC-OB-WXr"/>
+                            <constraint firstItem="2vF-93-ROW" firstAttribute="leading" secondItem="tPa-On-j5G" secondAttribute="leading" id="j1k-vo-3Ll"/>
+                            <constraint firstItem="JRO-uC-yQ6" firstAttribute="bottom" secondItem="RHT-l8-hNa" secondAttribute="bottom" constant="118" id="kOG-yF-42Z"/>
                             <constraint firstItem="JRO-uC-yQ6" firstAttribute="bottom" secondItem="vMf-wW-TS4" secondAttribute="bottom" constant="598" id="m6J-8n-L6H"/>
+                            <constraint firstItem="RHT-l8-hNa" firstAttribute="centerX" secondItem="vMf-wW-TS4" secondAttribute="centerX" id="qnV-2w-X8J"/>
+                            <constraint firstAttribute="bottom" secondItem="2vF-93-ROW" secondAttribute="bottom" constant="411" id="rSR-GN-3ia"/>
+                            <constraint firstItem="PJZ-Xb-5b5" firstAttribute="trailing" secondItem="3Uk-pO-2u3" secondAttribute="trailing" constant="4" id="ujE-C7-pEN"/>
+                            <constraint firstItem="JRO-uC-yQ6" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2vF-93-ROW" secondAttribute="trailing" symbolic="YES" id="yWg-c6-EJ0"/>
+                            <constraint firstItem="PJZ-Xb-5b5" firstAttribute="top" secondItem="tPa-On-j5G" secondAttribute="bottom" constant="8" id="z7C-ye-I1Z"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Currency" image="dollarsign.circle.fill" catalog="system" id="xLO-9E-oLn" userLabel="Currency"/>
+                    <connections>
+                        <outlet property="ConvertButton" destination="RHT-l8-hNa" id="9Cp-sC-fMt"/>
+                        <outlet property="dollarsTextField" destination="PJZ-Xb-5b5" id="zRz-yB-VVe"/>
+                        <outlet property="eurosTextField" destination="3Uk-pO-2u3" id="o6F-Hs-xOc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nmn-PJ-2A6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24" y="725"/>
+            <point key="canvasLocation" x="23.664122137404579" y="724.64788732394368"/>
         </scene>
         <!--WeatherItem-->
         <scene sceneID="SHP-PO-Yxa">
