@@ -10,53 +10,64 @@ class CurrencyViewController: UIViewController {
     @IBOutlet weak var currencyActivityIndicator: UIActivityIndicatorView!
     
     // MARK: - View Lifecycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Configure the activity indicator to be initially visible
+        currencyActivityIndicator.hidesWhenStopped = true
 
         // When the view loads, we want to fetch the latest exchange rate and store it in UserDefaults.
         loadCurrencyRate()
     }
 
+
     // MARK: - Actions
-
     @IBAction func convertButtonTapped(_ sender: UIButton) {
-
         // Check which text field is currently active (has user input focus).
         if dollarsTextField.isFirstResponder {
-
-            // If the 'Dollars' text field is active, we want to convert from Dollars to Euros.
-
-            // First, we need to check if the user has entered a valid amount in the 'Dollars' text field.
             if let dollars = Double(dollarsTextField.text ?? "") {
+                // Start the activity indicator animation
+                ActivityIndicatorAnimation.shared.startLoading(for: currencyActivityIndicator)
+                CurrencyService.shared.getCurrencyRate(to: "EUR", from: "USD", amount: dollars) { result in
+                    DispatchQueue.main.async {
+                        // Stop the activity indicator animation
+                        ActivityIndicatorAnimation.shared.stopLoading(for: self.currencyActivityIndicator)
 
-                // Now, let's retrieve the currency conversion rate from UserDefaults.
-                let usdToEuroRate = UserDefaults.standard.double(forKey: "USDToEuroRate")
-
-                // Perform the conversion using the stored rate.
-                let euros = dollars * usdToEuroRate
-
-                // Update the 'Euros' text field with the converted amount.
-                eurosTextField.text = String(format: "%.2f", euros)
+                        switch result {
+                        case .success(let convertedValue):
+                            // Handle the converted value here
+                            self.eurosTextField.text = String(format: "%.2f", convertedValue)
+                        case .failure(let error):
+                            // Handle the error here
+                            self.errorAlert()
+                        }
+                    }
+                }
             }
         } else if eurosTextField.isFirstResponder {
-
-            // If the 'Euros' text field is active, we want to convert from Euros to Dollars.
-
-            // Similar to the previous case, we need to check if the user entered a valid amount in the 'Euros' text field.
             if let euros = Double(eurosTextField.text ?? "") {
+                // Start the activity indicator animation
+                ActivityIndicatorAnimation.shared.startLoading(for: currencyActivityIndicator)
+                CurrencyService.shared.getCurrencyRate(to: "USD", from: "EUR", amount: euros) { result in
+                    DispatchQueue.main.async {
+                        // Stop the activity indicator animation
+                        ActivityIndicatorAnimation.shared.stopLoading(for: self.currencyActivityIndicator)
 
-                // Retrieve the currency conversion rate from UserDefaults.
-                let usdToEuroRate = UserDefaults.standard.double(forKey: "USDToEuroRate")
-
-                // Perform the reverse conversion using the stored rate.
-                let dollars = euros / usdToEuroRate
-
-                // Update the 'Dollars' text field with the converted amount.
-                dollarsTextField.text = String(format: "%.2f", dollars)
+                        switch result {
+                        case .success(let convertedValue):
+                            // Handle the converted value here
+                            self.dollarsTextField.text = String(format: "%.2f", convertedValue)
+                        case .failure(let Apperror):
+                            // Handle the error here
+                            self.errorAlert()
+                        }
+                    }
+                }
             }
         }
     }
+
+
 
     // MARK: - Currency Rate Loading
 
