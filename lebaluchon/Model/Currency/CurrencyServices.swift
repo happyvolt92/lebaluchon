@@ -1,6 +1,7 @@
 import Foundation
 
 class CurrencyService {
+    
     static let shared = CurrencyService()
     
     private init() { }

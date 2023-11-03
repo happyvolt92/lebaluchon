@@ -16,10 +16,8 @@ class TranslatorViewController: UIViewController {
             textViewAlert()
             return
         }
-
         // Start the activity indicator animation
         ActivityIndicatorAnimation.shared.startLoading(for: translatorActivityIndicator)
-
         translate()
     }
 
@@ -27,12 +25,11 @@ class TranslatorViewController: UIViewController {
         guard let language = switchLanguage() else {
             return
         }
-
         TranslatorService.shared.getTextTranslation(textToTranslate: TextViewToTranslate.text, from: language) { result in
             DispatchQueue.main.async {
                 // Stop the activity indicator animation when the API call completes
                 ActivityIndicatorAnimation.shared.stopLoading(for: self.translatorActivityIndicator)
-
+                
                 switch result {
                 case .failure:
                     self.errorAlert()

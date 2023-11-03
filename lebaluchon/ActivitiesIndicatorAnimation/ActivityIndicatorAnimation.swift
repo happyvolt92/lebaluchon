@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class ActivityIndicatorAnimation {
-
+// no need singleton put it extension
     static let shared = ActivityIndicatorAnimation()
     
     private init() { }
