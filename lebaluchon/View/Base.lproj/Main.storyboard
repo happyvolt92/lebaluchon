@@ -100,6 +100,11 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Ujf-ij-beJ" userLabel="activityIndicator">
+                                <rect key="frame" x="148" y="633" width="106" height="116"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.1541392151" green="0.081991846650000005" blue="0.2015617318" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -132,6 +137,7 @@
                         <outlet property="ToggleLanguages" destination="uuC-0u-5aq" id="PIK-TG-dSj"/>
                         <outlet property="TranslateButton" destination="2TO-mi-1WN" id="nsE-PR-Rg8"/>
                         <outlet property="TranslatorView" destination="5EZ-qb-Rvc" id="eYR-YR-wZh"/>
+                        <outlet property="activityIndicator" destination="Ujf-ij-beJ" id="crn-cq-D4f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

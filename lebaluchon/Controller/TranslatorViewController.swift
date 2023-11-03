@@ -8,6 +8,8 @@ class TranslatorViewController: UIViewController {
     @IBOutlet weak var ToggleLanguages: UISegmentedControl!
     @IBOutlet weak var TranslateButton: UIButton!
     @IBOutlet weak var TextDestinationViewTranslated: UITextView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
 
     private var translatedText = ""
 
@@ -26,8 +28,14 @@ class TranslatorViewController: UIViewController {
             return
         }
 
+        // Show the activity indicator
+        activityIndicator.startAnimating()
+
         TranslatorService.shared.getTextTranslation(textToTranslate: TextViewToTranslate.text, from: language) { result in
             DispatchQueue.main.async {
+                // Hide the activity indicator when the API call is completed
+                self.activityIndicator.stopAnimating()
+
                 switch result {
                 case .failure:
                     self.errorAlert()
@@ -38,6 +46,7 @@ class TranslatorViewController: UIViewController {
             }
         }
     }
+
 
     // Function to determine the selected language based on the segmented control
     private func switchLanguage() -> LanguagesOptions? {
