@@ -2,23 +2,23 @@ import UIKit
 
 class TranslatorViewController: UIViewController {
 
-    // MARK: - Outlets
     @IBOutlet var TranslatorView: UIView!
     @IBOutlet weak var TextViewToTranslate: UITextView!
     @IBOutlet weak var ToggleLanguages: UISegmentedControl!
     @IBOutlet weak var TranslateButton: UIButton!
     @IBOutlet weak var TextDestinationViewTranslated: UITextView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-
+    @IBOutlet weak var translatorActivityIndicator: UIActivityIndicatorView!
 
     private var translatedText = ""
 
-    // MARK: - Actions
     @IBAction func toggleTranslationButton(_ sender: UIButton) {
         guard !TextViewToTranslate.text.isEmpty else {
             textViewAlert()
             return
         }
+
+        // Start the activity indicator animation
+        ActivityIndicatorAnimation.shared.startLoading(for: translatorActivityIndicator)
 
         translate()
     }
@@ -28,13 +28,10 @@ class TranslatorViewController: UIViewController {
             return
         }
 
-        // Show the activity indicator
-        activityIndicator.startAnimating()
-
         TranslatorService.shared.getTextTranslation(textToTranslate: TextViewToTranslate.text, from: language) { result in
             DispatchQueue.main.async {
-                // Hide the activity indicator when the API call is completed
-                self.activityIndicator.stopAnimating()
+                // Stop the activity indicator animation when the API call completes
+                ActivityIndicatorAnimation.shared.stopLoading(for: self.translatorActivityIndicator)
 
                 switch result {
                 case .failure:
@@ -47,18 +44,13 @@ class TranslatorViewController: UIViewController {
         }
     }
 
-
-    // Function to determine the selected language based on the segmented control
     private func switchLanguage() -> LanguagesOptions? {
         switch ToggleLanguages.selectedSegmentIndex {
         case 0:
-            // Return French language if the first segment is selected
             return .french
         case 1:
-            // Return English language if the second segment is selected
             return .english
         default:
-            // Return nil for any other segment selection
             return nil
         }
     }
@@ -69,23 +61,21 @@ class TranslatorViewController: UIViewController {
     }
 
     private func updateTextView() {
-        DispatchQueue.main.async {
-            // Update the text view with the translated text
-            self.TextDestinationViewTranslated.text = self.translatedText
-        }
+           DispatchQueue.main.async {
+               // Update the text view with the translated text
+               self.TextDestinationViewTranslated.text = self.translatedText
+           }
     }
 
-    // Error handler for connection error
     private func errorAlert() {
-        let alert = UIAlertController(title: "Erreur", message: "Mais qui a coupé internet 🤔 ?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Error", message: "Internet connection lost 🤔", preferredStyle: .alert)
         let actionAlert = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(actionAlert)
         present(alert, animated: true, completion: nil)
     }
 
-    // Error handler for empty text field
     private func textViewAlert() {
-        let alert = UIAlertController(title: "Erreur", message: "Rien + Rien = Rien ! 😱 Rajoute du texte pour voir une traduction", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Error", message: "Nothing + Nothing = Nothing! 😱 Add some text to see a translation", preferredStyle: .alert)
         let actionAlert = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(actionAlert)
         present(alert, animated: true, completion: nil)

@@ -6,7 +6,9 @@ class CurrencyViewController: UIViewController {
 
     @IBOutlet weak var dollarsTextField: UITextField!
     @IBOutlet weak var eurosTextField: UITextField!
-
+    
+    @IBOutlet weak var currencyActivityIndicator: UIActivityIndicatorView!
+    
     // MARK: - View Lifecycle
 
     override func viewDidLoad() {
@@ -60,16 +62,14 @@ class CurrencyViewController: UIViewController {
 
     private func loadCurrencyRate() {
         // This function is responsible for fetching the latest currency rate from a service and storing it in UserDefaults.
-        CurrencyService.shared.getCurrencyRate { result in
+        CurrencyService.shared.getCurrencyRate(to: "EUR", from: "USD", amount: 100) { result in
             switch result {
-            case .success(let currencyResponse):
-                // If the API call was successful, we can access the currency conversion rate (USD to Euro) from the response.
-                let usdToEuroRate = currencyResponse.rates.USD
-                // Store this rate in UserDefaults for future use.
-                UserDefaults.standard.set(usdToEuroRate, forKey: "USDToEuroRate")
-            case .failure:
-                // If the API call fails, we present an error alert to inform the user.
-                self.errorAlert()
+            case .success(let convertedValue):
+                // Handle the converted value here
+                print("Converted value: \(convertedValue)")
+            case .failure(let error):
+                // Handle the error here
+                print("Error: \(error.localizedDescription)")
             }
         }
     }

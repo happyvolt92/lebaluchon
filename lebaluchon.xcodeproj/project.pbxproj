@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		870805212AF50BFB00A3E58E /* ActivityIndicatorAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870805202AF50BFB00A3E58E /* ActivityIndicatorAnimation.swift */; };
 		8717A9A32AD9A0A800E4EE50 /* errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717A9A22AD9A0A800E4EE50 /* errors.swift */; };
 		8717A9A52AD9A3BC00E4EE50 /* localisable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717A9A42AD9A3BC00E4EE50 /* localisable.swift */; };
 		876E98FA2AE6FFE700EE954E /* CurrencyServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876E98F92AE6FFE700EE954E /* CurrencyServices.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		870805202AF50BFB00A3E58E /* ActivityIndicatorAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorAnimation.swift; sourceTree = "<group>"; };
 		8717A9A22AD9A0A800E4EE50 /* errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = errors.swift; sourceTree = "<group>"; };
 		8717A9A42AD9A3BC00E4EE50 /* localisable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localisable.swift; sourceTree = "<group>"; };
 		876E98F92AE6FFE700EE954E /* CurrencyServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyServices.swift; sourceTree = "<group>"; };
@@ -100,6 +102,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8708051F2AF50BD400A3E58E /* ActivitiesIndicatorAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				870805202AF50BFB00A3E58E /* ActivityIndicatorAnimation.swift */,
+			);
+			path = ActivitiesIndicatorAnimation;
+			sourceTree = "<group>";
+		};
 		876E98F82AE6FFCD00EE954E /* Currency */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +142,7 @@
 		87D7464E2AC2BB840078C662 /* lebaluchon */ = {
 			isa = PBXGroup;
 			children = (
+				8708051F2AF50BD400A3E58E /* ActivitiesIndicatorAnimation */,
 				87D746842AC2D4070078C662 /* View */,
 				87D746812AC2BCC80078C662 /* Controller */,
 				87D7467F2AC2BCB60078C662 /* Model */,
@@ -368,6 +379,7 @@
 				87D746522AC2BB840078C662 /* SceneDelegate.swift in Sources */,
 				8717A9A32AD9A0A800E4EE50 /* errors.swift in Sources */,
 				876E98FA2AE6FFE700EE954E /* CurrencyServices.swift in Sources */,
+				870805212AF50BFB00A3E58E /* ActivityIndicatorAnimation.swift in Sources */,
 				8717A9A52AD9A3BC00E4EE50 /* localisable.swift in Sources */,
 				87AF50DB2AC6C77500F3D5E6 /* WeatherViewController.swift in Sources */,
 				87D746902AC3233E0078C662 /* Languages.swift in Sources */,
