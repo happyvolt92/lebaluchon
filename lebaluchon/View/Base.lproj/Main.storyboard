@@ -128,8 +128,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="TextDestinationViewTranslated" destination="LXb-GL-KUG" id="ucD-V8-VqT"/>
-                        <outlet property="TextViewToTranslate" destination="Gkp-gX-Hac" id="Dng-a9-2fI"/>
-                        <outlet property="TextViewTranslator" destination="Gkp-gX-Hac" id="cky-XX-chR"/>
+                        <outlet property="TextViewToTranslate" destination="Gkp-gX-Hac" id="cky-XX-chR"/>
                         <outlet property="ToggleLanguages" destination="uuC-0u-5aq" id="PIK-TG-dSj"/>
                         <outlet property="TranslateButton" destination="2TO-mi-1WN" id="nsE-PR-Rg8"/>
                         <outlet property="TranslatorView" destination="5EZ-qb-Rvc" id="eYR-YR-wZh"/>
@@ -147,34 +146,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backpackBgremoved" translatesAutoresizingMaskIntoConstraints="NO" id="vMf-wW-TS4">
-                                <rect key="frame" x="139" y="69" width="115" height="102"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="102" id="FzK-Dd-VTS"/>
-                                    <constraint firstAttribute="width" constant="115" id="now-hT-rsx"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD DOLLAR " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPa-On-j5G">
-                                <rect key="frame" x="48" y="291" width="137.66666666666666" height="25"/>
-                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="19"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="PJZ-Xb-5b5" userLabel="dollarsTextField">
-                                <rect key="frame" x="48" y="340" width="289" height="34"/>
-                                <color key="backgroundColor" red="0.43774297249999999" green="0.43774297249999999" blue="0.43774297249999999" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EURO " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vF-93-ROW">
-                                <rect key="frame" x="48" y="453" width="67" height="26"/>
-                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHT-l8-hNa">
-                                <rect key="frame" x="147" y="667" width="99" height="42"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pta-uf-AqQ" userLabel="UsStackViewVertical">
+                                <rect key="frame" x="48" y="303" width="123.33333333333331" height="72.333333333333371"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD DOLLAR " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPa-On-j5G">
+                                        <rect key="frame" x="0.0" y="0.0" width="123.33333333333333" height="22.333333333333332"/>
+                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="16" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="PJZ-Xb-5b5" userLabel="dollarsTextField">
+                                        <rect key="frame" x="0.0" y="38.333333333333371" width="123.33333333333333" height="34"/>
+                                        <color key="backgroundColor" red="0.43774297249999999" green="0.43774297249999999" blue="0.43774297249999999" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="8hP-ry-htn"/>
+                                <keyboardLayoutGuide key="keyboard" id="Xt4-Yt-1Jl"/>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHT-l8-hNa">
+                                <rect key="frame" x="147" y="653.66666666666663" width="99" height="41.333333333333371"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Convert" cornerStyle="medium">
                                     <backgroundConfiguration key="background">
@@ -187,38 +181,36 @@
                                     <action selector="convertButtonTapped:" destination="yti-4c-vrs" eventType="touchUpInside" id="ZGi-HT-mkD"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="3Uk-pO-2u3" userLabel="eurosTextField">
-                                <rect key="frame" x="48" y="503" width="289" height="34"/>
-                                <color key="backgroundColor" red="0.43774297249999999" green="0.43774297249999999" blue="0.43774297249999999" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backpackBgremoved" translatesAutoresizingMaskIntoConstraints="NO" id="vMf-wW-TS4">
+                                <rect key="frame" x="139" y="86" width="115" height="102"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="8Vh-jS-gf5" userLabel="EuStackViewVertical">
+                                <rect key="frame" x="48" y="433" width="57" height="80.333333333333371"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EURO " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vF-93-ROW">
+                                        <rect key="frame" x="0.0" y="0.0" width="57" height="22.333333333333332"/>
+                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="16" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3Uk-pO-2u3" userLabel="eurosTextField">
+                                        <rect key="frame" x="0.0" y="46.333333333333371" width="57" height="34"/>
+                                        <color key="backgroundColor" red="0.43774297249999999" green="0.43774297249999999" blue="0.43774297249999999" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="N4i-0L-vJp"/>
+                                <keyboardLayoutGuide key="keyboard" id="MfA-Le-eC2"/>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JRO-uC-yQ6"/>
                         <color key="backgroundColor" red="0.15294116739999999" green="0.082352943720000002" blue="0.20000001789999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstItem="3Uk-pO-2u3" firstAttribute="top" secondItem="2vF-93-ROW" secondAttribute="bottom" constant="24" id="2TD-Ba-Gk6"/>
-                            <constraint firstItem="vMf-wW-TS4" firstAttribute="centerX" secondItem="PJZ-Xb-5b5" secondAttribute="centerX" constant="4" id="B2A-C5-7bK"/>
-                            <constraint firstItem="vMf-wW-TS4" firstAttribute="top" secondItem="JRO-uC-yQ6" secondAttribute="top" constant="10" id="Bro-8K-ch9"/>
-                            <constraint firstItem="2vF-93-ROW" firstAttribute="top" secondItem="PJZ-Xb-5b5" secondAttribute="bottom" constant="79" id="FdJ-rc-QmP"/>
-                            <constraint firstItem="tPa-On-j5G" firstAttribute="top" secondItem="vMf-wW-TS4" secondAttribute="bottom" constant="120" id="IUs-qD-2qs"/>
-                            <constraint firstItem="JRO-uC-yQ6" firstAttribute="trailing" secondItem="2vF-93-ROW" secondAttribute="trailing" constant="278" id="Nkg-Qd-aD2"/>
-                            <constraint firstItem="PJZ-Xb-5b5" firstAttribute="top" secondItem="tPa-On-j5G" secondAttribute="bottom" constant="24" id="OKR-sj-SUG"/>
-                            <constraint firstItem="tPa-On-j5G" firstAttribute="leading" secondItem="JRO-uC-yQ6" secondAttribute="leading" constant="48" id="P1w-Je-Hzw"/>
-                            <constraint firstItem="tPa-On-j5G" firstAttribute="leading" secondItem="3Uk-pO-2u3" secondAttribute="leading" id="Rio-MQ-eef"/>
-                            <constraint firstItem="tPa-On-j5G" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2vF-93-ROW" secondAttribute="leading" id="VXy-pm-eRU"/>
-                            <constraint firstItem="vMf-wW-TS4" firstAttribute="centerX" secondItem="zsD-JI-N6P" secondAttribute="centerX" id="Z55-iQ-N7f"/>
-                            <constraint firstItem="JRO-uC-yQ6" firstAttribute="trailing" secondItem="tPa-On-j5G" secondAttribute="trailing" constant="207.33333333333334" id="hBb-8Q-6JQ"/>
-                            <constraint firstItem="PJZ-Xb-5b5" firstAttribute="leading" secondItem="JRO-uC-yQ6" secondAttribute="leading" constant="48" id="j07-bs-FVK"/>
-                            <constraint firstItem="JRO-uC-yQ6" firstAttribute="bottom" secondItem="RHT-l8-hNa" secondAttribute="bottom" constant="60" id="kSR-q2-yix"/>
-                            <constraint firstItem="vMf-wW-TS4" firstAttribute="centerX" secondItem="RHT-l8-hNa" secondAttribute="centerX" id="q5g-rd-FUR"/>
-                            <constraint firstItem="JRO-uC-yQ6" firstAttribute="trailing" secondItem="3Uk-pO-2u3" secondAttribute="trailing" constant="56" id="rDo-10-uFt"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Currency" image="dollarsign.circle.fill" catalog="system" id="xLO-9E-oLn" userLabel="Currency"/>
                     <connections>
-                        <outlet property="ConvertButton" destination="RHT-l8-hNa" id="9Cp-sC-fMt"/>
                         <outlet property="dollarsTextField" destination="PJZ-Xb-5b5" id="zRz-yB-VVe"/>
                         <outlet property="eurosTextField" destination="3Uk-pO-2u3" id="o6F-Hs-xOc"/>
                     </connections>
@@ -291,7 +283,7 @@
                                 <viewLayoutGuide key="safeArea" id="e5C-3y-hCL"/>
                                 <color key="backgroundColor" red="0.37095544559439431" green="0.36862239247744844" blue="0.37328849871134018" alpha="0.1911139455782313" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fd7-vI-OuN" userLabel="refreshWeatherDataButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fd7-vI-OuN" userLabel="refreshWeatherDataButton">
                                 <rect key="frame" x="148.33333333333334" y="657" width="96.666666666666657" height="40"/>
                                 <color key="backgroundColor" red="0.86926211119999997" green="0.41936006440000001" blue="0.24789233560000001" alpha="0.78358892749999998" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

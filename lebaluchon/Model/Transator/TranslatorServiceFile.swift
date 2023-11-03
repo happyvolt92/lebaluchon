@@ -33,37 +33,40 @@ class TranslatorService {
         // Create a URLSession data task to perform the translation request
         task = session.dataTask(with: request) { data, response, error in
             // Check for errors during the task
-            guard error == nil else {
-                // If there is an error during the task, report an API error and return early
-                completion(.failure(.apiError))
-                return
-            }
-            
-            // Check if there is data available in the response
-            guard let jsonData = data else {
-                // If no data is available, report no data available and return early
-                completion(.failure(.noDataAvailable))
-                return
-            }
-            
-            // Check if the HTTP response status code is 200 (OK)
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                // If the HTTP response is not valid, report an HTTP response error and return early
-                completion(.failure(.httpResponseError))
-                return
-            }
-            
-            do {
-                // Use a JSON decoder to parse JSON data into a TranslationData structure
-                let decoder = JSONDecoder()
-                let traductor = try decoder.decode(TranslationData.self, from: jsonData)
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    // If there is an error during the task, report an API error and return early
+                    completion(.failure(.apiError))
+                    return
+                }
                 
-                // If parsing is successful, report the translation data as a success result
-                completion(.success(traductor))
-            } catch {
-                // If parsing fails, report a parsing error
-                completion(.failure(.parsingFailed))
+                // Check if there is data available in the response
+                guard let jsonData = data else {
+                    // If no data is available, report no data available and return early
+                    completion(.failure(.noDataAvailable))
+                    return
+                }
+                
+                // Check if the HTTP response status code is 200 (OK)
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                    // If the HTTP response is not valid, report an HTTP response error and return early
+                    completion(.failure(.httpResponseError))
+                    return
+                }
+                
+                do {
+                    // Use a JSON decoder to parse JSON data into a TranslationData structure
+                    let decoder = JSONDecoder()
+                    let traductor = try decoder.decode(TranslationData.self, from: jsonData)
+                    
+                    // If parsing is successful, report the translation data as a success result
+                    completion(.success(traductor))
+                } catch {
+                    // If parsing fails, report a parsing error
+                    completion(.failure(.parsingFailed))
+                }
             }
+            
         }
         
         // Start the data task to perform the translation request
