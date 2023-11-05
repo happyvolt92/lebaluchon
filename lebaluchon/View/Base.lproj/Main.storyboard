@@ -19,6 +19,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2TO-mi-1WN" userLabel="TranslateButton">
                                 <rect key="frame" x="145.33333333333334" y="677" width="105.33333333333334" height="34"/>
+                                <gestureRecognizers/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Translate" cornerStyle="medium">
@@ -31,22 +32,39 @@
                                     <action selector="toggleTranslationButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="p4J-BD-NlY"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Odh-0K-jnR" userLabel="LogoView">
+                                <rect key="frame" x="-45.666666666666657" y="85" width="484.33333333333326" height="110"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backpackBgremoved" translatesAutoresizingMaskIntoConstraints="NO" id="Wt0-hC-t4o">
+                                        <rect key="frame" x="0.0" y="-14" width="500" height="102"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                        </accessibility>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Wt0-hC-t4o" secondAttribute="bottom" constant="22" id="GHW-ui-OCc"/>
+                                    <constraint firstItem="Wt0-hC-t4o" firstAttribute="leading" secondItem="Odh-0K-jnR" secondAttribute="leading" id="Hof-0O-hYB"/>
+                                    <constraint firstItem="Wt0-hC-t4o" firstAttribute="top" secondItem="Odh-0K-jnR" secondAttribute="top" constant="-14" id="dHi-S5-SRP"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wt0-hC-t4o" secondAttribute="trailing" constant="-15.666666666666686" id="qoP-rB-7XI"/>
+                                </constraints>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mgb-Ea-0J6">
                                 <rect key="frame" x="20" y="269" width="353" height="251"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T6V-Fu-vxj">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="251"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" id="LXb-GL-KUG" userLabel="TextDestinationViewTranslated">
-                                                <rect key="frame" x="0.0" y="162" width="353" height="110"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="Gkp-gX-Hac" userLabel="TextViewToTranslate">
+                                                <rect key="frame" x="0.0" y="-19" width="353" height="110"/>
                                                 <color key="backgroundColor" red="0.48988860649999999" green="0.48988860649999999" blue="0.48988860649999999" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="Gkp-gX-Hac" userLabel="TextViewToTranslate">
-                                                <rect key="frame" x="0.0" y="-19" width="353" height="110"/>
+                                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" id="LXb-GL-KUG" userLabel="TextDestinationViewTranslated">
+                                                <rect key="frame" x="0.0" y="162" width="353" height="110"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.48988860649999999" green="0.48988860649999999" blue="0.48988860649999999" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -77,23 +95,6 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Odh-0K-jnR" userLabel="LogoView">
-                                <rect key="frame" x="-45.666666666666657" y="85" width="484.33333333333326" height="110"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backpackBgremoved" translatesAutoresizingMaskIntoConstraints="NO" id="Wt0-hC-t4o">
-                                        <rect key="frame" x="0.0" y="-14" width="500" height="102"/>
-                                        <accessibility key="accessibilityConfiguration">
-                                            <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
-                                        </accessibility>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Wt0-hC-t4o" secondAttribute="bottom" constant="22" id="GHW-ui-OCc"/>
-                                    <constraint firstItem="Wt0-hC-t4o" firstAttribute="leading" secondItem="Odh-0K-jnR" secondAttribute="leading" id="Hof-0O-hYB"/>
-                                    <constraint firstItem="Wt0-hC-t4o" firstAttribute="top" secondItem="Odh-0K-jnR" secondAttribute="top" constant="-14" id="dHi-S5-SRP"/>
-                                    <constraint firstAttribute="trailing" secondItem="Wt0-hC-t4o" secondAttribute="trailing" constant="-15.666666666666686" id="qoP-rB-7XI"/>
-                                </constraints>
-                            </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uuC-0u-5aq" userLabel="ToggleLanguages">
                                 <rect key="frame" x="126.33333333333331" y="561" width="143" height="27"/>
                                 <constraints>
@@ -118,6 +119,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.1541392151" green="0.081991846650000005" blue="0.2015617318" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="mgb-Ea-0J6" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="269" id="11V-c4-2LA"/>
                             <constraint firstItem="Odh-0K-jnR" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="1nm-dz-12v"/>
@@ -134,6 +136,9 @@
                             <constraint firstItem="dRK-kh-P92" firstAttribute="top" secondItem="Odh-0K-jnR" secondAttribute="bottom" constant="18" id="ta3-mu-zf0"/>
                             <constraint firstItem="Odh-0K-jnR" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="26" id="x7A-E4-T0O"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="fTR-7E-ltJ" appends="YES" id="4JZ-mZ-MXi"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Translator" id="zVH-KM-NmG" userLabel="Translator">
                         <imageReference key="image" image="character.bubble.fill.ja" catalog="system" variableValue="1"/>
@@ -148,6 +153,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="fTR-7E-ltJ">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="Y6W-OH-hqX" id="ZkK-H7-qVL"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-689.3129770992366" y="724.64788732394368"/>
         </scene>
@@ -274,9 +284,8 @@
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="fg1-qw-Wbw"/>
                             </stackView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BCX-rc-PxH" userLabel="LogoView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BCX-rc-PxH" userLabel="LogoView">
                                 <rect key="frame" x="142" y="83" width="117" height="110"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backpackBgremoved" translatesAutoresizingMaskIntoConstraints="NO" id="GsX-Xd-So4">
                                         <rect key="frame" x="1" y="-13" width="115" height="102"/>
@@ -305,9 +314,8 @@
                                 <viewLayoutGuide key="safeArea" id="e5C-3y-hCL"/>
                                 <color key="backgroundColor" red="0.37095544559439431" green="0.36862239247744844" blue="0.37328849871134018" alpha="0.1911139455782313" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fd7-vI-OuN" userLabel="refreshWeatherDataButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fd7-vI-OuN" userLabel="refreshWeatherDataButton">
                                 <rect key="frame" x="148.33333333333334" y="657" width="96.666666666666657" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.86926211119999997" green="0.41936006440000001" blue="0.24789233560000001" alpha="0.78358892749999998" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -321,9 +329,11 @@
                                     <action selector="refreshWeatherData:" destination="NwS-Tw-JwU" eventType="touchUpInside" id="I4P-ks-CoY"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" fixedFrame="YES" text="New York 🇺🇸" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fv-vk-16f">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="New York 🇺🇸" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fv-vk-16f">
                                 <rect key="frame" x="16" y="209" width="180" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="vSP-Sd-qEd"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -332,14 +342,17 @@
                                 <rect key="frame" x="16" y="478" width="361" height="134"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NdQ-Lu-ToD" userLabel="weatherInformationBesancon">
+                                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NdQ-Lu-ToD" userLabel="weatherInformationBesancon">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="134"/>
                                         <color key="backgroundColor" red="0.37095544559999999" green="0.36862239250000001" blue="0.37328849870000003" alpha="0.18940489969999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="KeI-EL-kuc"/>
+                                        </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UpS-8F-ajg" userLabel="weatherIconBesancon">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UpS-8F-ajg" userLabel="weatherIconBesancon">
                                         <rect key="frame" x="180" y="0.0" width="181" height="134"/>
                                     </imageView>
                                 </subviews>
@@ -349,6 +362,18 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NAW-IZ-ohL"/>
                         <color key="backgroundColor" red="0.1541392151" green="0.081991846650000005" blue="0.2015617318" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="NAW-IZ-ohL" firstAttribute="trailing" secondItem="BCX-rc-PxH" secondAttribute="trailing" constant="134" id="8w5-9B-O7l"/>
+                            <constraint firstItem="6fv-vk-16f" firstAttribute="leading" secondItem="jO6-YH-hh3" secondAttribute="leading" id="E2B-H5-8ok"/>
+                            <constraint firstItem="NAW-IZ-ohL" firstAttribute="trailing" secondItem="6fv-vk-16f" secondAttribute="trailing" constant="197" id="KEV-fM-C8R"/>
+                            <constraint firstItem="6fv-vk-16f" firstAttribute="top" secondItem="BCX-rc-PxH" secondAttribute="bottom" constant="16" id="OC5-x8-pui"/>
+                            <constraint firstItem="Fd7-vI-OuN" firstAttribute="leading" secondItem="NAW-IZ-ohL" secondAttribute="leading" constant="148.33333333333337" id="Yul-ra-IeF"/>
+                            <constraint firstItem="jO6-YH-hh3" firstAttribute="top" secondItem="6fv-vk-16f" secondAttribute="bottom" constant="8" id="b6B-iX-tuF"/>
+                            <constraint firstItem="Fd7-vI-OuN" firstAttribute="centerX" secondItem="uFt-DW-J9c" secondAttribute="centerX" id="cNW-Ds-NEa"/>
+                            <constraint firstItem="BCX-rc-PxH" firstAttribute="leading" secondItem="NAW-IZ-ohL" secondAttribute="leading" constant="142" id="jRt-pZ-lpE"/>
+                            <constraint firstItem="Fd7-vI-OuN" firstAttribute="top" secondItem="uFt-DW-J9c" secondAttribute="bottom" constant="45" id="lOB-vv-6VZ"/>
+                            <constraint firstItem="BCX-rc-PxH" firstAttribute="top" secondItem="NAW-IZ-ohL" secondAttribute="top" constant="24" id="lTf-2G-F8P"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Weather" image="sun.max.circle.fill" catalog="system" largeContentSizeImage="sun.min" springLoaded="YES" id="GSt-ci-eyM" userLabel="Weather"/>
                     <connections>

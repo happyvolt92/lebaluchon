@@ -1,16 +1,18 @@
 import UIKit
 
-class TranslatorViewController: UIViewController {
-
+class TranslatorViewController: UIViewController, UITextViewDelegate{
+    
     @IBOutlet var TranslatorView: UIView!
     @IBOutlet weak var TextViewToTranslate: UITextView!
     @IBOutlet weak var ToggleLanguages: UISegmentedControl!
     @IBOutlet weak var TranslateButton: UIButton!
     @IBOutlet weak var TextDestinationViewTranslated: UITextView!
     @IBOutlet weak var translatorActivityIndicator: UIActivityIndicatorView!
-
+    
     private var translatedText = ""
-
+    
+    
+    
     @IBAction func toggleTranslationButton(_ sender: UIButton) {
         guard !TextViewToTranslate.text.isEmpty else {
             textViewAlert()
@@ -20,7 +22,11 @@ class TranslatorViewController: UIViewController {
         ActivityIndicatorAnimation.shared.startLoading(for: translatorActivityIndicator)
         translate()
     }
-
+    
+    @IBAction func dismissKeyboard(_ sender : Any){
+        TextViewToTranslate.resignFirstResponder()
+    }
+    
     private func translate() {
         guard let language = switchLanguage() else {
             return
@@ -40,7 +46,8 @@ class TranslatorViewController: UIViewController {
             }
         }
     }
-
+    
+    
     private func switchLanguage() -> LanguagesOptions? {
         switch ToggleLanguages.selectedSegmentIndex {
         case 0:
@@ -51,30 +58,36 @@ class TranslatorViewController: UIViewController {
             return nil
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        TextViewToTranslate.delegate = self
     }
-
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.becomeFirstResponder()
+    }
+    
     private func updateTextView() {
-           DispatchQueue.main.async {
-               // Update the text view with the translated text
-               self.TextDestinationViewTranslated.text = self.translatedText
-           }
+        DispatchQueue.main.async {
+            // Update the text view with the translated text
+            self.TextDestinationViewTranslated.text = self.translatedText
+        }
     }
-
+    
     private func errorAlert() {
         let alert = UIAlertController(title: "Error", message: "Internet connection lost 🤔", preferredStyle: .alert)
         let actionAlert = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(actionAlert)
         present(alert, animated: true, completion: nil)
     }
-
+    
     private func textViewAlert() {
         let alert = UIAlertController(title: "Error", message: "Nothing + Nothing = Nothing! 😱 Add some text to see a translation", preferredStyle: .alert)
         let actionAlert = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(actionAlert)
         present(alert, animated: true, completion: nil)
     }
+    
 }
+
+    
