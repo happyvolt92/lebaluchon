@@ -1,28 +1,23 @@
 import UIKit
 
 class WeatherViewController: UIViewController {
-    // Outlets
     @IBOutlet weak var weatherInformationNewYork: UITextView!
     @IBOutlet weak var weatherIconNewYork: UIImageView!
     @IBOutlet weak var refreshWeatherDataButton: UIButton!
     @IBOutlet weak var weatherInformationBesancon: UITextView!
     @IBOutlet weak var weatherIconBesancon: UIImageView!
 
-    //    activityview after refresh
     @IBAction func refreshWeatherData(_ sender: UIButton) {
-          // Refresh weather data for both cities
-          loadWeatherData(for: "New York", textView: weatherInformationNewYork, iconView: weatherIconNewYork)
-          loadWeatherData(for: "Besançon", textView: weatherInformationBesancon, iconView: weatherIconBesancon)
-      }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Load weather data for New York and Besançon with icons
         loadWeatherData(for: "New York", textView: weatherInformationNewYork, iconView: weatherIconNewYork)
         loadWeatherData(for: "Besançon", textView: weatherInformationBesancon, iconView: weatherIconBesancon)
     }
-    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        loadWeatherData(for: "New York", textView: weatherInformationNewYork, iconView: weatherIconNewYork)
+        loadWeatherData(for: "Besançon", textView: weatherInformationBesancon, iconView: weatherIconBesancon)
+    }
+
     private func loadWeatherData(for city: String, textView: UITextView, iconView: UIImageView) {
         WeatherServices.shared.fetchWeather(for: city) { [weak self] result in
             guard let self = self else { return }
@@ -30,14 +25,12 @@ class WeatherViewController: UIViewController {
             case .success(let weatherResponse):
                 DispatchQueue.main.async {
                     textView.text = "\(weatherResponse.weather.first?.description ?? "N/A")\n\(weatherResponse.main.temp)°C"
-                    if (weatherResponse.weather.first?.icon) != nil {
-                        if let iconURL = weatherResponse.weather.first?.iconURL {
-                            self.loadWeatherIcon(from: iconURL, imageView: iconView)
-                        }
+                    if let iconURL = weatherResponse.weather.first?.iconURL {
+                        self.loadWeatherIcon(from: iconURL, imageView: iconView)
                     }
                 }
             case .failure(let error):
-                print("Weather fetch failed with error: \(error)")
+                self.showAlert(for: error)
             }
         }
     }
@@ -45,6 +38,7 @@ class WeatherViewController: UIViewController {
     private func loadWeatherIcon(from url: URL, imageView: UIImageView) {
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
+                self.showAlert(for: .requestError)
                 print("Error loading icon: \(error)")
                 return
             }
