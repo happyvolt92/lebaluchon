@@ -1,0 +1,16 @@
+//
+//  TranslatorFakeData.swift
+//  lebaluchonTests
+//
+//  Created by Elodie Gage on 17/11/2023.
+//
+
+{
+    "data": {
+        "translations": [
+            {
+                "translatedText": "Bonjour Steve"
+            }
+        ]
+    }
+}

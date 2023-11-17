@@ -1,10 +1,10 @@
 import Foundation
 
 class CurrencyService {
+        public static let shared = CurrencyService()
+        var urlSession: URLSession = URLSession.shared
     
-    static let shared = CurrencyService()
-    
-    private init() { }
+    public init() { }
     
     func getCurrencyRate(to: String, from: String, amount: Double, completion: @escaping (Result<Double, Error>) -> Void) {
         let baseURL = "https://api.apilayer.com/fixer/convert"

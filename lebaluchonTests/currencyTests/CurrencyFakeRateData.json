@@ -1,0 +1,15 @@
+//
+//  CurrencyFakeRateData.swift
+//  lebaluchonTests
+//
+//  Created by Elodie Gage on 17/11/2023.
+//
+{
+    "success": true,
+    "timestamp": 1638529743,
+    "base": "EUR",
+    "date": "2023-11-15",
+    "rates": {
+        "USD": 1.131164
+    }
+}

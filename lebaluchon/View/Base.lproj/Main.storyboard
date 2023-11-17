@@ -141,7 +141,7 @@
                         </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Translator" id="zVH-KM-NmG" userLabel="Translator">
-                        <imageReference key="image" image="character.bubble.fill.ja" catalog="system" variableValue="1"/>
+                        <imageReference key="image" image="character.bubble.fill" catalog="system" variableValue="1"/>
                     </tabBarItem>
                     <connections>
                         <outlet property="TextDestinationViewTranslated" destination="LXb-GL-KUG" id="ucD-V8-VqT"/>
@@ -315,7 +315,7 @@
                                 <color key="backgroundColor" red="0.37095544559439431" green="0.36862239247744844" blue="0.37328849871134018" alpha="0.1911139455782313" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fd7-vI-OuN" userLabel="refreshWeatherDataButton">
-                                <rect key="frame" x="148.33333333333334" y="657" width="96.666666666666657" height="40"/>
+                                <rect key="frame" x="148.33333333333334" y="657" width="96.333333333333343" height="40"/>
                                 <color key="backgroundColor" red="0.86926211119999997" green="0.41936006440000001" blue="0.24789233560000001" alpha="0.78358892749999998" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -419,7 +419,7 @@
     </scenes>
     <resources>
         <image name="backpackBgremoved" width="500" height="500"/>
-        <image name="character.bubble.fill.ja" catalog="system" width="128" height="110"/>
+        <image name="character.bubble.fill" catalog="system" width="128" height="110"/>
         <image name="dollarsign.circle.fill" catalog="system" width="128" height="123"/>
         <image name="sun.max.circle.fill" catalog="system" width="128" height="123"/>
         <image name="sun.min" catalog="system" width="128" height="123"/>
