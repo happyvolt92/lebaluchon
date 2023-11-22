@@ -22,48 +22,40 @@ class CurrencyServiceTests: XCTestCase {
     // MARK: - Tests
     
     
-//    use the url
+    //    use the url
     func testGetCurrencyRateSuccess() {
-        // Given
-//        let expectation = XCTestExpectation(description: "Currency conversion successful")
-
-        // When
         currencyService.getCurrencyRate(to: "USD", from: "EUR", amount: 100) { result in
-             switch result {
-             case .success(let convertedValue):
-                 print("Converted value: \(convertedValue)")
-                 XCTAssertEqual(convertedValue, 1.131164, accuracy: 0.001)
-//                 expectation.fulfill()
-
-             case .failure:
-                 XCTFail("Should not fail for successful conversion")
-             }
+            switch result {
+            case .success(let convertedValue):
+                print("Converted value: \(convertedValue)")
+                XCTAssertEqual(convertedValue, 1.131164, accuracy: 0.001)
+            case .failure:
+                XCTFail("Should not fail for successful conversion")
+            }
         }
-        
-//        wait(for: [expectation], timeout: 20.0) // Increased timeout value
     }
-    
     func testGetCurrencyRateFailure() {
         let urlSessionFake = URLSessionFake(
             data: FakeChangeRateResponseData.changeRateIncorrectData,
             response: FakeChangeRateResponseData.responseKO,
             error: nil
         )
- 
-        // Given
         self.currencyService.urlSession = urlSessionFake
         
-        // When
         currencyService.getCurrencyRate(to: "USD", from: "EUR", amount: 100) { result in
             switch result {
             case .success:
                 XCTFail("Should fail for incorrect data")
 
-            case .failure(let error):
-                print("Error received: \(error)")
-                XCTAssertTrue(error is FakeChangeRateResponseData.FakeChangeRateError)      
+            case .failure(let error as lebaluchon.AppError):
+                
+                // Adjust the condition to check for the specific error type
+                XCTAssertTrue(error == .parsingFailed, "Error should be parsingFailed")
+                
+            default:
+                XCTFail("Unexpected result")
             }
         }
     }
-    
+
 }
