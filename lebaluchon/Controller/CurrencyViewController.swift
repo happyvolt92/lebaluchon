@@ -16,55 +16,27 @@ class CurrencyViewController: UIViewController {
         loadCurrencyRate()
     }
 
-    // MARK: - Actions
     @IBAction func convertButtonTapped(_ sender: UIButton) {
-        // Check which text field is currently active (has user input focus).
-        if dollarsTextField.isFirstResponder {
-            if let dollars = Double(dollarsTextField.text ?? "") {
-                // Start the activity indicator animation
-                ActivityIndicatorAnimation.shared.startLoading(for: currencyActivityIndicator)
-                CurrencyService.shared.getCurrencyRate(to: "EUR", from: "USD", amount: dollars) { result in
-                    DispatchQueue.main.async {
-                        // Stop the activity indicator animation
-                        ActivityIndicatorAnimation.shared.stopLoading(for: self.currencyActivityIndicator)
+        guard let amountText = dollarsTextField.text, let amount = Double(amountText) else {
+            showAlert(title: "Invalid Amount", message: "Please enter a valid amount.")
+            return
+        }
 
-                        switch result {
-                        case .success(let convertedValue):
-                            // Update the euros text field with the converted value
-                            self.eurosTextField.text = String(format: "%.2f", convertedValue)
-                        case .failure(let error):
-                            // Show an alert for the currency conversion failure using error.swift
-                            if let appError = error as? AppError {
-                                self.showAlert(for: appError)
-                            } else {
-                                print("Unexpected error type")
-                            }
-                        }
-                    }
-                }
-            }
-        } else if eurosTextField.isFirstResponder {
-            if let euros = Double(eurosTextField.text ?? "") {
-                // Start the activity indicator animation
-                ActivityIndicatorAnimation.shared.startLoading(for: currencyActivityIndicator)
-                CurrencyService.shared.getCurrencyRate(to: "USD", from: "EUR", amount: euros) { result in
-                    DispatchQueue.main.async {
-                        // Stop the activity indicator animation
-                        ActivityIndicatorAnimation.shared.stopLoading(for: self.currencyActivityIndicator)
+        let fromCurrency = dollarsTextField.isFirstResponder ? "USD" : "EUR"
+        let toCurrency = dollarsTextField.isFirstResponder ? "EUR" : "USD"
 
-                        switch result {
-                        case .success(let convertedValue):
-                            // Update the dollars text field with the converted value
-                            self.dollarsTextField.text = String(format: "%.2f", convertedValue)
-                        case .failure(let error):
-                            // Show an alert for the currency conversion failure using error.swift
-                            if let appError = error as? AppError {
-                                self.showAlert(for: appError)
-                            } else {
-                                print("Unexpected error type")
-                            }
-                        }
-                    }
+        ActivityIndicatorAnimation.shared.startLoading(for: currencyActivityIndicator)
+        CurrencyConverter.convertCurrency(amount: amount, fromCurrency: fromCurrency, toCurrency: toCurrency) { result in
+            DispatchQueue.main.async {
+                ActivityIndicatorAnimation.shared.stopLoading(for: self.currencyActivityIndicator)
+
+                switch result {
+                case .success(let convertedValue):
+                    let textField = self.dollarsTextField.isFirstResponder ? self.eurosTextField : self.dollarsTextField
+                    textField?.text = String(format: "%.2f", convertedValue)
+
+                case .failure(let error):
+                    self.showAlert(for: error)
                 }
             }
         }

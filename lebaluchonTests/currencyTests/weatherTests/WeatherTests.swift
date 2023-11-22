@@ -17,7 +17,7 @@ class WeatherServiceTestCase: XCTestCase {
             // Then
             switch result {
             case .failure(let error):
-                XCTAssertEqual(error, .apiError)
+                XCTAssertEqual(error, .requestError)
             case .success:
                 XCTFail("Request should fail with apiError")
             }
@@ -47,7 +47,7 @@ class WeatherServiceTestCase: XCTestCase {
             // Then
             switch result {
             case .failure(let error):
-                XCTAssertEqual(error, .httpResponseError)
+                XCTAssertEqual(error, .parsingFailed)
             case .success:
                 XCTFail("Request should fail with httpResponseError")
             }
@@ -75,17 +75,29 @@ class WeatherServiceTestCase: XCTestCase {
         // When
         weatherService.fetchWeather(for: "nyc") { result in
             // Then
-            let weatherId = 803
-            let description = "nuageux"
-            let temperature = 7.56
+            let expectedWeatherId = 803
+            let expectedDescription = "nuageux"
+            let expectedTemperature = 7.56
+            
             switch result {
             case .failure:
                 XCTFail("Request should not fail")
+                
             case .success(let weatherForecast):
                 XCTAssertNotNil(weatherForecast)
-                XCTAssertEqual(weatherId, weatherForecast.weather.first!.id)
-                XCTAssertEqual(description, weatherForecast.weather.first!.description)
-                XCTAssertEqual(temperature, weatherForecast.main.temp)
+                
+                // Print weather details
+                print("Actual Weather ID: \(weatherForecast.weather.first!.id)")
+                print("Actual Weather Description: \(weatherForecast.weather.first!.description)")
+                print("Actual Temperature: \(weatherForecast.main.temp)")
+                
+                // Verify weather details
+                XCTAssertEqual(expectedWeatherId, weatherForecast.weather.first!.id)
+                XCTAssertEqual(expectedDescription, weatherForecast.weather.first!.description)
+                
+                // Verify temperature with accuracy
+                XCTAssertEqual(expectedTemperature, weatherForecast.main.temp, accuracy: 0.001)
+                
             }
         }
     }

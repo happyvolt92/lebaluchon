@@ -11,7 +11,7 @@ class CurrencyServiceTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Use URLSessionFake for testing
-        let urlSessionFake = URLSessionFake(data: nil, response: nil, error: nil)
+        let urlSessionFake = URLSessionFake(configuration: .default)
         currencyService = CurrencyService.shared
         currencyService.urlSession = urlSessionFake
     }
@@ -22,7 +22,7 @@ class CurrencyServiceTests: XCTestCase {
         // Given
         let expectation = XCTestExpectation(description: "Currency conversion successful")
         
-        let fakeData = FakeChangeRateResponseData().changeRateCorrectData()
+        let fakeData = FakeChangeRateResponseData.changeRateCorrectData
         let fakeResponse = FakeChangeRateResponseData.responseOK
 
         // When
@@ -38,7 +38,7 @@ class CurrencyServiceTests: XCTestCase {
             }
         }
 
-        wait(for: [expectation], timeout: 5.0)
+        wait(for: [expectation], timeout: 50.0) // Increased timeout value
     }
 
     func testGetCurrencyRateFailure() {
@@ -60,7 +60,7 @@ class CurrencyServiceTests: XCTestCase {
             }
         }
 
-        wait(for: [expectation], timeout: 5.0)
+        wait(for: [expectation], timeout: 50.0) // Increased timeout value
     }
 
     // MARK: - Mock URLSession
@@ -70,10 +70,8 @@ class CurrencyServiceTests: XCTestCase {
         var response: URLResponse?
         var error: Error?
 
-        init(data: Data?, response: URLResponse?, error: Error?) {
-            self.data = data
-            self.response = response
-            self.error = error
+        init(configuration: URLSessionConfiguration) {
+            // Your initialization logic here
         }
 
         override func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {

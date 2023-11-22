@@ -1,0 +1,51 @@
+/* 
+  WeatherFakeData.json
+  lebaluchon
+
+  Created by Elodie Gage on 22/11/2023.
+  
+*/
+{
+    "coord": {
+        "lon": -74.006,
+        "lat": 40.7143
+    },
+    "weather": [
+        {
+            "id": 803,
+            "main": "Clouds",
+            "description": "nuageux",
+            "icon": "04d"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 7.56,
+        "feels_like": 7.06,
+        "temp_min": 5.69,
+        "temp_max": 9.05,
+        "pressure": 1014,
+        "humidity": 47
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 1.34,
+        "deg": 129,
+        "gust": 4.02
+    },
+    "clouds": {
+        "all": 75
+    },
+    "dt": 1638548202,
+    "sys": {
+        "type": 2,
+        "id": 2039034,
+        "country": "US",
+        "sunrise": 1638532989,
+        "sunset": 1638566947
+    },
+    "timezone": -18000,
+    "id": 5128581,
+    "name": "New York",
+    "cod": 200
+}

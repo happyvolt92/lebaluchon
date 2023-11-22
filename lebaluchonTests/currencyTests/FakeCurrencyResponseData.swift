@@ -10,21 +10,21 @@ import Foundation
 class FakeChangeRateResponseData {
 
     // MARK: - Data
-
-//    static var changeRateCorrectData: Data? {
-//        let bundle = Bundle(for: FakeChangeRateResponseData.self)
-//        let url = bundle.url(forResource: "CurrencyFakeRateData", withExtension: "json")!
-//        return try! Data(contentsOf: url)
-//    }
-//    DO IT AGAIN
+    
     func changeRateCorrectData()-> Data? {
         let bundle = Bundle(for: FakeChangeRateResponseData.self)
-        print(bundle.bundlePath)
-        print(bundle.bundleURL)
         let url = bundle.url(forResource: "CurrencyFakeRateData", withExtension: "json")!
-        return try! Data(contentsOf: url)
+        
+        do {
+            let data = try Data(contentsOf: url)
+            return data
+        } catch {
+            print("Error loading JSON data: \(error)")
+            return nil
+        }
     }
-
+    
+    
     static let changeRateIncorrectData = "erreur".data(using: .utf8)!
 
     // MARK: - Response

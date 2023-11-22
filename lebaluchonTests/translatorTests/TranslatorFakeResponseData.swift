@@ -13,8 +13,13 @@ class FakeTranslatorResponseData {
 
     static var translatorCorrectData: Data? {
         let bundle = Bundle(for: FakeTranslatorResponseData.self)
-        let url = bundle.url(forResource: "Translator", withExtension: "json")!
-        return try! Data(contentsOf: url)
+        
+        guard let url = bundle.url(forResource: "Translator", withExtension: "json"),
+              let jsonData = try? Data(contentsOf: url) else {
+            return nil
+        }
+        
+        return jsonData
     }
 
     static let translatorIncorrectData = "erreur".data(using: .utf8)!

@@ -1,8 +1,9 @@
+// CurrencyService.swift
 import Foundation
 
 class CurrencyService {
-        public static let shared = CurrencyService()
-        var urlSession: URLSession = URLSession.shared
+    public static let shared = CurrencyService()
+    var urlSession: URLSession = URLSession.shared
     
     public init() { }
     
@@ -27,17 +28,16 @@ class CurrencyService {
             }
             
             guard let data = data else {
-                completion(.failure(NSError(domain: "AppError", code: -1, userInfo: nil)))
+                completion(.failure(AppError.noDataAvailable))
                 return
             }
             
             do {
-                // Use a JSON decoder to parse the API response
                 let decoder = JSONDecoder()
-                let convertedValue = try decoder.decode(CurrencyConversionResponse.self, from: data)
-                completion(.success(convertedValue.result))
+                let conversionResponse = try decoder.decode(CurrencyConversionResponse.self, from: data)
+                completion(.success(conversionResponse.result))
             } catch {
-                completion(.failure(error))
+                completion(.failure(AppError.parsingFailed))
             }
         }.resume()
     }
