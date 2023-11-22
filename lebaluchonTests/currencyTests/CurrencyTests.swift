@@ -38,7 +38,7 @@ class CurrencyServiceTests: XCTestCase {
             }
         }
 
-        wait(for: [expectation], timeout: 50.0) // Increased timeout value
+        wait(for: [expectation], timeout: 20.0) // Increased timeout value
     }
 
     func testGetCurrencyRateFailure() {
@@ -60,7 +60,7 @@ class CurrencyServiceTests: XCTestCase {
             }
         }
 
-        wait(for: [expectation], timeout: 50.0) // Increased timeout value
+        wait(for: [expectation], timeout: 20.0) // Increased timeout value
     }
 
     // MARK: - Mock URLSession
