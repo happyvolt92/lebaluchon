@@ -14,7 +14,7 @@ class FakeTranslatorResponseData {
     static var translatorCorrectData: Data? {
         let bundle = Bundle(for: FakeTranslatorResponseData.self)
         
-        guard let url = bundle.url(forResource: "Translator", withExtension: "json"),
+        guard let url = bundle.url(forResource: "TranslatorFakeData", withExtension: "json"),
               let jsonData = try? Data(contentsOf: url) else {
             return nil
         }

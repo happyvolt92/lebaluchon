@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Mock URLSession
+
 class URLSessionFake: URLSession {
     var data: Data?
     var response: URLResponse?
@@ -39,6 +41,7 @@ class URLSessionFake: URLSession {
     }
 }
 
+
 class URLSessionDataTaskFake: URLSessionDataTask {
     var completionHandler: ((Data?, URLResponse?, Error?) -> Void)?
 
@@ -57,3 +60,4 @@ class URLSessionDataTaskFake: URLSessionDataTask {
         completionHandler?(data, urlResponse, responseError)
     }
 }
+

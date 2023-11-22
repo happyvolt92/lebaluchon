@@ -4,8 +4,8 @@
 //
 //  Created by Elodie Gage on 17/11/2023.
 //
-@testable import lebaluchon
 import XCTest
+@testable import lebaluchon
 
 class WeatherServiceTestCase: XCTestCase {
 
@@ -49,10 +49,11 @@ class WeatherServiceTestCase: XCTestCase {
             case .failure(let error):
                 XCTAssertEqual(error, .parsingFailed)
             case .success:
-                XCTFail("Request should fail with httpResponseError")
+                XCTFail("Request should fail with parsingFailed")
             }
         }
     }
+
 
     func testGetWeatherShouldPostFailedCallbackIfCorrectResponseButIncorrectData() {
         // Given

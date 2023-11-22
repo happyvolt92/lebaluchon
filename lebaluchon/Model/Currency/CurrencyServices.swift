@@ -3,9 +3,12 @@ import Foundation
 
 class CurrencyService {
     public static let shared = CurrencyService()
-    var urlSession: URLSession = URLSession.shared
-    
-    public init() { }
+    var urlSession: URLSession
+   
+    // Initialization of the translation service with a default URLSession session
+    init(session: URLSession = URLSession(configuration: .default)) {
+        self.urlSession = session
+    }
     
     func getCurrencyRate(to: String, from: String, amount: Double, completion: @escaping (Result<Double, Error>) -> Void) {
         let baseURL = "https://api.apilayer.com/fixer/convert"
@@ -21,7 +24,7 @@ class CurrencyService {
         request.httpMethod = "GET"
         request.addValue("XZ9Zc4KWjZcR7QArcf2hB7I7UzOx05XC", forHTTPHeaderField: "apikey")
         
-        URLSession.shared.dataTask(with: request) { data, _, error in
+        urlSession.dataTask(with: request) { data, _, error in
             if let error = error {
                 completion(.failure(error))
                 return
@@ -34,8 +37,8 @@ class CurrencyService {
             
             do {
                 let decoder = JSONDecoder()
-                let conversionResponse = try decoder.decode(CurrencyConversionResponse.self, from: data)
-                completion(.success(conversionResponse.result))
+                let conversionResponse = try decoder.decode(CurrencyResponse.self, from: data)
+                completion(.success(conversionResponse.rates.USD))
             } catch {
                 completion(.failure(AppError.parsingFailed))
             }
@@ -43,7 +46,3 @@ class CurrencyService {
     }
 }
 
-struct CurrencyConversionResponse: Codable {
-    let success: Bool
-    let result: Double
-}
