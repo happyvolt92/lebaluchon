@@ -21,7 +21,8 @@ class CurrencyServiceTests: XCTestCase {
     func testGetCurrencyRateSuccess() {
         // Given
         let expectation = XCTestExpectation(description: "Currency conversion successful")
-        let fakeData = FakeChangeRateResponseData.changeRateCorrectData
+        
+        let fakeData = FakeChangeRateResponseData().changeRateCorrectData()
         let fakeResponse = FakeChangeRateResponseData.responseOK
 
         // When

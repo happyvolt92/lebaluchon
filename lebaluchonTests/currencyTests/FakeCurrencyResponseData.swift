@@ -11,9 +11,17 @@ class FakeChangeRateResponseData {
 
     // MARK: - Data
 
-    static var changeRateCorrectData: Data? {
+//    static var changeRateCorrectData: Data? {
+//        let bundle = Bundle(for: FakeChangeRateResponseData.self)
+//        let url = bundle.url(forResource: "CurrencyFakeRateData", withExtension: "json")!
+//        return try! Data(contentsOf: url)
+//    }
+//    DO IT AGAIN
+    func changeRateCorrectData()-> Data? {
         let bundle = Bundle(for: FakeChangeRateResponseData.self)
-        let url = bundle.url(forResource: "ChangeRate", withExtension: "json")!
+        print(bundle.bundlePath)
+        print(bundle.bundleURL)
+        let url = bundle.url(forResource: "CurrencyFakeRateData", withExtension: "json")!
         return try! Data(contentsOf: url)
     }
 

@@ -1,8 +1,6 @@
 import Foundation
 
 class TranslatorService {
-
-
     // Shared static property to access the translation service from other parts of the application
     private(set) static var shared = TranslatorService()
 
