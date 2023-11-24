@@ -18,7 +18,6 @@ class TranslatorViewController: UIViewController, UITextViewDelegate {
             showAlert(for: .apiError) // Show an alert if there's no text to translate
             return
         }
-
         // Start the activity indicator animation and initiate the translation
         ActivityIndicatorAnimation.shared.startLoading(for: translatorActivityIndicator)
         translate()

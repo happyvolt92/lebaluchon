@@ -11,7 +11,6 @@ class CurrencyViewController: UIViewController {
         super.viewDidLoad()
         // Configure the activity indicator to be initially visible
         currencyActivityIndicator.hidesWhenStopped = true
-
         // When the view loads, fetch the latest exchange rate and store it in UserDefaults
         loadCurrencyRate()
     }
@@ -21,7 +20,6 @@ class CurrencyViewController: UIViewController {
             showAlert(title: "Invalid Amount", message: "Please enter a valid amount.")
             return
         }
-
         let fromCurrency = dollarsTextField.isFirstResponder ? "USD" : "EUR"
         let toCurrency = dollarsTextField.isFirstResponder ? "EUR" : "USD"
 

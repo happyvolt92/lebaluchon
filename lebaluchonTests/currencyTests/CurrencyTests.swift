@@ -28,7 +28,7 @@ class CurrencyServiceTests: XCTestCase {
             switch result {
             case .success(let convertedValue):
                 print("Converted value: \(convertedValue)")
-                XCTAssertEqual(convertedValue, 1.131164, accuracy: 0.001)
+                 XCTAssertEqual(convertedValue, 1.131164, accuracy: 0.001)
             case .failure:
                 XCTFail("Should not fail for successful conversion")
             }
