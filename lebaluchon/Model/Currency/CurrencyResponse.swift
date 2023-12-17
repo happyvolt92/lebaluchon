@@ -14,3 +14,4 @@ struct CurrencyResponse: Codable {
 struct Rate: Codable {
     var USD: Double
 }
+
