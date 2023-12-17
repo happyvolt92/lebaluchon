@@ -7,7 +7,7 @@
 import Foundation
 
 // MARK: - Welcome
-struct Welcome: Codable {
+struct CurrencyResponse: Codable {
     let success: Bool
     let timestamp: Int
     let base, date: String
@@ -17,7 +17,7 @@ struct Welcome: Codable {
 // MARK: - Rates
 struct Rates: Codable {
     let usd: Double
-    let eur: Int
+    let eur: Double
 
     enum CodingKeys: String, CodingKey {
         case usd = "USD"

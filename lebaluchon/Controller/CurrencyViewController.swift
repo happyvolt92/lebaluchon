@@ -1,63 +1,86 @@
+import Foundation
 import UIKit
 
 class CurrencyViewController: UIViewController {
-    // MARK: - Outlets
+    
     @IBOutlet weak var dollarsTextField: UITextField!
     @IBOutlet weak var eurosTextField: UITextField!
     @IBOutlet weak var currencyActivityIndicator: UIActivityIndicatorView!
 
-    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Configure the activity indicator to be initially visible
         currencyActivityIndicator.hidesWhenStopped = true
-
-        // When the view loads, fetch the latest exchange rate and store it in UserDefaults
+        // Load the latest currency rates when the view loads
         loadCurrencyRate()
     }
 
     @IBAction func convertButtonTapped(_ sender: UIButton) {
-        guard let amountText = dollarsTextField.text, let amount = Double(amountText) else {
-            showAlert(title: "Invalid Amount", message: "Please enter a valid amount.")
+        // Start the activity indicator to indicate that data is being fetched
+        currencyActivityIndicator.startAnimating()
+
+        // Check if the dollarTextField is empty
+        guard let dollarsString = dollarsTextField.text, !dollarsString.isEmpty else {
+            showErrorToUser("Please enter a digit in the USD field")
+            currencyActivityIndicator.stopAnimating()
             return
         }
 
-        let fromCurrency = dollarsTextField.isFirstResponder ? "USD" : "EUR"
-        let toCurrency = dollarsTextField.isFirstResponder ? "EUR" : "USD"
+        // Convert the dollars to euros using the CurrencyConverter
+        let dollars = Double(dollarsString)!
+        let currencyConverter = CurrencyConverter(currencyRate: getCurrencyRate())
+        let euros = currencyConverter.convertUSDToEUR(amount: dollars)
 
-        ActivityIndicatorAnimation.shared.startLoading(for: currencyActivityIndicator)
-        CurrencyConverter.convertCurrency(amount: amount, fromCurrency: fromCurrency, toCurrency: toCurrency) { result in
-            DispatchQueue.main.async {
-                ActivityIndicatorAnimation.shared.stopLoading(for: self.currencyActivityIndicator)
+        // Format the converted euros value with the correct currency code
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .currency
+        numberFormatter.locale = Locale(identifier: "en_US")
 
-                switch result {
-                case .success(let convertedValue):
-                    let textField = self.dollarsTextField.isFirstResponder ? self.eurosTextField : self.dollarsTextField
-                    textField?.text = String(format: "%.2f", convertedValue)
+        let formattedEuros = numberFormatter.string(from: euros as NSNumber)
 
-                case .failure(let error):
-                    self.showAlert(for: error)
-                }
+        // Update the eurosTextField with the formatted amount
+        eurosTextField.text = formattedEuros
+
+        // Stop the activity indicator once the conversion is done
+        currencyActivityIndicator.stopAnimating()
+    }
+
+    @IBAction func loadCurrencyRate() {
+        // Create an instance of CurrencyService
+        let currencyService = CurrencyService()
+
+        // Fetch the latest currency rates from the API with the services
+        currencyService.getCurrencyRates { currencyResponses in
+            // Parse and process the currency responses
+            if let currencyResponse = currencyResponses.first {
+                // Extract the exchange rate
+                let currencyRate = currencyResponse.rates.eur
+
+                // Set the currency rate
+                self.setCurrencyRate(currencyRate: Double(currencyRate))
+            } else {
+                // Handle no currency data error
+                print("Failed to fetch currency rates")
             }
         }
     }
 
-    // MARK: - Currency Rate Loading
-    private func loadCurrencyRate() {
-        // Fetch the latest currency rate from a service and store it in UserDefaults
-        CurrencyService.shared.getCurrencyRate(to: "EUR", from: "USD", amount: 100) { result in
-            switch result {
-            case .success(let convertedValue):
-                // Handle the converted value here
-                print("Converted value: \(convertedValue)")
-            case .failure(let error):
-                // Show an alert for the currency rate fetching failure using error.swift
-                if let appError = error as? AppError {
-                    self.showAlert(for: appError)
-                } else {
-                    print("Unexpected error type")
-                }
-            }
-        }
+    private func setCurrencyRate(currencyRate: Double) {
+        // Store the currency rate
+        _currencyRate = currencyRate
     }
+
+    private func getCurrencyRate() -> Double {
+        return _currencyRate ?? 0.0
+    }
+
+    private func showErrorToUser(_ errorText: String) {
+        let alertController = UIAlertController(title: "Error", message: errorText, preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okayAction)
+        present(alertController, animated: true, completion: nil)
+    }
+
+    private var _currencyRate: Double?
 }

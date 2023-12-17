@@ -12,7 +12,7 @@ import Foundation
 struct CurrencyConverter {
 
     // This property stores the current exchange rate between USD and EUR
-    private let currencyRate: Double
+    let currencyRate: Double
 
     // Designated initializer
     init(currencyRate: Double) {
@@ -23,15 +23,6 @@ struct CurrencyConverter {
     func convertUSDToEUR(amount: Double) -> Double {
         // Multiply the USD amount by the currency rate to get the equivalent EUR amount
         let convertedAmount = amount * currencyRate
-
-        // Return the converted amount
-        return convertedAmount
-    }
-
-    // Method to convert EUR to USD
-    func convertEURToUSD(amount: Double) -> Double {
-        // Divide the EUR amount by the currency rate to get the equivalent USD amount
-        let convertedAmount = amount / currencyRate
 
         // Return the converted amount
         return convertedAmount

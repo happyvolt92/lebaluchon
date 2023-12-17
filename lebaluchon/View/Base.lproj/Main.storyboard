@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="obX-gb-Ziv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="obX-gb-Ziv">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -170,17 +170,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pta-uf-AqQ" userLabel="UsStackViewVertical">
-                                <rect key="frame" x="47.999999999999993" y="303" width="123.33333333333331" height="72.333333333333314"/>
+                                <rect key="frame" x="121" y="268" width="150" height="72.333333333333314"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD DOLLAR " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPa-On-j5G">
-                                        <rect key="frame" x="0.0" y="0.0" width="123.33333333333333" height="22.333333333333332"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD DOLLAR " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPa-On-j5G">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="22.333333333333332"/>
                                         <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="16" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="PJZ-Xb-5b5" userLabel="dollarsTextField">
-                                        <rect key="frame" x="0.0" y="38.333333333333314" width="123.33333333333333" height="34"/>
+                                        <rect key="frame" x="0.0" y="38.333333333333314" width="150" height="34"/>
                                         <color key="backgroundColor" red="0.43774297249999999" green="0.43774297249999999" blue="0.43774297249999999" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="Dz2-On-plE"/>
+                                        </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -215,17 +218,20 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="8Vh-jS-gf5" userLabel="EuStackViewVertical">
-                                <rect key="frame" x="48" y="433" width="57" height="77.333333333333314"/>
+                                <rect key="frame" x="121" y="429" width="150" height="77.333333333333314"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EURO " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vF-93-ROW">
-                                        <rect key="frame" x="0.0" y="0.0" width="57" height="22.333333333333332"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EURO " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vF-93-ROW">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="22.333333333333332"/>
                                         <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="16" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3Uk-pO-2u3" userLabel="eurosTextField">
-                                        <rect key="frame" x="0.0" y="43.333333333333314" width="57" height="34"/>
+                                        <rect key="frame" x="0.0" y="43.333333333333314" width="150" height="34"/>
                                         <color key="backgroundColor" red="0.43774297249999999" green="0.43774297249999999" blue="0.43774297249999999" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="TgO-oe-l5m"/>
+                                        </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -238,14 +244,14 @@
                         <viewLayoutGuide key="safeArea" id="JRO-uC-yQ6"/>
                         <color key="backgroundColor" red="0.15294116739999999" green="0.082352943720000002" blue="0.20000001789999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="JRO-uC-yQ6" firstAttribute="bottom" secondItem="8Vh-jS-gf5" secondAttribute="bottom" constant="258.66666666666663" id="8PB-xF-znW"/>
+                            <constraint firstItem="JRO-uC-yQ6" firstAttribute="bottom" secondItem="8Vh-jS-gf5" secondAttribute="bottom" constant="262.66666666666669" id="8PB-xF-znW"/>
                             <constraint firstItem="vMf-wW-TS4" firstAttribute="centerX" secondItem="zsD-JI-N6P" secondAttribute="centerX" id="DSd-pA-LTF"/>
-                            <constraint firstItem="pta-uf-AqQ" firstAttribute="leading" secondItem="JRO-uC-yQ6" secondAttribute="leading" constant="48" id="NNX-Tc-Q0W"/>
+                            <constraint firstItem="pta-uf-AqQ" firstAttribute="leading" secondItem="JRO-uC-yQ6" secondAttribute="leading" constant="121" id="NNX-Tc-Q0W"/>
                             <constraint firstItem="pta-uf-AqQ" firstAttribute="leading" secondItem="8Vh-jS-gf5" secondAttribute="leading" id="Tny-hS-yCN"/>
-                            <constraint firstItem="8Vh-jS-gf5" firstAttribute="top" secondItem="zsD-JI-N6P" secondAttribute="top" constant="433" id="Xfw-2H-ATF"/>
+                            <constraint firstItem="8Vh-jS-gf5" firstAttribute="top" secondItem="zsD-JI-N6P" secondAttribute="top" constant="429" id="Xfw-2H-ATF"/>
                             <constraint firstItem="vMf-wW-TS4" firstAttribute="centerX" secondItem="RHT-l8-hNa" secondAttribute="centerX" id="gaB-ta-kQZ"/>
                             <constraint firstItem="vMf-wW-TS4" firstAttribute="leading" secondItem="JRO-uC-yQ6" secondAttribute="leading" constant="139" id="u1p-xN-hfX"/>
-                            <constraint firstItem="8Vh-jS-gf5" firstAttribute="top" secondItem="pta-uf-AqQ" secondAttribute="bottom" constant="57.666666666666629" id="uGW-W2-UNa"/>
+                            <constraint firstItem="8Vh-jS-gf5" firstAttribute="top" secondItem="pta-uf-AqQ" secondAttribute="bottom" constant="88.666666666666686" id="uGW-W2-UNa"/>
                             <constraint firstItem="JRO-uC-yQ6" firstAttribute="bottom" secondItem="RHT-l8-hNa" secondAttribute="bottom" constant="74.000000000000114" id="wrk-wv-jEf"/>
                             <constraint firstItem="vMf-wW-TS4" firstAttribute="top" secondItem="JRO-uC-yQ6" secondAttribute="top" constant="27" id="yJW-Py-cFq"/>
                         </constraints>
@@ -303,6 +309,9 @@
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
                                         </accessibility>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="182" id="1eE-Jh-Xzp"/>
+                                        </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

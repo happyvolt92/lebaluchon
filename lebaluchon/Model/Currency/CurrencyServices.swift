@@ -1,52 +1,53 @@
-// CurrencyService.swift
 import Foundation
 
-class CurrencyService {
-    public static let shared = CurrencyService()
-    var urlSession: URLSession
-   
-    // Initialization of the translation service with a default URLSession session
-    init(session: URLSession = URLSession(configuration: .default)) {
-        self.urlSession = session
-    }
-    
-    func getCurrencyRate(to: String, from: String, amount: Double, completion: @escaping (Result<Double, Error>) -> Void) {
-        let baseURL = "https://api.apilayer.com/fixer/convert"
-        
-        var components = URLComponents(string: baseURL)!
-        components.queryItems = [
-            URLQueryItem(name: "to", value: to),
-            URLQueryItem(name: "from", value: from),
-            URLQueryItem(name: "amount", value: String(amount))
-        ]
-        
-        var request = URLRequest(url: components.url!)
-        request.httpMethod = "GET"
-        request.addValue("XZ9Zc4KWjZcR7QArcf2hB7I7UzOx05XC", forHTTPHeaderField: "apikey")
-        
-        urlSession.dataTask(with: request) { data, _, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            
-            guard let data = data else {
-                completion(.failure(AppError.noDataAvailable))
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let conversionResponse = try decoder.decode(CurrencyConversionResponse.self, from: data)
-                completion(.success(conversionResponse.result))
-            } catch {
-                completion(.failure(AppError.parsingFailed))
-            }
-        }.resume()
-    }
-}
 
-struct CurrencyConversionResponse: Codable {
-    let success: Bool
-    let result: Double
+// MARK: - CurrencyService
+
+class CurrencyService {
+
+    // Shared instance to access the currency service
+    static let shared = CurrencyService()
+
+    private let fixerURL = "http://data.fixer.io/api/latest?access_key=cc89c4f40c2c113c0da814bb55266f16&symbols=USD,EUR&format=1"
+
+    // Method to fetch the latest currency rates from the API
+    func getCurrencyRates(completionHandler: @escaping ([CurrencyResponse]) -> Void) {
+        // Create a URL from the fixer API endpoint
+        guard let url = URL(string: fixerURL) else {
+            completionHandler([])
+            return
+        }
+
+        // Create a URLSession to make the network request
+        let session = URLSession.shared
+
+        // Create a data task to fetch the currency data
+        let task = session.dataTask(with: url) { data, response, error in
+
+            // Check for errors
+            if let error = error {
+                print("Error fetching currency rates: \(error)")
+                completionHandler([])
+                return
+            }
+
+            // Check if the response data is valid
+            guard let data = data else {
+                print("No data received from currency API")
+                completionHandler([])
+                return
+            }
+
+            // Decode the JSON data into CurrencyResponse objects
+            let decoder = JSONDecoder()
+            do {
+                let currencyResponses = try decoder.decode([CurrencyResponse].self, from: data)
+                completionHandler(currencyResponses)
+            } catch {
+                print("Error decoding currency data: \(error)")
+                completionHandler([])
+            }
+        }
+        task.resume()
+    }
 }
