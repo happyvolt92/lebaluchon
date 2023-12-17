@@ -6,12 +6,21 @@
 //
 import Foundation
 
-struct CurrencyResponse: Codable {
-    var date: String
-    var rates: Rate
+// MARK: - Welcome
+struct Welcome: Codable {
+    let success: Bool
+    let timestamp: Int
+    let base, date: String
+    let rates: Rates
 }
 
-struct Rate: Codable {
-    var USD: Double
-}
+// MARK: - Rates
+struct Rates: Codable {
+    let usd: Double
+    let eur: Int
 
+    enum CodingKeys: String, CodingKey {
+        case usd = "USD"
+        case eur = "EUR"
+    }
+}

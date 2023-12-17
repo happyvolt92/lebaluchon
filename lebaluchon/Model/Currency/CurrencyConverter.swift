@@ -7,15 +7,33 @@
 
 import Foundation
 
-class CurrencyConverter {
-    static func convertCurrency(amount: Double, fromCurrency: String, toCurrency: String, completion: @escaping (Result<Double, AppError>) -> Void) {
-        CurrencyService.shared.getCurrencyRate(to: toCurrency, from: fromCurrency, amount: amount) { result in
-            switch result {
-            case .success(let convertedValue):
-                completion(.success(convertedValue))
-            case .failure(let error):
-                completion(.failure(error as? AppError ?? AppError.apiError))
-            }
-        }
+// MARK: - CurrencyConverter
+
+struct CurrencyConverter {
+
+    // This property stores the current exchange rate between USD and EUR
+    private let currencyRate: Double
+
+    // Designated initializer
+    init(currencyRate: Double) {
+        self.currencyRate = currencyRate
+    }
+
+    // Method to convert USD to EUR
+    func convertUSDToEUR(amount: Double) -> Double {
+        // Multiply the USD amount by the currency rate to get the equivalent EUR amount
+        let convertedAmount = amount * currencyRate
+
+        // Return the converted amount
+        return convertedAmount
+    }
+
+    // Method to convert EUR to USD
+    func convertEURToUSD(amount: Double) -> Double {
+        // Divide the EUR amount by the currency rate to get the equivalent USD amount
+        let convertedAmount = amount / currencyRate
+
+        // Return the converted amount
+        return convertedAmount
     }
 }
