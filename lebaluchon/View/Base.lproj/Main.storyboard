@@ -164,7 +164,7 @@
         <!--CurrencyItem-->
         <scene sceneID="dEk-YG-Z2v">
             <objects>
-                <viewController id="yti-4c-vrs" userLabel="CurrencyItem" customClass="ChangeRateViewController" customModule="lebaluchon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yti-4c-vrs" userLabel="CurrencyItem" customClass="CurrencyViewController" customModule="lebaluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zsD-JI-N6P" userLabel="CurrencyView">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -212,9 +212,12 @@
                                     <constraint firstAttribute="height" constant="30" id="edS-jE-4m2"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="Eur"/>
+                                    <segment title="USD"/>
                                 </segments>
+                                <connections>
+                                    <action selector="currencyDidChange:" destination="yti-4c-vrs" eventType="valueChanged" id="YDu-4z-V4A"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79e-3T-UNg" userLabel="convertButton">
                                 <rect key="frame" x="153" y="595" width="75" height="64"/>
@@ -259,9 +262,13 @@
                             <constraint firstItem="4mh-og-iI2" firstAttribute="centerX" secondItem="zsD-JI-N6P" secondAttribute="centerX" constant="-6" id="nLS-0j-CGv"/>
                             <constraint firstItem="Brk-5j-5bM" firstAttribute="trailing" secondItem="KFD-w2-ldm" secondAttribute="trailing" id="uCs-MT-q0M"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="apn-28-7fk" appends="YES" id="X7G-Pm-8jd"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Currency" image="dollarsign.circle.fill" catalog="system" id="xLO-9E-oLn" userLabel="Currency"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="XOF-32-Q4E" id="aCn-mi-rEB"/>
                         <outlet property="convertButton" destination="79e-3T-UNg" id="A4f-I8-UNB"/>
                         <outlet property="currencySegmentedControl" destination="4mh-og-iI2" id="cfE-7Y-KHI"/>
                         <outlet property="dollarsTextField" destination="kMX-3e-g7j" id="1WP-bb-wyG"/>
@@ -269,6 +276,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nmn-PJ-2A6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="apn-28-7fk">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="yti-4c-vrs" id="kxg-zy-NYd"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="23.664122137404579" y="724.64788732394368"/>
         </scene>

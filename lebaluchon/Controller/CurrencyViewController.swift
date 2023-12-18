@@ -1,7 +1,7 @@
 
 import UIKit
 
-class ChangeRateViewController: UIViewController {
+class CurrencyViewController: UIViewController {
 
 
     // MARK: - Outlets
@@ -11,7 +11,7 @@ class ChangeRateViewController: UIViewController {
     @IBOutlet weak var convertButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var currencySegmentedControl: UISegmentedControl!
-    @IBOutlet weak var stackViewBottomConstraint: NSLayoutConstraint!
+
 
     // MARK: - Properties
     
@@ -42,14 +42,11 @@ class ChangeRateViewController: UIViewController {
         return Double(dollarsText)
     }
 
-    private var originalStackViewBottomConstraint:CGFloat = 0.0
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        originalStackViewBottomConstraint = stackViewBottomConstraint.constant
-
         toggleActivityIndicator(shown: false)
 
         listenKeyboardNotifications()
@@ -72,8 +69,7 @@ class ChangeRateViewController: UIViewController {
         }
     }
 
-    /* Convert from euro to dollar, so we take the euro value
-     and update dollar textfield. */
+
     private func updateDollarTextfield() {
         guard let value = eurosCurrentValue else {
             textFieldAlert()
@@ -82,8 +78,7 @@ class ChangeRateViewController: UIViewController {
         dollarsTextField.text = convert(from: .euro, value: value)
     }
 
-    /* Convert from dollar to euro, so we take the dollar value
-     and update euro textfield. */
+
     private func updateEuroTextField() {
         guard let value = dollarsCurrentValue else {
             textFieldAlert()
@@ -119,7 +114,7 @@ class ChangeRateViewController: UIViewController {
                 case .failure:
                     self.errorAlert()
                 case .success(let changeRate):
-                    // save date and rate in ChangeRateData :
+             
                     ChangeRateData.changeRate = changeRate.rates.USD
                     ChangeRateData.changeRateDate = changeRate.date
                     self.computeConversion()
@@ -188,14 +183,13 @@ class ChangeRateViewController: UIViewController {
         guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
             return
         }
-        stackViewBottomConstraint.constant = keyboardSize.height + 2
         UIView.animate(withDuration: 1.0) {
             self.view.layoutIfNeeded()
         }
     }
     // to make the stackView go back to its original position when the keyboard disappears :
     @objc func keyboardWillHide(notification: NSNotification) {
-        stackViewBottomConstraint.constant = originalStackViewBottomConstraint
+
         UIView.animate(withDuration: 1.0) {
             self.view.layoutIfNeeded()
         }
