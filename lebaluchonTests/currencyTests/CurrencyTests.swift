@@ -5,7 +5,7 @@ class CurrencyServiceTests: XCTestCase {
     
     // MARK: - Properties
     
-    var currencyService: CurrencyService!
+    var currencyService: ChangeRateService!
     
     // MARK: - Setup
     
@@ -16,7 +16,7 @@ class CurrencyServiceTests: XCTestCase {
             response: FakeChangeRateResponseData.responseOK,
             error: nil
         )
-        self.currencyService = CurrencyService.init(session: urlSessionFake)
+        self.currencyService = ChangeRateService.init(session: urlSessionFake)
     }
     
     // MARK: - Tests
@@ -28,7 +28,7 @@ class CurrencyServiceTests: XCTestCase {
 //        let expectation = XCTestExpectation(description: "Currency conversion successful")
 
         // When
-        currencyService.getCurrencyRate(to: "USD", from: "EUR", amount: 100) { result in
+        ChangeRateService.getCurrencyRate(to: "USD", from: "EUR", amount: 100) { result in
              switch result {
              case .success(let convertedValue):
                  print("Converted value: \(convertedValue)")
