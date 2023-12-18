@@ -39,6 +39,12 @@ extension UIViewController {
         case .httpResponseError:
             title = "HTTP Response Error"
             message = "Error in the HTTP response."
+        case .emptyAmount:
+            title = " Empty Field"
+            message = "Please give some Integer to convert"
+        case .incorrectAmount:
+            title = " Incorrect Amount"
+            message = "We convert only numbers"
         }
 
         showAlert(title: title, message: message)
