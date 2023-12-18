@@ -16,41 +16,39 @@ class CurrencyServiceTests: XCTestCase {
             response: FakeChangeRateResponseData.responseOK,
             error: nil
         )
-        self.currencyService = ChangeRateService.init(session: urlSessionFake)
+        self.currencyService = ChangeRateService(session: urlSessionFake)
     }
     
     // MARK: - Tests
     
-    
-//    use the url
-    func testGetCurrencyRateSuccess() {
+    func testGetChangeRateSuccess() {
         // Given
-//        let expectation = XCTestExpectation(description: "Currency conversion successful")
+        let expectation = XCTestExpectation(description: "Change rate retrieval successful")
 
         // When
-        ChangeRateService.getCurrencyRate(to: "USD", from: "EUR", amount: 100) { result in
+        currencyService.getChangeRate { result in
              switch result {
-             case .success(let convertedValue):
-                 print("Converted value: \(convertedValue)")
-                 XCTAssertEqual(convertedValue, 1.131164, accuracy: 0.001)
-//                 expectation.fulfill()
+             case .success(let changeRate):
+                 print("Change rate retrieved: \(changeRate)")
+                 XCTAssertNotNil(changeRate)
+                 expectation.fulfill()
 
              case .failure:
-                 XCTFail("Should not fail for successful conversion")
+                 XCTFail("Should not fail for successful change rate retrieval")
              }
         }
         
-//        wait(for: [expectation], timeout: 20.0) // Increased timeout value
+        wait(for: [expectation], timeout: 20.0)
     }
     
-    func testGetCurrencyRateFailure() {
+    func testGetChangeRateFailure() {
         // Given
-        let expectation = XCTestExpectation(description: "Currency conversion should fail")
-        let fakeData = FakeChangeRateResponseData.changeRateIncorrectData
-        let fakeResponse = FakeChangeRateResponseData.responseKO
+        let expectation = XCTestExpectation(description: "Change rate retrieval should fail")
+        _ = FakeChangeRateResponseData.changeRateIncorrectData
+        _ = FakeChangeRateResponseData.responseKO
         
         // When
-        currencyService.getCurrencyRate(to: "USD", from: "EUR", amount: 100) { result in
+        currencyService.getChangeRate { result in
             switch result {
             case .success:
                 XCTFail("Should fail for incorrect data")
@@ -63,5 +61,4 @@ class CurrencyServiceTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 20.0)
     }
-    
 }
