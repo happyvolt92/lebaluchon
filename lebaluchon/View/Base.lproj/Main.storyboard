@@ -164,22 +164,22 @@
         <!--CurrencyItem-->
         <scene sceneID="dEk-YG-Z2v">
             <objects>
-                <viewController id="yti-4c-vrs" userLabel="CurrencyItem" customClass="CurrencyViewController" customModule="lebaluchon" sceneMemberID="viewController">
+                <viewController id="yti-4c-vrs" userLabel="CurrencyItem" customClass="ChangeRateViewController" customModule="lebaluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zsD-JI-N6P" userLabel="CurrencyView">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pta-uf-AqQ" userLabel="UsStackViewVertical">
-                                <rect key="frame" x="121" y="268" width="150" height="72.333333333333314"/>
+                                <rect key="frame" x="121" y="268" width="151" height="72.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD DOLLAR " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPa-On-j5G">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="22.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="151" height="22.333333333333332"/>
                                         <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="16" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="PJZ-Xb-5b5" userLabel="dollarsTextField">
-                                        <rect key="frame" x="0.0" y="38.333333333333314" width="150" height="34"/>
+                                        <rect key="frame" x="0.0" y="38.333333333333314" width="151" height="34"/>
                                         <color key="backgroundColor" red="0.43774297249999999" green="0.43774297249999999" blue="0.43774297249999999" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="Dz2-On-plE"/>
@@ -192,8 +192,8 @@
                                 <viewLayoutGuide key="safeArea" id="8hP-ry-htn"/>
                                 <keyboardLayoutGuide key="keyboard" id="Xt4-Yt-1Jl"/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHT-l8-hNa">
-                                <rect key="frame" x="147" y="653.66666666666663" width="99" height="41.333333333333371"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHT-l8-hNa" userLabel="convertButton">
+                                <rect key="frame" x="147" y="654" width="99" height="41"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Convert" cornerStyle="medium">
                                     <backgroundConfiguration key="background">
@@ -203,14 +203,9 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="convertButtonTapped:" destination="yti-4c-vrs" eventType="touchUpInside" id="ZGi-HT-mkD"/>
+                                    <action selector="toggleConvertButton:" destination="yti-4c-vrs" eventType="touchUpInside" id="uQd-cr-3Sj"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="O2e-R3-qn1" userLabel="currencyActivityIndicator">
-                                <rect key="frame" x="162" y="644" width="68" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </activityIndicatorView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backpackBgremoved" translatesAutoresizingMaskIntoConstraints="NO" id="vMf-wW-TS4">
                                 <rect key="frame" x="139" y="86" width="115" height="102"/>
                                 <constraints>
@@ -218,16 +213,16 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="8Vh-jS-gf5" userLabel="EuStackViewVertical">
-                                <rect key="frame" x="121" y="429" width="150" height="77.333333333333314"/>
+                                <rect key="frame" x="121" y="388" width="151" height="77.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EURO " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vF-93-ROW">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="22.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="151" height="22.333333333333332"/>
                                         <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="16" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3Uk-pO-2u3" userLabel="eurosTextField">
-                                        <rect key="frame" x="0.0" y="43.333333333333314" width="150" height="34"/>
+                                        <rect key="frame" x="0.0" y="43.333333333333314" width="151" height="34"/>
                                         <color key="backgroundColor" red="0.43774297249999999" green="0.43774297249999999" blue="0.43774297249999999" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="TgO-oe-l5m"/>
@@ -240,30 +235,65 @@
                                 <viewLayoutGuide key="safeArea" id="N4i-0L-vJp"/>
                                 <keyboardLayoutGuide key="keyboard" id="MfA-Le-eC2"/>
                             </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="V8J-37-nzt" userLabel="CurrencySegmentedControl">
+                                <rect key="frame" x="131" y="533" width="131" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="gH7-9Y-A6L"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="O2e-R3-qn1" userLabel="currencyActivityIndicator">
+                                <rect key="frame" x="218" y="644" width="68" height="61"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JRO-uC-yQ6"/>
                         <color key="backgroundColor" red="0.15294116739999999" green="0.082352943720000002" blue="0.20000001789999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="JRO-uC-yQ6" firstAttribute="bottom" secondItem="8Vh-jS-gf5" secondAttribute="bottom" constant="262.66666666666669" id="8PB-xF-znW"/>
+                            <constraint firstItem="O2e-R3-qn1" firstAttribute="centerY" secondItem="RHT-l8-hNa" secondAttribute="centerY" id="0hs-c3-rgO"/>
+                            <constraint firstItem="V8J-37-nzt" firstAttribute="centerX" secondItem="RHT-l8-hNa" secondAttribute="centerX" id="1Ep-Ig-YiL"/>
+                            <constraint firstItem="O2e-R3-qn1" firstAttribute="leading" secondItem="JRO-uC-yQ6" secondAttribute="leading" constant="162" id="2Gn-qF-dds"/>
+                            <constraint firstItem="JRO-uC-yQ6" firstAttribute="bottom" secondItem="8Vh-jS-gf5" secondAttribute="bottom" constant="303.66666666666669" id="8PB-xF-znW"/>
                             <constraint firstItem="vMf-wW-TS4" firstAttribute="centerX" secondItem="zsD-JI-N6P" secondAttribute="centerX" id="DSd-pA-LTF"/>
+                            <constraint firstItem="O2e-R3-qn1" firstAttribute="centerX" secondItem="zsD-JI-N6P" secondAttribute="centerX" id="KRU-xU-fJ4"/>
                             <constraint firstItem="pta-uf-AqQ" firstAttribute="leading" secondItem="JRO-uC-yQ6" secondAttribute="leading" constant="121" id="NNX-Tc-Q0W"/>
                             <constraint firstItem="pta-uf-AqQ" firstAttribute="leading" secondItem="8Vh-jS-gf5" secondAttribute="leading" id="Tny-hS-yCN"/>
-                            <constraint firstItem="8Vh-jS-gf5" firstAttribute="top" secondItem="zsD-JI-N6P" secondAttribute="top" constant="429" id="Xfw-2H-ATF"/>
+                            <constraint firstItem="8Vh-jS-gf5" firstAttribute="top" secondItem="zsD-JI-N6P" secondAttribute="top" constant="388" id="Xfw-2H-ATF"/>
+                            <constraint firstItem="O2e-R3-qn1" firstAttribute="centerX" secondItem="RHT-l8-hNa" secondAttribute="centerX" id="emb-W9-a1f"/>
+                            <constraint firstItem="V8J-37-nzt" firstAttribute="top" secondItem="3Uk-pO-2u3" secondAttribute="bottom" constant="67.666666666666686" id="fBM-2u-UDB"/>
                             <constraint firstItem="vMf-wW-TS4" firstAttribute="centerX" secondItem="RHT-l8-hNa" secondAttribute="centerX" id="gaB-ta-kQZ"/>
+                            <constraint firstItem="O2e-R3-qn1" firstAttribute="top" secondItem="V8J-37-nzt" secondAttribute="bottom" constant="81" id="pOf-0D-tFG"/>
+                            <constraint firstItem="JRO-uC-yQ6" firstAttribute="bottom" secondItem="O2e-R3-qn1" secondAttribute="bottom" constant="64" id="tGl-Fa-jHj"/>
                             <constraint firstItem="vMf-wW-TS4" firstAttribute="leading" secondItem="JRO-uC-yQ6" secondAttribute="leading" constant="139" id="u1p-xN-hfX"/>
-                            <constraint firstItem="8Vh-jS-gf5" firstAttribute="top" secondItem="pta-uf-AqQ" secondAttribute="bottom" constant="88.666666666666686" id="uGW-W2-UNa"/>
+                            <constraint firstItem="8Vh-jS-gf5" firstAttribute="top" secondItem="pta-uf-AqQ" secondAttribute="bottom" constant="47.666666666666686" id="uGW-W2-UNa"/>
+                            <constraint firstItem="O2e-R3-qn1" firstAttribute="centerX" secondItem="8Vh-jS-gf5" secondAttribute="centerX" id="wZR-N7-ujH"/>
                             <constraint firstItem="JRO-uC-yQ6" firstAttribute="bottom" secondItem="RHT-l8-hNa" secondAttribute="bottom" constant="74.000000000000114" id="wrk-wv-jEf"/>
                             <constraint firstItem="vMf-wW-TS4" firstAttribute="top" secondItem="JRO-uC-yQ6" secondAttribute="top" constant="27" id="yJW-Py-cFq"/>
+                            <constraint firstItem="O2e-R3-qn1" firstAttribute="centerX" secondItem="pta-uf-AqQ" secondAttribute="centerX" id="zfF-l2-5ui"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="TPm-Xa-bET" appends="YES" id="8qV-k0-qgl"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Currency" image="dollarsign.circle.fill" catalog="system" id="xLO-9E-oLn" userLabel="Currency"/>
                     <connections>
-                        <outlet property="currencyActivityIndicator" destination="O2e-R3-qn1" id="stc-Oa-c7Z"/>
-                        <outlet property="dollarsTextField" destination="PJZ-Xb-5b5" id="zRz-yB-VVe"/>
-                        <outlet property="eurosTextField" destination="3Uk-pO-2u3" id="o6F-Hs-xOc"/>
+                        <outlet property="CurrencySegmentedControl" destination="V8J-37-nzt" id="Hc9-UI-5Ur"/>
+                        <outlet property="convertButton" destination="RHT-l8-hNa" id="a4v-sR-eKi"/>
+                        <outlet property="currencyActivityIndicator" destination="O2e-R3-qn1" id="Xn1-wZ-ZlB"/>
+                        <outlet property="dollarsTextField" destination="PJZ-Xb-5b5" id="XPq-Xg-WYT"/>
+                        <outlet property="eurosTextField" destination="3Uk-pO-2u3" id="FQI-cC-x1d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nmn-PJ-2A6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="TPm-Xa-bET">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="yti-4c-vrs" id="p5t-df-dWb"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="23.664122137404579" y="724.64788732394368"/>
         </scene>

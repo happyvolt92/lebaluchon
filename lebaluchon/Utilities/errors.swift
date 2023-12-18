@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-import Foundation
+
 
 enum AppError: Error {
     case requestError
@@ -16,6 +16,9 @@ enum AppError: Error {
     case parsingFailed
     case apiError
     case httpResponseError
+    case emptyAmount
+    case incorrectAmount
+    case jsonParsingError
 }
 
 extension UIViewController {
@@ -45,8 +48,10 @@ extension UIViewController {
         case .incorrectAmount:
             title = " Incorrect Amount"
             message = "We convert only numbers"
+        case .jsonParsingError:
+            title = "JSON Parsing Error"
+            message = "Failed to parse the JSON response."
         }
-
         showAlert(title: title, message: message)
     }
 
