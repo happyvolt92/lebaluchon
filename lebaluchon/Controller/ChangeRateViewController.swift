@@ -1,39 +1,33 @@
-import Foundation
-import UIKit
-
 
 import UIKit
 
 class ChangeRateViewController: UIViewController {
+
+
     // MARK: - Outlets
-    
-    @IBOutlet weak var convertButton: UIButton!
-    
-    @IBOutlet weak var dollarsTextField: UITextField!
-    
+
     @IBOutlet weak var eurosTextField: UITextField!
-    
-    @IBOutlet weak var currencyActivityIndicator: UIActivityIndicatorView!
-    
-    @IBOutlet weak var CurrencySegmentedControl: UISegmentedControl!
-    
-    
+    @IBOutlet weak var dollarsTextField: UITextField!
+    @IBOutlet weak var convertButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var currencySegmentedControl: UISegmentedControl!
+    @IBOutlet weak var stackViewBottomConstraint: NSLayoutConstraint!
+
     // MARK: - Properties
-    
     
     private var currentChangeRate: Double {
         ChangeRateData.changeRate
     }
-    
+
     private var currentChangeRateDate: String {
         ChangeRateData.changeRateDate
     }
-    
+
     private var currentDate: String {
         getCurrentDate()
     }
-    
-    
+
+
     // make textFields texts Double? :
     private var eurosCurrentValue: Double? {
         guard let eurosText = eurosTextField.text else {
@@ -47,24 +41,28 @@ class ChangeRateViewController: UIViewController {
         }
         return Double(dollarsText)
     }
-    
+
+    private var originalStackViewBottomConstraint:CGFloat = 0.0
+
     // MARK: - Lifecycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        originalStackViewBottomConstraint = stackViewBottomConstraint.constant
+
+        toggleActivityIndicator(shown: false)
+
+        listenKeyboardNotifications()
     }
-    
+
     // MARK: - Functions
-    
+
     @IBAction func toggleConvertButton(_ sender: UIButton) {
         computeConversion()
-        
-        ActivityIndicatorAnimation.shared.startLoading(for: self.currencyActivityIndicator)
     }
-    
+
     private func computeConversion() {
-        switch CurrencySegmentedControl.selectedSegmentIndex {
+        switch currencySegmentedControl.selectedSegmentIndex {
         case 0:
             updateDollarTextfield()
         case 1:
@@ -74,28 +72,33 @@ class ChangeRateViewController: UIViewController {
         }
     }
 
+    /* Convert from euro to dollar, so we take the euro value
+     and update dollar textfield. */
     private func updateDollarTextfield() {
         guard let value = eurosCurrentValue else {
-            
+            textFieldAlert()
             return
         }
         dollarsTextField.text = convert(from: .euro, value: value)
     }
-    
 
+    /* Convert from dollar to euro, so we take the dollar value
+     and update euro textfield. */
     private func updateEuroTextField() {
         guard let value = dollarsCurrentValue else {
+            textFieldAlert()
             return
         }
         eurosTextField.text = convert(from: .dollar, value: value)
     }
-    
+
     private func convert(from currency: Currency, value: Double) -> String? {
         guard currentChangeRateDate == currentDate else {
-            
+            toggleActivityIndicator(shown: true)
+            obtainCurrentChangeRate()
             return nil
         }
-        
+
         switch currency {
         case .euro:
             let result = value * currentChangeRate
@@ -107,15 +110,14 @@ class ChangeRateViewController: UIViewController {
             return resultToDisplay
         }
     }
-    
+
     private func obtainCurrentChangeRate() {
         ChangeRateService.shared.getChangeRate { result in
             DispatchQueue.main.async {
-            
-                ActivityIndicatorAnimation.shared.startLoading(for: self.currencyActivityIndicator)
+                self.toggleActivityIndicator(shown: false)
                 switch result {
                 case .failure:
-                    self.showAlert(for: .apiError)
+                    self.errorAlert()
                 case .success(let changeRate):
                     // save date and rate in ChangeRateData :
                     ChangeRateData.changeRate = changeRate.rates.USD
@@ -125,19 +127,78 @@ class ChangeRateViewController: UIViewController {
             }
         }
     }
-    
-    func getCurrentDate() -> String {
+
+    private func getCurrentDate() -> String {
         let date = Date()
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd"
         let currentDate = format.string(from: date)
+
         return currentDate
     }
+
+    @IBAction func currencyDidChange(_ sender: UISegmentedControl) {
+        clearTextFields()
+    }
+
+    private func clearTextFields() {
+        eurosTextField.text = ""
+        dollarsTextField.text = ""
+    }
+
+    // MARK: - Alerts
     
+    private func errorAlert() {
+        let alert = UIAlertController(title: "Erreur", message: "Il semble que le courant passe mal avec le serveur 🔌", preferredStyle: .alert)
+        let actionAlert = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(actionAlert)
+        present(alert, animated: true, completion: nil)
+    }
+
+    private func textFieldAlert() {
+        let alert = UIAlertController(title: "Erreur", message: "Il faut d'abord entrer un montant dans le champ texte correspondant pour le convertir 💵", preferredStyle: .alert)
+        let actionAlert = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(actionAlert)
+        present(alert, animated: true, completion: nil)
+    }
+
+    // MARK: - UI Aspect
+
+    private func toggleActivityIndicator(shown: Bool) {
+        convertButton.isHidden = shown
+        activityIndicator.isHidden = !shown
+        shown ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
+    }
+
     // MARK: - Keyboard Management
-    
+
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         eurosTextField.resignFirstResponder()
         dollarsTextField.resignFirstResponder()
     }
+
+    private func listenKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    // to make the stackView go up a bit when the keyboard appears :
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+        stackViewBottomConstraint.constant = keyboardSize.height + 2
+        UIView.animate(withDuration: 1.0) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    // to make the stackView go back to its original position when the keyboard disappears :
+    @objc func keyboardWillHide(notification: NSNotification) {
+        stackViewBottomConstraint.constant = originalStackViewBottomConstraint
+        UIView.animate(withDuration: 1.0) {
+            self.view.layoutIfNeeded()
+        }
+    }
+
 }

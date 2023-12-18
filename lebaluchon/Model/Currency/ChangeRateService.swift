@@ -22,7 +22,7 @@ class ChangeRateService {
     private var session: URLSession
 
     private var resourceUrl: URL?
-    private let apiKey = "cd00e39fcd27cab07cec878d55125e50"
+    private let apiKey = "cc89c4f40c2c113c0da814bb55266f16"
 
     // MARK: - Init
 

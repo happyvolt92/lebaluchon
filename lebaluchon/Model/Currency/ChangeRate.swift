@@ -18,8 +18,7 @@ struct Rate: Codable {
 }
 
 class ChangeRateData {
-
-    private struct Keys {
+     struct Keys {
         static let currentChangeRateDate = "currentDate"
         static let currentChangeRate = "currentChangeRate"
     }
