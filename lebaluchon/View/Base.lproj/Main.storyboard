@@ -201,24 +201,11 @@
                                 <color key="textColor" red="0.95030278109999999" green="0.95030278109999999" blue="0.95030278109999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HrF-RQ-Q2x" userLabel="eurosTextField">
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HrF-RQ-Q2x" userLabel="eurosTextField">
                                 <rect key="frame" x="33" y="435" width="295" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4mh-og-iI2" userLabel="currencySegmentedControl">
-                                <rect key="frame" x="112" y="516" width="157" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="edS-jE-4m2"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="Eur"/>
-                                    <segment title="USD"/>
-                                </segments>
-                                <connections>
-                                    <action selector="currencyDidChange:" destination="yti-4c-vrs" eventType="valueChanged" id="YDu-4z-V4A"/>
-                                </connections>
-                            </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79e-3T-UNg" userLabel="convertButton">
                                 <rect key="frame" x="153" y="595" width="75" height="64"/>
                                 <constraints>
@@ -230,10 +217,12 @@
                                     <backgroundConfiguration key="background"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="convertButtonTapped:" destination="yti-4c-vrs" eventType="touchUpInside" id="Y8R-jG-Xvc"/>
+                                </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="XOF-32-Q4E">
-                                <rect key="frame" x="172" y="609" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="XOF-32-Q4E">
+                                <rect key="frame" x="181" y="608" width="37" height="38"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
@@ -241,15 +230,15 @@
                         <color key="backgroundColor" red="0.15294116739999999" green="0.082352943720000002" blue="0.20000001789999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="JRO-uC-yQ6" firstAttribute="bottom" secondItem="XOF-32-Q4E" secondAttribute="bottom" constant="123" id="34J-ew-KjR"/>
                             <constraint firstItem="KFD-w2-ldm" firstAttribute="top" secondItem="JRO-uC-yQ6" secondAttribute="top" constant="191" id="6Jl-SU-fpg"/>
                             <constraint firstItem="Brk-5j-5bM" firstAttribute="leading" secondItem="kMX-3e-g7j" secondAttribute="leading" id="6Zz-GY-22c"/>
                             <constraint firstItem="HrF-RQ-Q2x" firstAttribute="top" secondItem="Brk-5j-5bM" secondAttribute="bottom" constant="8" symbolic="YES" id="748-DF-7vc"/>
-                            <constraint firstItem="4mh-og-iI2" firstAttribute="top" secondItem="HrF-RQ-Q2x" secondAttribute="bottom" constant="47" id="7R1-pn-hbs"/>
                             <constraint firstItem="vMf-wW-TS4" firstAttribute="top" secondItem="JRO-uC-yQ6" secondAttribute="top" id="9IX-My-cHU"/>
-                            <constraint firstItem="79e-3T-UNg" firstAttribute="top" secondItem="4mh-og-iI2" secondAttribute="bottom" constant="49" id="FgT-fb-l4I"/>
                             <constraint firstItem="kMX-3e-g7j" firstAttribute="top" secondItem="KFD-w2-ldm" secondAttribute="bottom" constant="8" id="Fpo-dn-2bQ"/>
-                            <constraint firstItem="4mh-og-iI2" firstAttribute="leading" secondItem="JRO-uC-yQ6" secondAttribute="leading" constant="112" id="IcC-rt-Ksq"/>
+                            <constraint firstItem="JRO-uC-yQ6" firstAttribute="bottom" secondItem="79e-3T-UNg" secondAttribute="bottom" constant="110" id="GeB-i4-ZiU"/>
                             <constraint firstItem="kMX-3e-g7j" firstAttribute="leading" secondItem="KFD-w2-ldm" secondAttribute="trailing" constant="-119" id="Khf-jW-L00"/>
+                            <constraint firstItem="XOF-32-Q4E" firstAttribute="centerX" secondItem="vMf-wW-TS4" secondAttribute="centerX" id="MAf-25-41t"/>
                             <constraint firstItem="HrF-RQ-Q2x" firstAttribute="leading" secondItem="Brk-5j-5bM" secondAttribute="leading" id="SGG-Gt-Xpc"/>
                             <constraint firstItem="Brk-5j-5bM" firstAttribute="top" secondItem="kMX-3e-g7j" secondAttribute="bottom" constant="47" id="UN4-bf-8zA"/>
                             <constraint firstItem="KFD-w2-ldm" firstAttribute="leading" secondItem="JRO-uC-yQ6" secondAttribute="leading" constant="33" id="W2k-f7-M1H"/>
@@ -257,9 +246,9 @@
                             <constraint firstItem="vMf-wW-TS4" firstAttribute="leading" secondItem="JRO-uC-yQ6" secondAttribute="leading" constant="153" id="XwW-pl-z1y"/>
                             <constraint firstItem="KFD-w2-ldm" firstAttribute="leading" secondItem="kMX-3e-g7j" secondAttribute="leading" id="ZBh-5J-grA"/>
                             <constraint firstItem="JRO-uC-yQ6" firstAttribute="trailing" secondItem="vMf-wW-TS4" secondAttribute="trailing" constant="147" id="ZsP-yd-jdk"/>
-                            <constraint firstItem="JRO-uC-yQ6" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="79e-3T-UNg" secondAttribute="trailing" symbolic="YES" id="hJg-Ou-dE5"/>
+                            <constraint firstItem="JRO-uC-yQ6" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="79e-3T-UNg" secondAttribute="trailing" symbolic="YES" id="gpO-lb-e2U"/>
+                            <constraint firstItem="XOF-32-Q4E" firstAttribute="centerY" secondItem="79e-3T-UNg" secondAttribute="centerY" id="i9S-VZ-4zj"/>
                             <constraint firstItem="HrF-RQ-Q2x" firstAttribute="trailing" secondItem="kMX-3e-g7j" secondAttribute="trailing" id="k2Q-Du-UAk"/>
-                            <constraint firstItem="4mh-og-iI2" firstAttribute="centerX" secondItem="zsD-JI-N6P" secondAttribute="centerX" constant="-6" id="nLS-0j-CGv"/>
                             <constraint firstItem="Brk-5j-5bM" firstAttribute="trailing" secondItem="KFD-w2-ldm" secondAttribute="trailing" id="uCs-MT-q0M"/>
                         </constraints>
                         <connections>
@@ -270,7 +259,6 @@
                     <connections>
                         <outlet property="activityIndicator" destination="XOF-32-Q4E" id="aCn-mi-rEB"/>
                         <outlet property="convertButton" destination="79e-3T-UNg" id="A4f-I8-UNB"/>
-                        <outlet property="currencySegmentedControl" destination="4mh-og-iI2" id="cfE-7Y-KHI"/>
                         <outlet property="dollarsTextField" destination="kMX-3e-g7j" id="1WP-bb-wyG"/>
                         <outlet property="eurosTextField" destination="HrF-RQ-Q2x" id="WcH-vD-HhI"/>
                     </connections>
