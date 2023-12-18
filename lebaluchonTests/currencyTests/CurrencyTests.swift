@@ -16,7 +16,7 @@ class CurrencyServiceTests: XCTestCase {
             response: FakeChangeRateResponseData.responseOK,
             error: nil
         )
-        self.currencyService = ChangeRateService.init(session: urlSessionFake)
+        self.currencyService = ChangeRateService(session: urlSessionFake)
     }
     
     // MARK: - Tests
@@ -42,22 +42,31 @@ class CurrencyServiceTests: XCTestCase {
     }
     
     func testGetCurrencyRateFailure() {
+        // Given
+        let expectation = XCTestExpectation(description: "Currency conversion should fail")
+        
+        // Use URLSessionFake for testing with incorrect data and response
         let urlSessionFake = URLSessionFake(
             data: FakeChangeRateResponseData.changeRateIncorrectData,
             response: FakeChangeRateResponseData.responseKO,
             error: nil
         )
-        self.currencyService.urlSession = urlSessionFake
-        currencyService.getChangeRate(to: "USD", from: "EUR", amount: 100) { result in
+        self.currencyService = ChangeRateService(session: urlSessionFake)
+        
+        // When
+        currencyService.getChangeRate { result in
             switch result {
             case .success:
                 XCTFail("Should fail for incorrect data")
             case .failure(let error as lebaluchon.AppError):
-                // Adjust the condition to check for the specific error type
                 XCTAssertTrue(error == .parsingFailed, "Error should be parsingFailed")
+                expectation.fulfill()
             default:
                 XCTFail("Unexpected result")
             }
         }
+        
+        // Wait for the expectation
+        wait(for: [expectation], timeout: 20.0)
     }
 }
