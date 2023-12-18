@@ -16,7 +16,7 @@ class CurrencyServiceTests: XCTestCase {
             response: FakeChangeRateResponseData.responseOK,
             error: nil
         )
-        self.currencyService = ChangeRateService(session: urlSessionFake)
+        self.currencyService = ChangeRateService.init(session: urlSessionFake)
     }
     
     // MARK: - Tests
@@ -24,41 +24,40 @@ class CurrencyServiceTests: XCTestCase {
     func testGetChangeRateSuccess() {
         // Given
         let expectation = XCTestExpectation(description: "Change rate retrieval successful")
-
+        
         // When
         currencyService.getChangeRate { result in
-             switch result {
-             case .success(let changeRate):
-                 print("Change rate retrieved: \(changeRate)")
-                 XCTAssertNotNil(changeRate)
-                 expectation.fulfill()
-
-             case .failure:
-                 XCTFail("Should not fail for successful change rate retrieval")
-             }
+            switch result {
+            case .success(let changeRate):
+                print("Change rate retrieved: \(changeRate)")
+                XCTAssertNotNil(changeRate)
+                expectation.fulfill()
+                
+            case .failure:
+                XCTFail("Should not fail for successful change rate retrieval")
+            }
         }
         
         wait(for: [expectation], timeout: 20.0)
     }
     
-    func testGetChangeRateFailure() {
-        // Given
-        let expectation = XCTestExpectation(description: "Change rate retrieval should fail")
-        _ = FakeChangeRateResponseData.changeRateIncorrectData
-        _ = FakeChangeRateResponseData.responseKO
-        
-        // When
-        currencyService.getChangeRate { result in
+    func testGetCurrencyRateFailure() {
+        let urlSessionFake = URLSessionFake(
+            data: FakeChangeRateResponseData.changeRateIncorrectData,
+            response: FakeChangeRateResponseData.responseKO,
+            error: nil
+        )
+        self.currencyService.urlSession = urlSessionFake
+        currencyService.getChangeRate(to: "USD", from: "EUR", amount: 100) { result in
             switch result {
             case .success:
                 XCTFail("Should fail for incorrect data")
-
-            case .failure(let error):
-                print("Error received: \(error)")
-                XCTAssertTrue(error is FakeChangeRateResponseData.FakeChangeRateError)
-                expectation.fulfill()
+            case .failure(let error as lebaluchon.AppError):
+                // Adjust the condition to check for the specific error type
+                XCTAssertTrue(error == .parsingFailed, "Error should be parsingFailed")
+            default:
+                XCTFail("Unexpected result")
             }
         }
-        wait(for: [expectation], timeout: 20.0)
     }
 }
