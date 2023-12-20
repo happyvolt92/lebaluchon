@@ -13,7 +13,7 @@ class WeatherViewController: UIViewController {
         // Load weather data for New York and Besançon
         loadWeatherData(for: "New York", textView: weatherInformationNewYork, iconView: weatherIconNewYork)
         loadWeatherData(for: "Besançon", textView: weatherInformationBesancon, iconView: weatherIconBesancon)
-    }
+    } 
 
     override func viewDidLoad() {
         super.viewDidLoad()
