@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2TO-mi-1WN" userLabel="TranslateButton">
-                                <rect key="frame" x="145.33333333333334" y="677" width="105.33333333333334" height="34"/>
+                                <rect key="frame" x="145.33333333333334" y="671" width="105.33333333333334" height="40"/>
                                 <gestureRecognizers/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -56,14 +56,17 @@
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="251"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="Gkp-gX-Hac" userLabel="TextViewToTranslate">
-                                                <rect key="frame" x="0.0" y="-19" width="353" height="110"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="91"/>
                                                 <color key="backgroundColor" red="0.48988860649999999" green="0.48988860649999999" blue="0.48988860649999999" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="300" id="BrI-Ts-6f9"/>
+                                                </constraints>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" id="LXb-GL-KUG" userLabel="TextDestinationViewTranslated">
-                                                <rect key="frame" x="0.0" y="162" width="353" height="110"/>
+                                                <rect key="frame" x="0.0" y="162" width="300" height="89"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.48988860649999999" green="0.48988860649999999" blue="0.48988860649999999" alpha="0.19280478400000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -87,7 +90,7 @@
                                             <constraint firstAttribute="trailing" secondItem="m39-aR-YMZ" secondAttribute="trailing" constant="20" id="6Ky-hf-z4G"/>
                                             <constraint firstItem="m39-aR-YMZ" firstAttribute="top" secondItem="Gkp-gX-Hac" secondAttribute="bottom" constant="32" id="EfH-hC-LdE"/>
                                             <constraint firstItem="Gkp-gX-Hac" firstAttribute="trailing" secondItem="LXb-GL-KUG" secondAttribute="trailing" id="JYn-Z8-oYi"/>
-                                            <constraint firstItem="Gkp-gX-Hac" firstAttribute="top" secondItem="T6V-Fu-vxj" secondAttribute="top" constant="-19" id="Mwh-3C-Q9r"/>
+                                            <constraint firstItem="Gkp-gX-Hac" firstAttribute="top" secondItem="T6V-Fu-vxj" secondAttribute="top" id="Mwh-3C-Q9r"/>
                                             <constraint firstItem="m39-aR-YMZ" firstAttribute="leading" secondItem="Gkp-gX-Hac" secondAttribute="leading" id="bUb-Xl-obt"/>
                                             <constraint firstItem="LXb-GL-KUG" firstAttribute="top" secondItem="m39-aR-YMZ" secondAttribute="bottom" constant="8" id="gZ3-g4-0EJ"/>
                                             <constraint firstItem="m39-aR-YMZ" firstAttribute="leading" secondItem="LXb-GL-KUG" secondAttribute="leading" id="jyv-yn-Fvn"/>
@@ -95,27 +98,26 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uuC-0u-5aq" userLabel="ToggleLanguages">
-                                <rect key="frame" x="126.33333333333331" y="561" width="143" height="27"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="26" id="SMs-sw-mzW"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="English "/>
-                                    <segment title="Français"/>
-                                </segments>
-                            </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text to translate :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRK-kh-P92" userLabel="Text to translate">
                                 <rect key="frame" x="16" y="213" width="377" height="25"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Ujf-ij-beJ" userLabel="translatorActivityIndicator">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Ujf-ij-beJ" userLabel="translatorActivityIndicator">
                                 <rect key="frame" x="148" y="633" width="106" height="116"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uuC-0u-5aq" userLabel="ToggleLanguages">
+                                <rect key="frame" x="126.33333333333331" y="599" width="143" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="nU4-ES-Eod"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="English "/>
+                                    <segment title="Français"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.1541392151" green="0.081991846650000005" blue="0.2015617318" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -124,15 +126,19 @@
                             <constraint firstItem="mgb-Ea-0J6" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="269" id="11V-c4-2LA"/>
                             <constraint firstItem="Odh-0K-jnR" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="1nm-dz-12v"/>
                             <constraint firstItem="dRK-kh-P92" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="4D9-hg-9aN"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ujf-ij-beJ" secondAttribute="trailing" constant="139" id="7Qh-mh-IeO"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dRK-kh-P92" secondAttribute="trailing" symbolic="YES" id="9UE-rq-UUt"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="2TO-mi-1WN" secondAttribute="bottom" constant="58" id="A8E-p7-nR4"/>
+                            <constraint firstItem="uuC-0u-5aq" firstAttribute="top" secondItem="mgb-Ea-0J6" secondAttribute="bottom" constant="79" id="FLl-Fs-omK"/>
                             <constraint firstItem="mgb-Ea-0J6" firstAttribute="top" secondItem="Odh-0K-jnR" secondAttribute="bottom" constant="74" id="JX4-OK-hZo"/>
-                            <constraint firstItem="2TO-mi-1WN" firstAttribute="centerX" secondItem="uuC-0u-5aq" secondAttribute="centerX" id="QdC-7P-k5I"/>
                             <constraint firstItem="mgb-Ea-0J6" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" constant="4" id="UdY-xJ-BJ5"/>
-                            <constraint firstItem="uuC-0u-5aq" firstAttribute="top" secondItem="mgb-Ea-0J6" secondAttribute="bottom" constant="41" id="aVR-WE-hSG"/>
+                            <constraint firstItem="uuC-0u-5aq" firstAttribute="centerX" secondItem="2TO-mi-1WN" secondAttribute="centerX" id="Vwf-ya-LZO"/>
+                            <constraint firstItem="Ujf-ij-beJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="148" id="YcM-Ao-NAU"/>
+                            <constraint firstAttribute="bottom" secondItem="uuC-0u-5aq" secondAttribute="bottom" constant="227" id="ZHc-u4-ViD"/>
+                            <constraint firstItem="Ujf-ij-beJ" firstAttribute="top" secondItem="uuC-0u-5aq" secondAttribute="bottom" constant="8" id="enf-L4-h4O"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="mgb-Ea-0J6" secondAttribute="trailing" constant="20" id="gwo-Cj-7kh"/>
-                            <constraint firstItem="uuC-0u-5aq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="126.33333333333331" id="p0s-Zh-P04"/>
-                            <constraint firstItem="2TO-mi-1WN" firstAttribute="top" secondItem="uuC-0u-5aq" secondAttribute="bottom" constant="90" id="rf3-50-Jjb"/>
+                            <constraint firstItem="uuC-0u-5aq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="126.33333333333331" id="hMx-w6-dsa"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Ujf-ij-beJ" secondAttribute="bottom" constant="20" id="rmB-hA-q3O"/>
                             <constraint firstItem="dRK-kh-P92" firstAttribute="top" secondItem="Odh-0K-jnR" secondAttribute="bottom" constant="18" id="ta3-mu-zf0"/>
                             <constraint firstItem="Odh-0K-jnR" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="26" id="x7A-E4-T0O"/>
                         </constraints>
@@ -214,7 +220,9 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button" cornerStyle="medium">
-                                    <backgroundConfiguration key="background"/>
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="0.68627452850000004" green="0.32941177490000001" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>

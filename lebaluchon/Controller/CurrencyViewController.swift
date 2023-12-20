@@ -113,7 +113,7 @@ class CurrencyViewController: UIViewController {
 
     // Adjust the layout when the keyboard is about to show
     @objc func keyboardWillShow(notification: NSNotification) {
-        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+        guard ((notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) != nil else {
             return
         }
         UIView.animate(withDuration: 1.0) {
