@@ -44,7 +44,6 @@ class ChangeRateService {
             completion(.failure(.urlError))
             return
         }
-        
         // Create a data task to perform the network request
         task = session.dataTask(with: url) { data, response, error in
             // Check for network errors
@@ -52,19 +51,16 @@ class ChangeRateService {
                 completion(.failure(.apiError))
                 return
             }
-
             // Check if data is available
             guard let jsonData = data else {
                 completion(.failure(.noDataAvailable))
                 return
             }
-
             // Check for a successful HTTP response
             guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
                 completion(.failure(.httpResponseError))
                 return
             }
-
             do {
                 // Decode JSON data into a ChangeRate object using JSONDecoder
                 let decoder = JSONDecoder()
@@ -75,7 +71,6 @@ class ChangeRateService {
                 completion(.failure(.parsingFailed))
             }
         }
-
         // Start the data task
         task?.resume()
     }

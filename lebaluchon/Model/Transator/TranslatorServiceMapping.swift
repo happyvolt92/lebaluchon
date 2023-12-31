@@ -15,7 +15,6 @@ struct TranslationData: Codable {
     struct TranslatedText: Codable {
         var translatedText: String
     }
-    
     // The top-level structure contains translation details.
     var data: TranslationDetails
 }

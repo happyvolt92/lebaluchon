@@ -23,7 +23,6 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Translate" cornerStyle="medium">
-                                    <backgroundConfiguration key="background"/>
                                     <fontDescription key="titleFontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -34,7 +33,7 @@
                                 <rect key="frame" x="-45.666666666666657" y="85" width="484.33333333333326" height="110"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backpackBgremoved" translatesAutoresizingMaskIntoConstraints="NO" id="Wt0-hC-t4o">
-                                        <rect key="frame" x="0.0" y="-14" width="500" height="102"/>
+                                        <rect key="frame" x="0.0" y="8" width="500" height="80"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                         </accessibility>
@@ -43,7 +42,7 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Wt0-hC-t4o" secondAttribute="bottom" constant="22" id="GHW-ui-OCc"/>
                                     <constraint firstItem="Wt0-hC-t4o" firstAttribute="leading" secondItem="Odh-0K-jnR" secondAttribute="leading" id="Hof-0O-hYB"/>
-                                    <constraint firstItem="Wt0-hC-t4o" firstAttribute="top" secondItem="Odh-0K-jnR" secondAttribute="top" constant="-14" id="dHi-S5-SRP"/>
+                                    <constraint firstItem="Wt0-hC-t4o" firstAttribute="top" secondItem="Odh-0K-jnR" secondAttribute="top" constant="8" id="dHi-S5-SRP"/>
                                     <constraint firstAttribute="trailing" secondItem="Wt0-hC-t4o" secondAttribute="trailing" constant="-15.666666666666686" id="qoP-rB-7XI"/>
                                 </constraints>
                             </view>
@@ -211,21 +210,21 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79e-3T-UNg" userLabel="convertButton">
-                                <rect key="frame" x="153" y="595" width="84.333333333333314" height="64"/>
+                                <rect key="frame" x="153" y="594" width="81" height="65"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="QoW-YD-OgZ"/>
+                                    <constraint firstAttribute="height" constant="65" id="ktr-gk-cXB"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Convert" cornerStyle="medium">
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
+                                <state key="normal" title="Convert">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="convertButtonTapped:" destination="yti-4c-vrs" eventType="touchUpInside" id="Y8R-jG-Xvc"/>
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="XOF-32-Q4E">
-                                <rect key="frame" x="181" y="608" width="37" height="38"/>
+                                <rect key="frame" x="181" y="607" width="37" height="39"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
@@ -236,22 +235,22 @@
                             <constraint firstItem="JRO-uC-yQ6" firstAttribute="bottom" secondItem="XOF-32-Q4E" secondAttribute="bottom" constant="123" id="34J-ew-KjR"/>
                             <constraint firstItem="KFD-w2-ldm" firstAttribute="top" secondItem="JRO-uC-yQ6" secondAttribute="top" constant="191" id="6Jl-SU-fpg"/>
                             <constraint firstItem="Brk-5j-5bM" firstAttribute="leading" secondItem="kMX-3e-g7j" secondAttribute="leading" id="6Zz-GY-22c"/>
+                            <constraint firstItem="JRO-uC-yQ6" firstAttribute="bottom" secondItem="79e-3T-UNg" secondAttribute="bottom" constant="110" id="6sD-va-u1V"/>
                             <constraint firstItem="HrF-RQ-Q2x" firstAttribute="top" secondItem="Brk-5j-5bM" secondAttribute="bottom" constant="8" symbolic="YES" id="748-DF-7vc"/>
                             <constraint firstItem="vMf-wW-TS4" firstAttribute="top" secondItem="JRO-uC-yQ6" secondAttribute="top" id="9IX-My-cHU"/>
                             <constraint firstItem="kMX-3e-g7j" firstAttribute="top" secondItem="KFD-w2-ldm" secondAttribute="bottom" constant="8" id="Fpo-dn-2bQ"/>
-                            <constraint firstItem="JRO-uC-yQ6" firstAttribute="bottom" secondItem="79e-3T-UNg" secondAttribute="bottom" constant="110" id="GeB-i4-ZiU"/>
                             <constraint firstItem="kMX-3e-g7j" firstAttribute="leading" secondItem="KFD-w2-ldm" secondAttribute="trailing" constant="-119" id="Khf-jW-L00"/>
                             <constraint firstItem="XOF-32-Q4E" firstAttribute="centerX" secondItem="vMf-wW-TS4" secondAttribute="centerX" id="MAf-25-41t"/>
+                            <constraint firstItem="JRO-uC-yQ6" firstAttribute="trailing" secondItem="79e-3T-UNg" secondAttribute="trailing" constant="159" id="PGh-M1-H21"/>
                             <constraint firstItem="HrF-RQ-Q2x" firstAttribute="leading" secondItem="Brk-5j-5bM" secondAttribute="leading" id="SGG-Gt-Xpc"/>
                             <constraint firstItem="Brk-5j-5bM" firstAttribute="top" secondItem="kMX-3e-g7j" secondAttribute="bottom" constant="47" id="UN4-bf-8zA"/>
                             <constraint firstItem="KFD-w2-ldm" firstAttribute="leading" secondItem="JRO-uC-yQ6" secondAttribute="leading" constant="33" id="W2k-f7-M1H"/>
-                            <constraint firstItem="79e-3T-UNg" firstAttribute="leading" secondItem="vMf-wW-TS4" secondAttribute="leading" id="WEy-y0-WEJ"/>
                             <constraint firstItem="vMf-wW-TS4" firstAttribute="leading" secondItem="JRO-uC-yQ6" secondAttribute="leading" constant="153" id="XwW-pl-z1y"/>
                             <constraint firstItem="KFD-w2-ldm" firstAttribute="leading" secondItem="kMX-3e-g7j" secondAttribute="leading" id="ZBh-5J-grA"/>
                             <constraint firstItem="JRO-uC-yQ6" firstAttribute="trailing" secondItem="vMf-wW-TS4" secondAttribute="trailing" constant="147" id="ZsP-yd-jdk"/>
-                            <constraint firstItem="JRO-uC-yQ6" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="79e-3T-UNg" secondAttribute="trailing" symbolic="YES" id="gpO-lb-e2U"/>
-                            <constraint firstItem="XOF-32-Q4E" firstAttribute="centerY" secondItem="79e-3T-UNg" secondAttribute="centerY" id="i9S-VZ-4zj"/>
+                            <constraint firstItem="79e-3T-UNg" firstAttribute="leading" secondItem="vMf-wW-TS4" secondAttribute="leading" id="ezd-Oj-doe"/>
                             <constraint firstItem="HrF-RQ-Q2x" firstAttribute="trailing" secondItem="kMX-3e-g7j" secondAttribute="trailing" id="k2Q-Du-UAk"/>
+                            <constraint firstItem="79e-3T-UNg" firstAttribute="centerY" secondItem="XOF-32-Q4E" secondAttribute="centerY" id="s10-W1-III"/>
                             <constraint firstItem="Brk-5j-5bM" firstAttribute="trailing" secondItem="KFD-w2-ldm" secondAttribute="trailing" id="uCs-MT-q0M"/>
                         </constraints>
                         <connections>

@@ -38,7 +38,6 @@ class CurrencyViewController: UIViewController {
     @IBAction func convertButtonTapped(_ sender: UIButton) {
         convertDollarsToEuro()
     }
-
     // Convert entered dollars to euros
     private func convertDollarsToEuro() {
         // Check if the entered value in the dollarsTextField is valid
@@ -46,14 +45,12 @@ class CurrencyViewController: UIViewController {
             showAlert(message: "Invalid dollar amount")
             return
         }
-
         // Check if the exchange rate data is up to date
         guard currentExchangeRateDate == currentDate else {
             toggleActivityIndicator(shown: true)
             fetchLatestExchangeRate()
             return
         }
-
         // Perform the conversion
         let eurosAmount = dollarsAmount / currentExchangeRate
         eurosTextField.text = String(format: "%.2f", eurosAmount)
@@ -62,7 +59,7 @@ class CurrencyViewController: UIViewController {
     // Fetch the latest exchange rate
     private func fetchLatestExchangeRate() {
         ChangeRateService.shared.getChangeRate { result in
-// to perform chnage on UI always on main thread 
+            // to perform chnage on UI always on main thread
             DispatchQueue.main.async {
                 self.toggleActivityIndicator(shown: false)
                 switch result {

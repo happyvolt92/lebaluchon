@@ -37,21 +37,18 @@ class TranslatorService {
                     completion(.failure(.apiError))
                     return
                 }
-                
                 // Check if there is data available in the response
                 guard let jsonData = data else {
                     // If no data is available, report no data available and return early
                     completion(.failure(.noDataAvailable))
                     return
                 }
-                
                 // Check if the HTTP response status code is 200 (OK)
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                     // If the HTTP response is not valid, report an HTTP response error and return early
                     completion(.failure(.httpResponseError))
                     return
                 }
-                
                 do {
                     // Use a JSON decoder to parse JSON data into a TranslationData structure
                     let decoder = JSONDecoder()
@@ -64,14 +61,11 @@ class TranslatorService {
                     completion(.failure(.parsingFailed))
                 }
             }
-            
         }
-        
         // Start the data task to perform the translation request
         task?.resume()
     }
 
-    
     private func createTranslationRequest(textToTranslate: String?, from language: LanguagesOptions) -> URLRequest? {
         guard let url = resourceUrl, let text = textToTranslate else {
             return nil
@@ -79,17 +73,13 @@ class TranslatorService {
         // Determine the source and target languages based on the selected language.
         let sourceLanguage = language == .english ? "en" : "fr"
         let targetLanguage = language == .english ? "fr" : "en"
-        
         // Create the request body with the specified parameters.
         let body = "q=\(text)&source=\(sourceLanguage)&target=\(targetLanguage)&format=text"
-        
         // Create and configure a URLRequest with the constructed URL and body.
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.httpBody = body.data(using: .utf8)
-        
         return request
     }
-
-  
+ 
 }
