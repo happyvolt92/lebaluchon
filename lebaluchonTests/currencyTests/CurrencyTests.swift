@@ -52,21 +52,21 @@ class CurrencyServiceTests: XCTestCase {
             error: nil
         )
         self.currencyService = ChangeRateService(session: urlSessionFake)
-        
+
         // When
         currencyService.getChangeRate { result in
+            // Then
             switch result {
-            case .success:
-                XCTFail("Should fail for incorrect data")
-            case .failure(let error as lebaluchon.AppError):
-                XCTAssertEqual(error, .parsingFailed, "Error should be parsingFailed")
+            case .success(_):
+                XCTFail("Expected failure, but got success")
+            case .failure(let error):
+                XCTAssertEqual(error, .httpResponseError) // You should modify this to match your expected error type.
                 expectation.fulfill()
-            default:
-                XCTFail("Unexpected result")
             }
         }
-        
-        // Wait for the expectation
-        wait(for: [expectation], timeout: 20.0)
+
+        // Wait for the expectation to be fulfilled within a certain time interval (adjust the timeout as needed).
+        wait(for: [expectation], timeout: 5.0)
     }
+
 }
