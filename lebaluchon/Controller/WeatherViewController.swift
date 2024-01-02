@@ -1,5 +1,6 @@
 import UIKit
 
+
 class WeatherViewController: UIViewController {
     // Outlets
     @IBOutlet weak var weatherInformationNewYork: UITextView!
@@ -17,9 +18,6 @@ class WeatherViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Load initial weather data for New York and Besançon
-        loadWeatherData(for: "New York", textView: weatherInformationNewYork, iconView: weatherIconNewYork)
-        loadWeatherData(for: "Besançon", textView: weatherInformationBesancon, iconView: weatherIconBesancon)
     }
 
     // Function to load weather data for a given city

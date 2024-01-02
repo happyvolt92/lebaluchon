@@ -1,6 +1,7 @@
 import UIKit
 
 class TranslatorViewController: UIViewController, UITextViewDelegate {
+
     // Outlets
     @IBOutlet var TranslatorView: UIView!
     @IBOutlet weak var TextViewToTranslate: UITextView!
@@ -19,9 +20,19 @@ class TranslatorViewController: UIViewController, UITextViewDelegate {
             return
         }
 
+        // Create an instance of ActivityIndicatorAnimation
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+
         // Start the activity indicator animation and initiate the translation
-        ActivityIndicatorAnimation.shared.startLoading(for: translatorActivityIndicator)
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
+        view.addSubview(activityIndicator)
         translate()
+
+        // Stop the activity indicator animation when the translation is complete
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
+        activityIndicator.removeFromSuperview()
     }
 
     // Action to dismiss the keyboard
@@ -39,10 +50,6 @@ class TranslatorViewController: UIViewController, UITextViewDelegate {
         // Call the translation service
         TranslatorService.shared.getTextTranslation(textToTranslate: TextViewToTranslate.text, from: language) { result in
             DispatchQueue.main.async {
-                // Stop the activity indicator animation when the translation is complete
-
-                ActivityIndicatorAnimation.shared.stopLoading(for: self.translatorActivityIndicator)
-
                 switch result {
                 case .failure:
                     self.showAlert(for: .apiError) // Show an alert for translation failure

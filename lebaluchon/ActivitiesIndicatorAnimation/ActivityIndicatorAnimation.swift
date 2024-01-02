@@ -11,9 +11,6 @@ import UIKit
 
 class ActivityIndicatorAnimation {
 
-    static let shared = ActivityIndicatorAnimation()
-    
-    private init() { }
 
     func startLoading(for activityIndicator: UIActivityIndicatorView) {
         activityIndicator.startAnimating()
