@@ -1,11 +1,11 @@
 import Foundation
 
-struct WeatherResponse: Codable {
+struct WeatherResponse: Decodable {
     var weather: [WeatherDetails]
     var main: Temperature
 }
 
-struct WeatherDetails: Codable {
+struct WeatherDetails: Decodable {
     var id: Int
     var description: String
     var icon: String 
@@ -14,6 +14,6 @@ struct WeatherDetails: Codable {
     }
 }
 
-struct Temperature: Codable {
+struct Temperature: Decodable {
     var temp: Double
 }

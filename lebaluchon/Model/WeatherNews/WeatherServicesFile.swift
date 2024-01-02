@@ -1,8 +1,8 @@
 import Foundation
 
 class WeatherServices {
-    // Singleton instance
-    static let shared = WeatherServices()
+    // Singleton instance for accessing weatherService
+    private(set) static var shared = WeatherServices()
     // URLSession to perform network requests
     private var session: URLSession
     // API key for OpenWeatherMap (Replace with your API key)

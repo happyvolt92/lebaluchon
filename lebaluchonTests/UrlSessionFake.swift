@@ -1,4 +1,3 @@
-
 import Foundation
 
 // MARK: - Mock URLSession
@@ -12,6 +11,7 @@ class URLSessionFake: URLSession {
         self.data = data
         self.response = response
         self.error = error
+        super.init()
     }
 
     override func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
@@ -35,7 +35,6 @@ class URLSessionFake: URLSession {
     }
 }
 
-
 class URLSessionDataTaskFake: URLSessionDataTask {
     var completionHandler: ((Data?, URLResponse?, Error?) -> Void)?
 
@@ -48,6 +47,7 @@ class URLSessionDataTaskFake: URLSessionDataTask {
         self.data = data
         self.urlResponse = urlResponse
         self.responseError = responseError
+        super.init()
     }
 
     override func resume() {

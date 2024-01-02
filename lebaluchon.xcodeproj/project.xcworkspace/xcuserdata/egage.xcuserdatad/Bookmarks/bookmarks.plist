@@ -34,15 +34,16 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string></string>
+				<string>            case .failure(let error as lebaluchon.AppError):
+</string>
 				<key>leading</key>
 				<string>            case .success:
                 XCTFail("Should fail for incorrect data")
-            case .failure(let error </string>
+</string>
 				<key>trailing</key>
-				<string>as lebaluchon.AppError):
-                XCTAssertTrue(error == .parsingFailed, "Error should be parsingFailed")
+				<string>                XCTAssertTrue(error == .parsingFailed, "Error should be parsingFailed")
                 expectation.fulfill()
+            default:
 </string>
 			</dict>
 			<key>title</key>

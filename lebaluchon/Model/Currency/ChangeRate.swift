@@ -10,13 +10,13 @@ import Foundation
 // MARK: - Exchange Rate Data Structures
 
 // Structure representing the response from the exchange rate API
-struct ChangeRate: Codable {
+struct ChangeRate: Decodable {
     var date: String
     var rates: Rate
 }
 
 // Structure representing the exchange rate for a specific currency (e.g., USD)
-struct Rate: Codable {
+struct Rate: Decodable {
     var USD: Double
 }
 
