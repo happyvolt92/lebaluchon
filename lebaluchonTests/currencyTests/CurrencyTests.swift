@@ -59,7 +59,7 @@ class CurrencyServiceTests: XCTestCase {
             case .success:
                 XCTFail("Should fail for incorrect data")
             case .failure(let error as lebaluchon.AppError):
-                XCTAssertTrue(error == .parsingFailed, "Error should be parsingFailed")
+                XCTAssertEqual(error, .parsingFailed, "Error should be parsingFailed")
                 expectation.fulfill()
             default:
                 XCTFail("Unexpected result")

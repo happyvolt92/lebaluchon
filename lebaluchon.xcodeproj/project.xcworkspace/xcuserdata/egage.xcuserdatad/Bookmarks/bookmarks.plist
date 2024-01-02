@@ -3,54 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>top-level-items</key>
-	<array>
-		<dict>
-			<key>destination</key>
-			<dict>
-				<key>location-parameters</key>
-				<dict>
-					<key>EndingColumnNumber</key>
-					<string>36</string>
-					<key>EndingLineNumber</key>
-					<string>60</string>
-					<key>StartingColumnNumber</key>
-					<string>36</string>
-					<key>StartingLineNumber</key>
-					<string>60</string>
-					<key>Timestamp</key>
-					<string>724785162.7186511</string>
-				</dict>
-				<key>rebasable-url</key>
-				<dict>
-					<key>base</key>
-					<string>workspace</string>
-					<key>payload</key>
-					<dict>
-						<key>relative-path</key>
-						<string>lebaluchonTests/currencyTests/CurrencyTests.swift</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>text-context</key>
-			<dict>
-				<key>focused</key>
-				<string>            case .failure(let error as lebaluchon.AppError):
-</string>
-				<key>leading</key>
-				<string>            case .success:
-                XCTFail("Should fail for incorrect data")
-</string>
-				<key>trailing</key>
-				<string>                XCTAssertTrue(error == .parsingFailed, "Error should be parsingFailed")
-                expectation.fulfill()
-            default:
-</string>
-			</dict>
-			<key>title</key>
-			<string>Warning: Cast from 'ChangeRateService.ChangeRateError' to unrelated type 'AppError' always fails</string>
-			<key>type</key>
-			<string>bookmark</string>
-		</dict>
-	</array>
+	<array/>
 </dict>
 </plist>

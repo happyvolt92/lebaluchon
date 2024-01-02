@@ -13,7 +13,8 @@
       "containerPath" : "container:lebaluchon.xcodeproj",
       "identifier" : "87D7464B2AC2BB840078C662",
       "name" : "lebaluchon"
-    }
+    },
+    "testExecutionOrdering" : "random"
   },
   "testTargets" : [
     {
