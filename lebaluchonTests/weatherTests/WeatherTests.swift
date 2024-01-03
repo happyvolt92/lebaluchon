@@ -118,4 +118,78 @@ class WeatherServiceTestCase: XCTestCase {
             }
         }
     }
+    
+    func testGetWeatherShouldPostFailedCallbackIfTimeout() {
+            // Given
+            let urlSessionMock = URLSessionMock(data: nil, response: nil, error: URLError(.timedOut))
+            let weatherService = WeatherServices(session: urlSessionMock)
+            
+            let expectation = self.expectation(description: "Weather service should time out")
+            
+            var capturedResult: Result<WeatherResponse, AppError>?
+            weatherService.fetchWeather(for: "nyc") { result in
+                capturedResult = result
+                expectation.fulfill()
+            }
+            
+            // When / Then
+            waitForExpectations(timeout: 5.0, handler: nil)
+            if case .failure(let error) = capturedResult {
+                XCTAssertEqual(error, .requestError)
+            } else {
+                XCTFail("Expected timeout error, got \(capturedResult!) instead")
+            }
+        }
+
+        // 2. Test for Invalid Status Code
+        func testGetWeatherShouldPostFailedCallbackIfInvalidStatusCode() {
+            // Given
+            let invalidStatusCodeResponse = HTTPURLResponse(url: URL(string: "https://example.com")!,
+                                                           statusCode: 404, httpVersion: nil, headerFields: nil)
+            let urlSessionMock = URLSessionMock(data: nil, response: invalidStatusCodeResponse, error: nil)
+            let weatherService = WeatherServices(session: urlSessionMock)
+            
+            let expectation = self.expectation(description: "Weather service should report invalid status code")
+            
+            var capturedResult: Result<WeatherResponse, AppError>?
+            weatherService.fetchWeather(for: "nyc") { result in
+                capturedResult = result
+                expectation.fulfill()
+            }
+            
+            // When / Then
+            waitForExpectations(timeout: 5.0, handler: nil)
+            if case .failure(let error) = capturedResult {
+                XCTAssertEqual(error, .noDataAvailable)
+            } else {
+                XCTFail("Expected invalid response error, got \(capturedResult!) instead")
+            }
+        }
+        
+        // 3. Test for Malformed JSON Response
+        func testGetWeatherShouldPostFailedCallbackIfMalformedJSON() {
+            // Given
+            let malformedJsonData = "{invalid}".data(using: .utf8)!
+            let urlSessionMock = URLSessionMock(data: malformedJsonData, response: FakeWeatherResponseData.responseOK, error: nil)
+            let weatherService = WeatherServices(session: urlSessionMock)
+            
+            let expectation = self.expectation(description: "Weather service should report malformed JSON")
+            
+            var capturedResult: Result<WeatherResponse, AppError>?
+            weatherService.fetchWeather(for: "nyc") { result in
+                capturedResult = result
+                expectation.fulfill()
+            }
+            
+            // When / Then
+            waitForExpectations(timeout: 5.0, handler: nil)
+            if case .failure(let error) = capturedResult {
+                XCTAssertEqual(error, .parsingFailed)
+            } else {
+                XCTFail("Expected parsing error, got \(capturedResult!) instead")
+            }
+        }
+        
 }
+
+

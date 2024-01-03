@@ -4,6 +4,7 @@ class TranslatorService {
     // Shared static property to access the translation service from other parts of the application
     private(set) static var shared = TranslatorService()
 
+
     // URLSession task and session for performing HTTP requests
     private var task: URLSessionDataTask?
     private var session: URLSession

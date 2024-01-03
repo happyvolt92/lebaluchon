@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 
 class ActivityIndicatorAnimation {
-
-
     func startLoading(for activityIndicator: UIActivityIndicatorView) {
         activityIndicator.startAnimating()
         activityIndicator.isHidden = false

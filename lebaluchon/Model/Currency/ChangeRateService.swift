@@ -1,3 +1,11 @@
+//
+//
+// ChangeRateService.swift
+// Le baluchon
+//
+//create by Elodie GAGE 22/12/23
+
+
 import Foundation
 
 class ChangeRateService {
@@ -13,7 +21,7 @@ class ChangeRateService {
         case httpResponseError
     }
 
-    // MARK: - Properties
+    // MARK: - Properties 
 
     // Singleton instance for shared access to the ChangeRateService
     private(set) static var shared = ChangeRateService()

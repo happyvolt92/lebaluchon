@@ -1,3 +1,10 @@
+//
+//
+// CurrencyViewController
+// Le baluchon
+//
+//create by Elodie GAGE 22/12/23
+
 import UIKit
 
 class CurrencyViewController: UIViewController {
@@ -39,7 +46,7 @@ class CurrencyViewController: UIViewController {
         convertDollarsToEuro()
     }
     // Convert entered dollars to euros
-    private func convertDollarsToEuro() {
+     func convertDollarsToEuro() {
         // Check if the entered value in the dollarsTextField is valid
         guard let dollarsValue = dollarsTextField.text, let dollarsAmount = Double(dollarsValue) else {
             showAlert(message: "Invalid dollar amount")
@@ -57,7 +64,7 @@ class CurrencyViewController: UIViewController {
     }
 
     // Fetch the latest exchange rate
-    private func fetchLatestExchangeRate() {
+     func fetchLatestExchangeRate() {
         ChangeRateService.shared.getChangeRate { result in
             // to perform chnage on UI always on main thread
             DispatchQueue.main.async {

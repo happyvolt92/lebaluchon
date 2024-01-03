@@ -23,15 +23,6 @@
         "identifier" : "87D746612AC2BB860078C662",
         "name" : "lebaluchonTests"
       }
-    },
-    {
-      "enabled" : false,
-      "parallelizable" : true,
-      "target" : {
-        "containerPath" : "container:lebaluchon.xcodeproj",
-        "identifier" : "87D7466B2AC2BB860078C662",
-        "name" : "lebaluchonUITests"
-      }
     }
   ],
   "version" : 1

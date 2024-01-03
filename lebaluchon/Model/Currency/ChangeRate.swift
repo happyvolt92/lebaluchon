@@ -1,5 +1,5 @@
 //
-//  CurrencyConverter.swift
+//  currencyRate.swift
 //  lebaluchon
 //
 //  Created by Elodie Gage on 22/11/2023.

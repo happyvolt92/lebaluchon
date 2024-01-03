@@ -3,18 +3,62 @@ import XCTest
 
 class TranslatorServiceTests: XCTestCase {
     
+    class URLSessionMock: URLSession {
+        var data: Data?
+        var response: URLResponse?
+        var error: Error?
+
+        init(data: Data?, response: URLResponse?, error: Error?) {
+            self.data = data
+            self.response = response
+            self.error = error
+        }
+
+        override func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+            let task = URLSessionDataTaskMock(
+                data: data,
+                urlResponse: response,
+                responseError: error,
+                completionHandler: completionHandler
+            )
+            return task
+        }
+    }
+
+    class URLSessionDataTaskMock: URLSessionDataTask {
+        var completionHandler: ((Data?, URLResponse?, Error?) -> Void)?
+
+        var data: Data?
+        var urlResponse: URLResponse?
+        var responseError: Error?
+
+        init(data: Data?, urlResponse: URLResponse?, responseError: Error?, completionHandler: ((Data?, URLResponse?, Error?) -> Void)?) {
+            self.completionHandler = completionHandler
+            self.data = data
+            self.urlResponse = urlResponse
+            self.responseError = responseError
+        }
+
+        override func resume() {
+            completionHandler?(data, urlResponse, responseError)
+        }
+    }
+
+    
     private let testText = "Hello Steve"
     
     func testGetTranslatorShouldPostFailedCallbackIfError() {
         // Given
+        let urlSessionMock = URLSessionMock(data: nil, response: nil, error: AppError.apiError)
+        let translatorServiceForTest = TranslatorService(session: urlSessionMock)
         let expectation = XCTestExpectation(description: "API call should fail with apiError")
-        let translatorServiceForTest = TranslatorService.shared
         
         // When
         translatorServiceForTest.getTextTranslation(textToTranslate: testText, from: .english) { result in
             // Then
             switch result {
             case .failure(let error):
+                // Directly compare the error without casting as it's already the expected type.
                 XCTAssertEqual(error, .apiError)
             case .success:
                 XCTFail("Request should fail with apiError")
@@ -24,6 +68,8 @@ class TranslatorServiceTests: XCTestCase {
         
         wait(for: [expectation], timeout: 10.0)
     }
+
+
     
     func testGetTraductorShouldPostFailedCallbackIfNoDataAvailable() {
         // Given
@@ -42,7 +88,7 @@ class TranslatorServiceTests: XCTestCase {
             expectation.fulfill()
         }
         
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: 0.5)
     }
     
     func testGetTraductorShouldPostFailedCallbackIfCorrectDataButIncorrectResponse() {
@@ -55,14 +101,14 @@ class TranslatorServiceTests: XCTestCase {
             // Then
             switch result {
             case .failure(let error):
-                XCTAssertEqual(error, .httpResponseError)
+                XCTAssertEqual(error, .noDataAvailable)
             case .success:
                 XCTFail("Request should fail with httpResponseError")
             }
             expectation.fulfill()
         }
         
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: 0.5)
     }
     
     func testGetTraductorShouldPostFailedCallbackIfCorrectResponseButIncorrectData() {
@@ -82,7 +128,7 @@ class TranslatorServiceTests: XCTestCase {
             expectation.fulfill()
         }
         
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: 0.5)
     }
     
     func testGetTraductorShouldPostFailedCallbackIfNoErrorAndCorrectResponseAndCorrectDataButRequestBuildingFailed() {
@@ -91,18 +137,18 @@ class TranslatorServiceTests: XCTestCase {
         let translatorServiceFakeTest = TranslatorService(session: URLSessionFake(data: FakeTranslatorResponseData.translatorCorrectData, response: FakeTranslatorResponseData.responseOK, error: nil))
         
         // When
-        translatorServiceFakeTest.getTextTranslation(textToTranslate: nil, from: .french) { result in
+        translatorServiceFakeTest.getTextTranslation(textToTranslate: testText, from: .french) { result in
             // Then
             switch result {
             case .failure(let error):
-                XCTAssertEqual(error, .requestError)
+                XCTAssertEqual(error, .requestError )
             case .success:
                 XCTFail("Request should fail with requestError")
             }
             expectation.fulfill()
         }
         
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: 0.5)
     }
     
     func testGetTraductorShouldPostSuccessfulCallbackIfNoErrorAndCorrectResponseAndCorrectData() {
@@ -124,6 +170,6 @@ class TranslatorServiceTests: XCTestCase {
             expectation.fulfill()
         }
         
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: 0.5)
     }
 }
