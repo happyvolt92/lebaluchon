@@ -98,7 +98,7 @@ class CurrencyViewController: UIViewController {
     }
 
     // Toggle the visibility of the activity indicator and convert button
-    private func toggleActivityIndicator(shown: Bool) {
+     func toggleActivityIndicator(shown: Bool) {
         convertButton.isHidden = shown
         activityIndicator.isHidden = !shown
         shown ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
