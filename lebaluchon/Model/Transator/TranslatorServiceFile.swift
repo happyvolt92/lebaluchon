@@ -6,8 +6,8 @@ class TranslatorService {
 
 
     // URLSession task and session for performing HTTP requests
-    private var task: URLSessionDataTask?
-    private var session: URLSession
+     var task: URLSessionDataTask?
+     var session: URLSession
 
     // URL of the translation API resource and API key
     private var resourceUrl: URL?

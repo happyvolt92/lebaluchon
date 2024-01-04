@@ -8,9 +8,9 @@
 import Foundation
 
 class FakeTranslatorResponseData {
-
+    
     // MARK: - Data
-
+    
     static var translatorCorrectData: Data? {
         let bundle = Bundle(for: FakeTranslatorResponseData.self)
         
@@ -21,22 +21,26 @@ class FakeTranslatorResponseData {
         
         return jsonData
     }
-
-    static let translatorIncorrectData = "erreur".data(using: .utf8)!
-
+    
+    static var translatorIncorrectData: Data {
+        """
+        {"incorrectKey": "incorrectValue"}
+        """.data(using: .utf8)!
+    }
+    
     // MARK: - Response
-
-    static let responseOK = HTTPURLResponse(
-        url: URL(string: "https://openclassrooms.com")!,
-        statusCode: 200, httpVersion: nil, headerFields: [:])!
-
-    static let responseKO = HTTPURLResponse(
-        url: URL(string: "https://openclassrooms.com")!,
-        statusCode: 500, httpVersion: nil, headerFields: [:])!
-
-
+    static var responseOK: HTTPURLResponse {
+        HTTPURLResponse(url: URL(string: "https://translation.googleapis.com")!,
+                        statusCode: 200, httpVersion: nil, headerFields: nil)!
+    }
+    
+    static var responseKO: HTTPURLResponse {
+        HTTPURLResponse(url: URL(string: "https://translation.googleapis.com")!,
+                        statusCode: 500, httpVersion: nil, headerFields: nil)!
+    }
     // MARK: - Error
     
     class FakeTranslatorError: Error {}
     static let error = FakeTranslatorError()
 }
+

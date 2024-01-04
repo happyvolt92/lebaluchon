@@ -23,10 +23,35 @@ class FakeChangeRateResponseData {
             return nil
         }
     }
+    // Static method to create fake data with an incorrect format
+       static func changeRateIncorrectData() -> Data {
+           return "InvalidData".data(using: .utf8)!
+       }
+       
+       // Static method to create fake data with a negative exchange rate
+       static func changeRateWithNegativeValueData() -> Data {
+           let json = "{\"USD\": -1.0}"
+           return json.data(using: .utf8)!
+       }
+       
+       // Static method to create fake data with a zero exchange rate
+       static func changeRateWithZeroValueData() -> Data {
+           let json = "{\"USD\": 0.0}"
+           return json.data(using: .utf8)!
+       }
+       
+       // Static method to create fake data with a positive exchange rate
+       static func changeRateWithPositiveValueData() -> Data {
+           let json = "{\"USD\": 1.5}"
+           return json.data(using: .utf8)!
+       }
+       
+       // Static method to create fake data with an exchange rate that exceeds a threshold
+       static func changeRateExceedsThresholdData() -> Data {
+           let json = "{\"USD\": 100.0}"
+           return json.data(using: .utf8)!
+       }
     
-    
-    static let changeRateIncorrectData = "erreur".data(using: .utf8)!
-
     // MARK: - Response
 
     static let responseOK = HTTPURLResponse(
