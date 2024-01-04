@@ -17,7 +17,8 @@ class CurrencyViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Properties
-
+    // Add a property for the change rate service
+    var changeRateService: ChangeRateService!
     // Properties for currency exchange rate data
     private var currentExchangeRate: Double {
         ChangeRateData.changeRate
@@ -44,18 +45,27 @@ class CurrencyViewController: UIViewController {
     // Action when the convert button is tapped
     @IBAction func convertButtonTapped(_ sender: UIButton) {
         convertDollarsToEuro()
+        
     }
+    // Toggle the visibility of the activity indicator and convert button
+  @IBAction  func toggleActivityIndicator(shown: Bool) {
+        convertButton.isHidden = shown
+        activityIndicator.isHidden = !shown
+        shown ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
+    }
+    
     // Convert entered dollars to euros
-     func convertDollarsToEuro() {
-        // Check if the entered value in the dollarsTextField is valid
-        guard let dollarsValue = dollarsTextField.text, let dollarsAmount = Double(dollarsValue) else {
-            showAlert(message: "Invalid dollar amount")
+    func convertDollarsToEuro() {
+        guard isViewLoaded else { return }  // Ensure view is loaded
+        guard let dollarsTextField = dollarsTextField,
+                let eurosTextField = eurosTextField else {
+            print("Outlets are not connected")
             return
         }
-        // Check if the exchange rate data is up to date
-        guard currentExchangeRateDate == currentDate else {
-            toggleActivityIndicator(shown: true)
-            fetchLatestExchangeRate()
+        
+        guard let dollarsValue = dollarsTextField.text,
+                let dollarsAmount = Double(dollarsValue) else {
+            showAlert(message: "Invalid dollar amount")
             return
         }
         // Perform the conversion
@@ -97,12 +107,7 @@ class CurrencyViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
 
-    // Toggle the visibility of the activity indicator and convert button
-     func toggleActivityIndicator(shown: Bool) {
-        convertButton.isHidden = shown
-        activityIndicator.isHidden = !shown
-        shown ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
-    }
+
 
     // Dismiss the keyboard when tapping outside the text field
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {

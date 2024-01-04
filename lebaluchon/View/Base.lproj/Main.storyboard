@@ -167,7 +167,7 @@
         <!--CurrencyItem-->
         <scene sceneID="dEk-YG-Z2v">
             <objects>
-                <viewController id="yti-4c-vrs" userLabel="CurrencyItem" customClass="CurrencyViewController" customModule="lebaluchon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CurrencyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yti-4c-vrs" userLabel="CurrencyItem" customClass="CurrencyViewController" customModule="lebaluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zsD-JI-N6P" userLabel="CurrencyView">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -221,6 +221,7 @@
                                 </state>
                                 <connections>
                                     <action selector="convertButtonTapped:" destination="yti-4c-vrs" eventType="touchUpInside" id="Y8R-jG-Xvc"/>
+                                    <action selector="toggleActivityIndicatorWithShown:" destination="yti-4c-vrs" eventType="touchUpInside" id="CyV-9J-ktK"/>
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="XOF-32-Q4E">
