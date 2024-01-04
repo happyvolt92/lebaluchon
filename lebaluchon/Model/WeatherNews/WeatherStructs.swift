@@ -1,11 +1,12 @@
 import Foundation
 
-struct WeatherResponse: Decodable {
+//needed to use codable for testing when mocking test
+struct WeatherResponse: Codable {
     var weather: [WeatherDetails]
     var main: Temperature
 }
 
-struct WeatherDetails: Decodable {
+struct WeatherDetails: Codable {
     var id: Int
     var description: String
     var icon: String 
@@ -14,6 +15,6 @@ struct WeatherDetails: Decodable {
     }
 }
 
-struct Temperature: Decodable {
+struct Temperature: Codable {
     var temp: Double
 }

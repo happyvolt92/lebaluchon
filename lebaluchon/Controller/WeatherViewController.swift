@@ -21,7 +21,7 @@ class WeatherViewController: UIViewController {
     }
 
     // Function to load weather data for a given city
-    private func loadWeatherData(for city: String, textView: UITextView, iconView: UIImageView) {
+     func loadWeatherData(for city: String, textView: UITextView, iconView: UIImageView) {
         // Call the weather service to fetch weather data
         WeatherServices.shared.fetchWeather(for: city) { [weak self] result in
             guard let self = self else { return }
