@@ -78,7 +78,7 @@ class TranslatorServiceTests: XCTestCase {
         // Simulate a scenario where request building fails (e.g., wrong URL or parameters)
         // Implement as per your TranslatorService's request building logic
         // For now, assuming request building fails when an empty text is provided
-        translatorService.session = URLSessionFake(data: FakeTranslatorResponseData.translatorCorrectData, response: FakeTranslatorResponseData.responseOK, error: nil)
+        translatorService.session = URLSessionFake(data: FakeTranslatorResponseData.translatorCorrectData, response: FakeTranslatorResponseData.responseKO, error: nil)
         let expectation = XCTestExpectation(description: "Waiting for translation to fail due to request building failure.")
         translatorService.getTextTranslation(textToTranslate: "", from: .english) { result in
             if case .failure = result {

@@ -40,33 +40,6 @@ class ChangeRateServiceTests: XCTestCase {
             mockData[defaultName] = value
         }
     }    
-       
-//        func testChangeRateDateGetter() {
-//            let expectedDate = "2023-11-15"
-//            MockUserDefaults.mockData[ChangeRateData.Keys.currentChangeRateDate] = expectedDate
-//            let date = ChangeRateData.changeRateDate
-//            XCTAssertEqual(date, expectedDate, "The getter should return the date stored in UserDefaults")
-//        }
-//        
-//        func testChangeRateDateSetter() {
-//            let newDate = "2023-11-16"
-//            ChangeRateData.changeRateDate = newDate
-//            XCTAssertEqual(MockUserDefaults.mockData[ChangeRateData.Keys.currentChangeRateDate] as? String, newDate, "The setter should store the new date in UserDefaults")
-//        }
-//        
-//        func testChangeRateGetter() {
-//            let expectedRate: Double = 1.131164
-//            MockUserDefaults.mockData[ChangeRateData.Keys.currentChangeRate] = expectedRate
-//            let rate = ChangeRateData.changeRate
-//            XCTAssertEqual(rate, expectedRate, "The getter should return the rate stored in UserDefaults")
-//        }
-//        
-//        func testChangeRateSetter() {
-//            let newRate: Double = 1.2
-//            ChangeRateData.changeRate = newRate
-//            XCTAssertEqual(MockUserDefaults.mockData[ChangeRateData.Keys.currentChangeRate] as? Double, newRate, "The setter should store the new rate in UserDefaults")
-//        }
-
     
     func testFetchExchangeRateSuccess() {
         // Given

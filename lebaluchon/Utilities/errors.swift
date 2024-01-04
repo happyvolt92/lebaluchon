@@ -19,6 +19,7 @@ enum AppError: Error {
     case emptyAmount
     case incorrectAmount
     case jsonParsingError
+    case timeoutError
 }
 
 extension UIViewController {
@@ -51,6 +52,9 @@ extension UIViewController {
         case .jsonParsingError:
             title = "JSON Parsing Error"
             message = "Failed to parse the JSON response."
+        case .timeoutError:
+            title = "Timeout Error"
+            message = "The rsquest timout."
         }
         showAlert(title: title, message: message)
     }

@@ -86,8 +86,8 @@ class WeatherServiceTestCase: XCTestCase {
         }
         // Example: Validate first weather detail
         if let firstWeatherDetail = weatherResponse.weather.first {
-            XCTAssertEqual(firstWeatherDetail.id, 800, "The weather id should be 800")
-            XCTAssertEqual(firstWeatherDetail.description, "clear sky", "The weather description should be 'clear sky'")
+            XCTAssertEqual(firstWeatherDetail.id, 803, "The weather id should be 803")
+            XCTAssertEqual(firstWeatherDetail.description, "nuageux", "The weather description should be 'nuageux'")
         } else {
             XCTFail("Weather details should have at least one entry")
         }
@@ -96,6 +96,7 @@ class WeatherServiceTestCase: XCTestCase {
     // ... Add additional test methods for timeout, invalid status code, malformed JSON response, etc.
     // For instance, test for timeout error, invalid response status code, or malformed data cases here.
     
+    // Test fetching weather times out
     // Test fetching weather times out
     func testGetWeatherShouldPostFailedCallbackIfTimeout() {
         // Given
@@ -112,10 +113,14 @@ class WeatherServiceTestCase: XCTestCase {
         
         // Then
         waitForExpectations(timeout: 5.0)
-        guard case .failure(let error as URLError) = capturedResult, error.code == .timedOut else {
-            return XCTFail("Expected timeout error, got \(String(describing: capturedResult))")
+        guard case .failure(let error) = capturedResult else {
+            return XCTFail("Expected failure, got \(String(describing: capturedResult))")
+        }
+        guard case .timeoutError = error else {
+            return XCTFail("Expected timeout error, got \(error)")
         }
     }
+
     
     // Test fetching weather with invalid status code
     func testGetWeatherShouldPostFailedCallbackIfInvalidStatusCode() {

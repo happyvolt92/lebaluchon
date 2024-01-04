@@ -23,25 +23,40 @@ class WeatherServices {
         let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(encodedCity)&appid=\(apiKey)&units=metric")!
         // Perform a data task to fetch weather data
         let task = session.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(.requestError))
-                print("Error: \(error.localizedDescription)")
+            if let error = error as? URLError {
+                // Handle specific URLError cases here
+                switch error.code {
+                case .timedOut:
+                    // Translate URLError timedOut to AppError timeoutError
+                    completion(.failure(.timeoutError))
+                default:
+                    // Handle other URLError cases or provide a generic requestError
+                    completion(.failure(.requestError))
+                }
+                print("URLError occurred: \(error)")
+                return
+            }
+            guard let httpResponse = response as? HTTPURLResponse,
+                  (200...299).contains(httpResponse.statusCode) else {
+                // Handle invalid response
+                completion(.failure(.httpResponseError))
                 return
             }
             guard let data = data else {
+                // Handle no data scenario
                 completion(.failure(.noDataAvailable))
                 return
             }
             do {
-                // Decode the weather response from JSON
+                // Attempt to decode the data into a WeatherResponse
                 let weatherResponse = try JSONDecoder().decode(WeatherResponse.self, from: data)
                 completion(.success(weatherResponse))
             } catch {
+                // Handle parsing error
                 completion(.failure(.parsingFailed))
                 print("Parsing error: \(error.localizedDescription)")
             }
         }
-        // Start the data task
         task.resume()
     }
 }
