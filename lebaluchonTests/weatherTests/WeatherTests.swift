@@ -71,6 +71,7 @@ class WeatherServiceTestCase: XCTestCase {
         // Given
         let urlSessionMock = URLSessionMock(data: FakeWeatherResponseData.weatherCorrectData, response: FakeWeatherResponseData.responseOK, error: nil)
         let weatherService = WeatherServices(session: urlSessionMock) // Replace with your actual WeatherService
+
         // When
         let expectation = self.expectation(description: "Weather service should complete successfully")
         var capturedResult: Result<WeatherResponse, AppError>?
@@ -111,7 +112,7 @@ class WeatherServiceTestCase: XCTestCase {
         
         // Then
         waitForExpectations(timeout: 5.0)
-        guard case .failure(let error as AppError?) = capturedResult, error.DispatchTimeoutResult == .timedOut else {
+        guard case .failure(let error as URLError) = capturedResult, error.code == .timedOut else {
             return XCTFail("Expected timeout error, got \(String(describing: capturedResult))")
         }
     }
@@ -120,11 +121,11 @@ class WeatherServiceTestCase: XCTestCase {
     func testGetWeatherShouldPostFailedCallbackIfInvalidStatusCode() {
         // Given
         let urlSessionMock = URLSessionMock(data: nil, response: FakeWeatherResponseData.responseKO, error: nil)
-        let weatherService = WeatherServices(session: urlSessionMock)
+        let weatherService = WeatherServices(session: urlSessionMock) // Ensure WeatherServices exists and is accessible
         
         // When
         let expectation = self.expectation(description: "Weather service should report invalid status code")
-        var capturedResult: Result<WeatherResponse, Error>?
+        var capturedResult: Result<WeatherResponse, AppError>? // Match the error type to AppError
         weatherService.fetchWeather(for: "nyc") { result in
             capturedResult = result
             expectation.fulfill()
@@ -142,11 +143,11 @@ class WeatherServiceTestCase: XCTestCase {
         // Given
         let malformedJsonData = "Malformed JSON".data(using: .utf8)!
         let urlSessionMock = URLSessionMock(data: malformedJsonData, response: FakeWeatherResponseData.responseOK, error: nil)
-        let weatherService = WeatherService(session: urlSessionMock)
+        let weatherService = WeatherServices(session: urlSessionMock)
         
         // When
         let expectation = self.expectation(description: "Weather service should report malformed JSON")
-        var capturedResult: Result<WeatherResponse, Error>?
+        var capturedResult: Result<WeatherResponse, AppError>? // Match the error type to AppError
         weatherService.fetchWeather(for: "nyc") { result in
             capturedResult = result
             expectation.fulfill()
