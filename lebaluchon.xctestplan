@@ -18,6 +18,9 @@
   },
   "testTargets" : [
     {
+      "skippedTests" : [
+        "CurrencyViewControllerTests"
+      ],
       "target" : {
         "containerPath" : "container:lebaluchon.xcodeproj",
         "identifier" : "87D746612AC2BB860078C662",

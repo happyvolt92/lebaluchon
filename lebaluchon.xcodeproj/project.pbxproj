@@ -15,6 +15,7 @@
 		8742A0742B46A1A20053E7A2 /* CurrencyFakeRateData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8742A0732B46A1A20053E7A2 /* CurrencyFakeRateData.json */; };
 		8742A0752B46A1B50053E7A2 /* CurrencyFakeRateData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8742A0732B46A1A20053E7A2 /* CurrencyFakeRateData.json */; };
 		8742A0792B46D77C0053E7A2 /* MockUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8742A0782B46D77C0053E7A2 /* MockUserDefaults.swift */; };
+		8742A07B2B46F16C0053E7A2 /* ChangeRateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8742A07A2B46F16C0053E7A2 /* ChangeRateTests.swift */; };
 		876E98FA2AE6FFE700EE954E /* ChangeRateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876E98F92AE6FFE700EE954E /* ChangeRateService.swift */; };
 		87799E092B0E67C400180B39 /* ChangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87799E082B0E67C400180B39 /* ChangeRate.swift */; };
 		879C84952AEC0CB700E37AC8 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879C84942AEC0CB700E37AC8 /* CurrencyViewController.swift */; };
@@ -58,6 +59,7 @@
 		873C58DA2B454CBA00F470E9 /* WeatherFakeData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = WeatherFakeData.json; path = ../../../../Desktop/WeatherFakeData.json; sourceTree = "<group>"; };
 		8742A0732B46A1A20053E7A2 /* CurrencyFakeRateData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CurrencyFakeRateData.json; path = lebaluchonTests/json/CurrencyFakeRateData.json; sourceTree = SOURCE_ROOT; };
 		8742A0782B46D77C0053E7A2 /* MockUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserDefaults.swift; sourceTree = "<group>"; };
+		8742A07A2B46F16C0053E7A2 /* ChangeRateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeRateTests.swift; sourceTree = "<group>"; };
 		876E98F92AE6FFE700EE954E /* ChangeRateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeRateService.swift; sourceTree = "<group>"; };
 		87799E082B0E67C400180B39 /* ChangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeRate.swift; sourceTree = "<group>"; };
 		879C84942AEC0CB700E37AC8 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				87D746662AC2BB860078C662 /* CurrencyTests.swift */,
 				873C58CE2B4546B700F470E9 /* CurrencyViewControllerTest.swift */,
 				87B87EEC2B07A98500C226E4 /* FakeCurrencyResponseData.swift */,
+				8742A07A2B46F16C0053E7A2 /* ChangeRateTests.swift */,
 			);
 			path = currencyTests;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				873C58CF2B4546B700F470E9 /* CurrencyViewControllerTest.swift in Sources */,
 				87B87EF02B07A9F600C226E4 /* TranslatorServiceTests.swift in Sources */,
 				87B87EEA2B07A88000C226E4 /* UrlSessionFake.swift in Sources */,
+				8742A07B2B46F16C0053E7A2 /* ChangeRateTests.swift in Sources */,
 				8742A0792B46D77C0053E7A2 /* MockUserDefaults.swift in Sources */,
 				87B87EFC2B07D11500C226E4 /* FakeWeatherResponseData.swift in Sources */,
 				87B87EF22B07AA2B00C226E4 /* TranslatorFakeResponseData.swift in Sources */,
